@@ -7,7 +7,7 @@ allowed-tools: Read Write Edit Glob Grep
 # frontend-god
 
 > **Senior Frontend & Design Engineer Skill (Staff Level)**  
-> Transforms AI coding agents into world-class design engineers. Eliminates generic "AI Slop" by enforcing intentional aesthetic archetypes, composable React architecture, Tailwind CSS v4 & v3 token mastery, headless primitives (shadcn/ui & Base UI), optical iconography, tactile motion, and robust state polish.
+> Transforms AI coding agents into world-class design engineers. Eliminates generic "AI Slop" by enforcing intentional aesthetic archetypes, composable React architecture, Tailwind CSS v4 & v3 token mastery, headless primitives (shadcn/ui & Base UI), optical iconography, tactile motion, extreme text restraint, single-accent color discipline, and robust state polish.
 
 ---
 
@@ -22,9 +22,9 @@ Activate this skill whenever:
 
 ---
 
-## The 8 Golden Commandments of Frontend God
+## The 10 Golden Commandments of Frontend God
 
-Every interface and component built under this skill MUST obey these eight non-negotiable rules:
+Every interface and component built under this skill MUST obey these ten non-negotiable rules:
 
 ### 1. Aesthetic Direction First (Zero AI Slop)
 Never write JSX without first declaring or inheriting an **Aesthetic Archetype** (Technical Precision, Editorial Modern, Warm Minimalist, or Neo-Craftsman). Reject generic AI tells:
@@ -72,11 +72,29 @@ Every data-driven component MUST account for all 5 states: **Idle, Loading Skele
 - Enforce the "100ms Feel": tooltip delay 150ms, tactile button press `active:scale-[0.98]`, and prominent focus-visible rings.
 - 📖 *Deep dive: [06-motion-microinteractions.md](./references/06-motion-microinteractions.md) & [07-state-ux-polish.md](./references/07-state-ux-polish.md)*
 
+### 9. Extreme Text Restraint & High-Velocity Scannability (Zero Wall-of-Text)
+**UI is an interactive software cockpit, NOT a corporate marketing essay.**
+- ❌ **FORBIDDEN**: Multi-sentence paragraphs (3–4 lines) filling every card and section. Generic AI filler phrases (*"designed to seamlessly integrate with your existing workflow"*, *"empower your team at lightspeed"*).
+- ✅ **REQUIRED**:
+  - **Section Subtitles**: Maximum **1 concise sentence** ($\le 16$ words) or omitted completely if the heading is self-explanatory.
+  - **Card Descriptions**: Maximum **1 short sentence or punchy fragment** ($\le 12$ words).
+  - **Visual / Code / Metric Cards**: **0 sentence descriptions**! Let the live interactive preview, the metric numeral, or the code snippet speak for itself. Use micro-labels (2–3 words) instead of full prose.
+- 📖 *Deep dive: [01-design-taste-archetypes.md](./references/01-design-taste-archetypes.md#6-the-law-of-text-restraint--high-velocity-scannability)*
+
+### 10. Strict Single-Accent Palette & Monochromatic Icon Discipline (Anti-Rainbow)
+**Never turn an interface into a multi-colored carnival.**
+- ❌ **FORBIDDEN (The Rainbow Icon Pattern)**: Giving each card a different colored icon wrapper (e.g. Card 1 blue, Card 2 green/emerald, Card 3 amber, Card 4 purple).
+- ✅ **REQUIRED**:
+  - **Single Primary Accent**: If the product's primary color is **Blue**, all primary highlights, focal card badges, and active tab indicators MUST BE **Blue**.
+  - **Neutral-First Icons**: All standard icons inside feature cards, navigation links, and lists MUST be neutral (`text-muted-foreground` or `text-foreground/80`) by default, optionally transitioning to `text-foreground` or `text-primary` on hover.
+  - **Isolated Semantic Status**: Colors like `emerald-500` (green), `rose-500` (red), or `amber-500` (yellow) are **STRICTLY RESERVED** for actual boolean system states (Build PASS/FAIL, Git Diff `+`/`-`, System Online/Offline), NEVER as decorative card cosmetics.
+- 📖 *Deep dive: [01-design-taste-archetypes.md](./references/01-design-taste-archetypes.md#7-the-single-accent--monochromatic-discipline) & [05-icon-system.md](./references/05-icon-system.md#6-icon-color-discipline-neutral-first--anti-rainbow-rules)*
+
 ---
 
 ## Pre-Flight Delivery Gate (Self-Audit Protocol)
 
-**BEFORE delivering any frontend component or page to the user, you MUST silently verify this 6-point checklist:**
+**BEFORE delivering any frontend component or page to the user, you MUST silently verify this 8-point checklist:**
 
 | Check | Item | Verification Criteria |
 | :---: | :--- | :--- |
@@ -86,6 +104,8 @@ Every data-driven component MUST account for all 5 states: **Idle, Loading Skele
 | [ ] | **4. Tactile Response** | Buttons and clickables have `active:scale-[0.98]` and distinct hover/focus/disabled states (`disabled:opacity-50 disabled:pointer-events-none`). |
 | [ ] | **5. Semantic Tokens** | No hardcoded hex or raw Tailwind colors (`bg-blue-600` ❌ $\rightarrow$ `bg-primary` ✅). Dark mode contrast is balanced. |
 | [ ] | **6. Responsive Modularity** | Cards and nested panels behave properly in narrow layouts via `@container` or defensive flex-wrapping. |
+| [ ] | **7. Text Scannability** | **No card has > 1 sentence or > 12 words of description**. No generic filler marketing buzzwords. Visuals/metrics speak for themselves. |
+| [ ] | **8. Single-Accent Color** | **Zero rainbow icons**. Icons are neutral-first or match the single primary accent. Green/red strictly isolated to system status. |
 
 If any check fails, fix it immediately before returning code.
 
@@ -95,11 +115,11 @@ If any check fails, fix it immediately before returning code.
 
 When tackling specific areas, read the corresponding in-depth guide:
 
-1. **[01-design-taste-archetypes.md](./references/01-design-taste-archetypes.md)**: Aesthetic archetypes, typography scale, color tokens, and anti-slop rules.
+1. **[01-design-taste-archetypes.md](./references/01-design-taste-archetypes.md)**: Aesthetic archetypes, typography scale, color tokens, text restraint rules, and single-accent discipline.
 2. **[02-component-architecture.md](./references/02-component-architecture.md)**: Compound components, polymorphism, CVA, container queries, and React 19 / RSC rules.
 3. **[03-shadcn-ui-guide.md](./references/03-shadcn-ui-guide.md)**: Customizing shadcn beyond defaults, Tailwind v4 `@theme`, custom variants.
 4. **[04-base-ui-guide.md](./references/04-base-ui-guide.md)**: `@base-ui-components/react` (Base UI) unstyled primitives & data-attributes styling.
-5. **[05-icon-system.md](./references/05-icon-system.md)**: Icon sizing grid, stroke rules, alignment, and accessibility.
+5. **[05-icon-system.md](./references/05-icon-system.md)**: Icon sizing grid, stroke rules, alignment, neutral-first styling, and anti-rainbow rules.
 6. **[06-motion-microinteractions.md](./references/06-motion-microinteractions.md)**: Spring physics, `layoutId` transitions, and the 100ms feel.
 7. **[07-state-ux-polish.md](./references/07-state-ux-polish.md)**: 5 UI States, loading skeletons, actionable empty states, and error recovery.
 8. **[08-senior-component-catalog.md](./references/08-senior-component-catalog.md)**: Full anatomy, API specs, and accessibility checklist for all major UI components.

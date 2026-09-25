@@ -1,7 +1,7 @@
 # Reference 08: Senior UI Component Catalog & Specifications
 
 > **The Blueprint of World-Class Primitives.**  
-> This catalog details the architecture, props contract, accessibility requirements, and edge-case behavior for the 8 core components of any high-end React/Next.js design system.
+> This catalog details the architecture, props contract, accessibility requirements, text brevity limits, color discipline, and edge-case behavior for the 8 core components of any high-end React/Next.js design system.
 
 ---
 
@@ -35,16 +35,21 @@
   - Responsive via CSS Container Queries (`@container`): adapts based on parent width, not viewport width.
   - Surface Layering token support (`surface-1`, `surface-2`).
   - Subtle interactive state option (`hover:border-border hover:shadow-md cursor-pointer`).
+- **Text & Color Discipline Enforcement**:
+  - **Description Limit**: Max 1 short sentence ($\le 12$ words).
+  - **Zero Redundancy**: If `Card.Content` contains an interactive demo, metric, or code block, omit `Card.Description` completely.
+  - **Monochromatic Icons**: Icons inside cards must use neutral styling (`text-muted-foreground`) or the single primary brand color (`text-primary`). **Zero rainbow colors** (no arbitrary purple, green, yellow icon boxes).
 
 ---
 
 ## 4. Metric / Stat Card (Live Data & Stable Numerals)
 - **Path**: `examples/metric-card.tsx`
 - **Core Capabilities**:
-  - Live pulse indicator (animated radar ping dot with green/amber/blue status).
+  - Live pulse indicator (animated radar ping dot with single primary accent or green status).
   - Numerals formatted with `font-mono tabular-nums tracking-tight` (prevents horizontal layout jitter on re-renders).
   - Trend badge with optical directional arrows (`+12.4%`, `-3.2%`).
   - Optional mini sparkline chart or progress delta bar.
+  - **Text Brevity**: Micro-labels only (e.g. *"P99 LATENCY"*, *"DAILY RUNS"*); no multi-sentence explanations.
 
 ---
 
@@ -55,6 +60,7 @@
   - Animated live radar ping dot option (`relative flex size-2`).
   - Micro-size options (`sm`, `md`, `lg`).
   - Matte, subtle background with high-contrast text to prevent neon AI slop.
+  - **Usage Isolation**: Reserved strictly for boolean system state indicators, not general card decoration.
 
 ---
 

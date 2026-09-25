@@ -1,7 +1,7 @@
 # Reference 01: Design Taste, Aesthetic Archetypes & Anti-Slop
 
 > **Aesthetic Direction is Non-Negotiable.**  
-> A great frontend is not created by throwing random CSS utilities at markup. It begins with a cohesive visual identity, curated typography, intentional color theory, and deliberate spatial rhythm.
+> A great frontend is not created by throwing random CSS utilities at markup. It begins with a cohesive visual identity, curated typography, intentional color theory, disciplined text restraint, and deliberate spatial rhythm.
 
 ---
 
@@ -21,7 +21,7 @@ Before building any interface, select or align with one of these four curated ar
 
 ### Archetype A: Technical Precision (The "Linear / Vercel" Standard)
 - **Personality**: High-performance, razor-sharp, developer-centric, disciplined.
-- **Palette**: Deep monochrome (true blacks `#09090b` or near-black `#0b0f17`, zinc `#71717a`, stark white `#ffffff`). Accent is laser-focused: single vibrant point color (e.g., Electric Violet `#6366f1`, Emerald `#10b981`, or Amber `#f59e0b`).
+- **Palette**: Deep monochrome (true blacks `#09090b` or near-black `#0b0f17`, zinc `#71717a`, stark white `#ffffff`). Accent is laser-focused: single vibrant point color (e.g., Electric Blue `#3b82f6`, Electric Violet `#6366f1`, Emerald `#10b981`, or Amber `#f59e0b`).
 - **Borders & Surfaces**: 1px crisp borders (`border-white/10` or `border-zinc-800`), dark surface layering (`bg-zinc-900/60`).
 - **Typography**: Clean sans-serif (Geist, Inter) paired with monospaced accents (Geist Mono, JetBrains Mono) for tags, IDs, stats, and shortcuts.
 - **Best For**: Developer tools, engineering dashboards, cloud consoles, SaaS analytics.
@@ -172,3 +172,90 @@ Before writing any component, verify you are NOT introducing these common AI slo
 - ❌ **No Pill Buttons Everywhere**: Reserve `rounded-full` for chips, badges, and avatars. Interactive buttons should use consistent system radii (`rounded-md` or `rounded-lg`).
 - ❌ **No Meaningless Bento Grids**: Do not use uneven masonry grids unless the content genuinely requires diverse visual proportions.
 - ❌ **No Fake Centered Stats**: Do not put 3 centered numbers in a row with generic icons in glowing circles. Ground stats in actionable contexts.
+- ❌ **No Rainbow Icons**: Do not give every card a different colored icon (Card 1 blue, Card 2 green, Card 3 amber, Card 4 purple).
+- ❌ **No Wall-of-Text Cards**: Do not write 3–4 line explanatory paragraphs inside UI cards. Use scannable fragments, micro-labels, or interactive visual components.
+
+---
+
+## 6. The Law of Text Restraint & High-Velocity Scannability
+
+> **"Users do not read web software; they scan it."**  
+> One of the most glaring tells of AI-generated frontend is **Over-Text**: filling every section, card, and footer with multi-sentence explanatory essays. A Senior Design Engineer applies ruthless editorial pruning.
+
+### Strict Limits & Rules of Brevity:
+1. **Section Subheadings**:
+   - Maximum **1 concise sentence** ($\le 16$ words).
+   - If the main headline is already crystal clear, **omit the subtitle entirely**. Never add a subtitle just to fill space.
+2. **Card Descriptions**:
+   - Maximum **1 short sentence or punchy phrase** ($\le 12$ words).
+   - Example: *"Live terminal execution across parallel isolated git worktrees."* (9 words).
+   - ❌ **Banned**: 4-line marketing lectures explaining things that are self-evident.
+3. **Visual / Metric / Code Cards**:
+   - **ZERO sentence descriptions**.
+   - If a card has an interactive preview, a live telemetry chart, or a code block, DO NOT add a paragraph explaining what the preview already shows! Let the interactive UI speak for itself.
+4. **Banned AI Filler Buzzwords**:
+   - *"Designed to seamlessly integrate with your existing developer workflow"*
+   - *"Empower your organization with centralized policy management"*
+   - *"Everything you need to build at lightspeed"*
+   - Replace these with concrete domain facts: *"Local git worktrees"*, *"Zero cloud latency"*, *"VPC-isolated"*.
+
+### Before & After: The Scannability Transformation
+
+#### ❌ AI Text Slop (Cluttered, Boring, Unread):
+```tsx
+<div className="rounded-xl border p-6">
+  <div className="text-blue-400"><Cpu /></div>
+  <h3 className="text-xl font-bold">Deep Cognitive Core</h3>
+  <p className="text-sm text-muted-foreground mt-2">
+    Native multi-modal reasoning tuned for large AST traversal, code generation,
+    and terminal debugging across complex distributed enterprise codebases without
+    loss of architectural context.
+  </p>
+</div>
+```
+
+#### ✅ Senior Scannable UI (Clean, Punchy, High Signal-to-Noise):
+```tsx
+<div className="rounded-xl border border-border/60 bg-card p-5">
+  <div className="flex items-center justify-between">
+    <span className="text-xs font-mono text-muted-foreground uppercase tracking-wider">Engine</span>
+    <Badge variant="outline">Gemini 3.8</Badge>
+  </div>
+  <div className="mt-3 font-mono text-2xl font-bold tracking-tight text-foreground tabular-nums">
+    AST Traversal
+  </div>
+  <p className="mt-1 text-xs text-muted-foreground">
+    Native multi-modal AST reasoning with zero context drift.
+  </p>
+</div>
+```
+
+---
+
+## 7. The Single-Accent & Monochromatic Discipline
+
+> **Color is Hierarchy, Not Decoration.**  
+> Amateur design tries to make pages "alive" by splashing a different rainbow color on every card (Card 1 blue, Card 2 emerald, Card 3 amber, Card 4 purple). This destroys visual cohesion and makes the interface look like an unpolished children's toy.
+
+### The 60-30-10 Rule:
+- **60% Base Neutrals**: Backgrounds, canvas, and surface layers (`bg-background`, `bg-card`, `bg-muted`).
+- **30% Typographic & Structural Neutrals**: Text contrast hierarchy (`text-foreground`, `text-muted-foreground`, `border-border/50`).
+- **10% Single Primary Accent**: The brand color (e.g. Electric Blue `#3b82f6`). Reserved strictly for:
+  - The primary Call-to-Action button.
+  - Active navigation pill / indicator.
+  - Focused interactive elements.
+  - Key anchor card focal points.
+
+### The Anti-Rainbow Law:
+1. **Never vary icon background colors across parallel cards**:
+   - ❌ `Card 1: bg-blue-500/10 text-blue-400`
+   - ❌ `Card 2: bg-emerald-500/10 text-emerald-400`
+   - ❌ `Card 3: bg-amber-500/10 text-amber-400`
+   - ❌ `Card 4: bg-purple-500/10 text-purple-400`
+   - ✅ **Senior Standard**: All 4 cards use uniform neutral icons (`text-muted-foreground group-hover:text-primary`) or uniform primary styling (`bg-primary/10 text-primary border-primary/20`).
+2. **Strict Semantic Color Isolation**:
+   - Green (`emerald`), Red (`rose`), and Yellow (`amber`) are **functional status indicators ONLY**:
+     - `Git diff +18` / `-4`
+     - `Test Suite: PASS` / `FAIL`
+     - `System Status: Degraded`
+   - They are **STRICTLY FORBIDDEN** from being used as decorative cosmetics for arbitrary feature cards!

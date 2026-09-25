@@ -1,7 +1,7 @@
 # Reference 05: Iconography System & Optical Alignment
 
 > **Icons Are Visual Punctuation, Not Wallpapers.**  
-> AI coding outputs frequently suffer from "Icon Soup": every heading, bullet point, and card gets an inconsistent, oversized, brightly-colored icon. A Senior Design Engineer applies icons with strict optical sizing, uniform stroke weight, and precise accessibility semantics.
+> AI coding outputs frequently suffer from "Icon Soup" and "Rainbow Icons": every card gets an inconsistent, oversized, brightly-colored icon (purple, emerald, amber, blue scattered randomly). A Senior Design Engineer applies icons with strict optical sizing, uniform stroke weight, precise accessibility semantics, and monochromatic color discipline.
 
 ---
 
@@ -61,7 +61,7 @@ When an icon is accompanied by visible text, it is decorative and MUST be hidden
 import { Sparkles } from "lucide-react";
 
 <span className="inline-flex items-center gap-1.5 text-xs text-muted-foreground">
-  <Sparkles className="size-3.5 shrink-0 text-amber-500" aria-hidden="true" />
+  <Sparkles className="size-3.5 shrink-0 text-primary" aria-hidden="true" />
   <span>AI Assisted</span>
 </span>
 ```
@@ -94,3 +94,42 @@ import { Search } from "lucide-react";
 - **Do NOT** put an icon on every dropdown item, navigation link, or feature bullet unless it serves functional recognition (e.g., file types `.pdf`, `.tsx`).
 - In menus, use icons for primary actions (Edit, Duplicate, Delete), but keep passive navigation clean and typographic.
 - Let whitespace and typographic weight do the heavy lifting.
+
+---
+
+## 6. Icon Color Discipline: Neutral-First & Anti-Rainbow Rules
+
+> **The Rainbow Icon Trap:**  
+> AI coding models frequently generate feature cards with different random colors:  
+> `Card 1: blue`, `Card 2: emerald`, `Card 3: amber`, `Card 4: purple`.  
+> This destroys brand authority and makes the application look like an amateur toy.
+
+### The Rule of Monochromatic Restraint:
+1. **Neutral-First Default**:
+   All standard feature icons inside cards, navigation links, and lists MUST be neutral:
+   `text-muted-foreground` by default, transitioning to `text-foreground` or `text-primary` on group hover.
+2. **Icon Wrappers / Containers**:
+   If icons are housed inside an icon box or badge, the container must use neutral surface layering or the single primary brand color:
+   ```tsx
+   // ✅ Option A: Neutral Layered Box (Recommended for cards)
+   <div className="flex size-10 items-center justify-center rounded-xl border border-border/60 bg-muted/40 text-foreground">
+     <Cpu className="size-5" />
+   </div>
+
+   // ✅ Option B: Single Primary Accent Box (For the Anchor card)
+   <div className="flex size-10 items-center justify-center rounded-xl border border-primary/30 bg-primary/10 text-primary">
+     <Layers className="size-5" />
+   </div>
+
+   // ❌ FORBIDDEN: Rainbow Circus across parallel cards
+   <div className="bg-emerald-500/10 text-emerald-400">...</div> // NO!
+   <div className="bg-purple-500/10 text-purple-400">...</div>   // NO!
+   <div className="bg-amber-500/10 text-amber-400">...</div>     // NO!
+   ```
+
+3. **Strict Semantic Status Isolation**:
+   Colors like `emerald-500` (green), `rose-500` (red), or `amber-500` (yellow) may **ONLY** appear when representing actual live system telemetry or boolean state:
+   - ✅ `Build Status: PASS` (`text-emerald-400`)
+   - ✅ `Git Diff: +18 / -4` (`text-emerald-400` / `text-rose-400`)
+   - ✅ `Server Health: Degraded` (`text-amber-400`)
+   - ❌ **NEVER** use green or purple simply because a feature represents "Security" or "Speed"!
