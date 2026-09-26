@@ -136,18 +136,23 @@ Every data-driven component MUST account for all 5 states: **Idle, Loading Skele
   - Base UI `NumberField` and `OTPField` for bulletproof form ergonomics.
 - 📖 *Deep dive: [03-shadcn-ui-guide.md](./references/03-shadcn-ui-guide.md) & [04-base-ui-guide.md](./references/04-base-ui-guide.md)*
 
-### 14. Haram Ping Dot Dekoratif & Pill Badge Klise ✨
-**Eliminate cosmetic radar ping animations and floating emoji pill badges.**
-- ❌ **FORBIDDEN**: Slapping `animate-ping` radar circles onto static marketing cards, or floating pill badges with `✨ New` / `AI-Powered` above headlines.
+### 14. Haram Ping Dot Dekoratif, Pill Badge Klise ✨ & Kicker Pseudo-Cyberpunk (// Slop)
+**Eliminate cosmetic radar pings, floating emoji pill badges, and robotic double-slash kickers.**
+- ❌ **FORBIDDEN**:
+  - Slapping `animate-ping` radar circles onto static marketing cards.
+  - Floating pill badges with `✨ New` or `AI-Powered` above headlines.
+  - Pseudo-cyberpunk uppercase kickers: `<div ...>NEXT-GEN AGENTIC CODING</div>` or `<span ...>CORE ARCHITECTURE // HARDWARE ACCELERATED AGENTS</span>`.
+  - Double slashes (`//`, `///`, `::`) inside titles or section labels.
 - ✅ **REQUIRED**:
-  - **Status Dots**: Use solid, non-pulsing dots (`size-1.5 rounded-full bg-primary`) for static labels. Pulsing `animate-ping` is **STRICTLY RESERVED** for live, active streaming connections (WebSockets, SSE streams).
-  - **Typographic Micro-Labels**: Replace floating pill badges with structured typographic micro-labels:
+  - **Confident Headline First**: High-craft products (Linear, Vercel, Apple) let the headline lead directly without unnecessary kicker clutter.
+  - **Natural Category Eyebrow**: If taxonomy is genuinely needed, use natural title-cased sans-serif without slashes:
     ```tsx
-    <span className="text-[11px] font-mono uppercase tracking-[0.2em] text-muted-foreground select-none">
-      ENGINEERING ARCHITECTURE // V3.2
-    </span>
+    <span className="text-xs font-semibold text-primary">Architecture</span>
+    <h2 className="text-3xl font-semibold tracking-tight text-foreground mt-2">
+      State synchronization at the planetary edge.
+    </h2>
     ```
-- 📖 *Deep dive: [01-design-taste-archetypes.md](./references/01-design-taste-archetypes.md) & [10-section-layout-choreography.md](./references/10-section-layout-choreography.md)*
+- 📖 *Deep dive: [01-design-taste-archetypes.md](./references/01-design-taste-archetypes.md#11-anti-cyberpunk-kicker--headline-confidence-rules)*
 
 ### 15. Haram Theme Toggle Tanpa Izin (Komit pada Satu Atmosfer Native)
 **Stop slapping sun/moon theme switchers onto every navbar.**
@@ -158,7 +163,7 @@ Every data-driven component MUST account for all 5 states: **Idle, Loading Skele
 ### 16. Haram 3-Column Card Slop (Terapkan Asymmetric Layout Choreography & Anchor Features)
 **Never fill every section with 3 identical cards (`grid-cols-3`).**
 - ❌ **FORBIDDEN**: Repeating `grid-cols-3` with identical icon, title, and 3-line description across every section.
-- ✅ **REQUIRED**: Enforce the **5 Section Layout Archetypes**:
+- ✅ **REQUIRED**: Enforce the **Section Layout Choreography Blueprints**:
   - **Section A**: Asymmetric Hero (42% Left text + CTA, 58% Right **Above-the-fold Live Product Cockpit**).
   - **Section B**: Asymmetric Anchor Bento Grid (70% Fitur 1 Anchor Hero + 30% Stacked Fitur 2 & Fitur 3).
   - **Section C**: Sticky Narrative Split-Screen (35% Sticky step counter + 65% Scrolling preview stream).
@@ -166,11 +171,25 @@ Every data-driven component MUST account for all 5 states: **Idle, Loading Skele
   - **Section E**: High-Density Spec & Proof Matrix (Monospace tabular ledger).
 - 📖 *Deep dive: [10-section-layout-choreography.md](./references/10-section-layout-choreography.md)*
 
+### 17. Strict Monospace Containment (Font-Mono Hanya untuk Mesin & Kode Riil)
+**`font-mono` is a technical tool, not a design cosmetic.**
+- ❌ **FORBIDDEN**: Using `font-mono` on regular labels, version indicators (`v3.2`), list numbers (`01`, `02`), subtitles, and dates to look "technical".
+- ✅ **REQUIRED**:
+  - `font-mono` is **STRICTLY RESERVED** for: CLI / Terminal snippets (`$ npm ...`), code blocks, keyboard shortcuts (`<kbd>⌘K</kbd>`), commit SHAs / UUIDs, and tabular financial/telemetry numbers (`tabular-nums font-mono`).
+  - Versions, list numbers, category eyebrows, and subtitles **MUST use standard proportional sans-serif (`font-sans`) or serif (`font-serif`)**.
+- 📖 *Deep dive: [01-design-taste-archetypes.md](./references/01-design-taste-archetypes.md#10-the-strict-monospace-containment-law)*
+
+### 18. Arsitektur Navbar & Footer Modern (Standar Vercel & Linear Tanpa Clutter)
+**Frame the product with architectural restraint and poise.**
+- ✅ **Modern Navbar**: Minimalist sticky header with `border-b border-border/40 backdrop-blur-md bg-background/80`, quiet sans-serif nav links (`hover:text-foreground hover:bg-muted/40`), subtle `⌘K` search shortcut trigger, single solid high-contrast primary CTA, and zero theme-toggle clutter.
+- ✅ **Modern Footer**: Multi-column architectural grid (Product, Platform, Resources, Company, Legal), quiet sans-serif links, live operational status indicator (`size-1.5 rounded-full bg-emerald-500` + "All systems normal"), and clean grounded copyright bar.
+- 📖 *Deep dive: [10-section-layout-choreography.md](./references/10-section-layout-choreography.md#6-arsitektur-navbar--footer-modern-standar-vercel--linear)*
+
 ---
 
 ## Pre-Flight Delivery Gate (Self-Audit Protocol)
 
-**BEFORE delivering any frontend component or page to the user, you MUST silently verify this 14-point checklist:**
+**BEFORE delivering any frontend component or page to the user, you MUST silently verify this 16-point checklist:**
 
 | Check | Item | Verification Criteria |
 | :---: | :--- | :--- |
@@ -185,9 +204,11 @@ Every data-driven component MUST account for all 5 states: **Idle, Loading Skele
 | [ ] | **9. Typographic Identity** | Headlines use tight negative tracking (`tracking-[-0.03em]`); OpenType features or curated fonts applied. |
 | [ ] | **10. Dynamic Spacing** | Clear contrast between macro section padding (`py-24+`) and micro inner wells (`p-3`); no uniform `p-6`. |
 | [ ] | **11. Headless Primitives** | No fragile hand-rolled `div` dropdowns/selects. Scrollable select, combobox, or Base UI used. |
-| [ ] | **12. Zero Slop Micro-Tells** | No decorative `animate-ping` radar circles. No floating `✨` pill badges. Typographic micro-labels used. |
+| [ ] | **12. Zero Slop Micro-Tells** | No decorative `animate-ping` radar circles. No floating `✨` pill badges. |
 | [ ] | **13. Native Atmosphere** | No unrequested navbar theme toggles. Single atmosphere committed. |
 | [ ] | **14. Asymmetric Layout** | No repetitive 3-column card rows. Section A has Live Cockpit, Section B has 70/30 Anchor Bento. |
+| [ ] | **15. Zero Kicker Slop** | No robotic double-slash `//` kickers or buzzword pills above headings. Confident headlines lead directly. |
+| [ ] | **16. Monospace Containment**| `font-mono` used strictly in terminal/code/tabular contexts. Versions and list numbers use `font-sans`. |
 
 If any check fails, fix it immediately before returning code.
 
@@ -197,7 +218,7 @@ If any check fails, fix it immediately before returning code.
 
 When tackling specific areas, read the corresponding in-depth guide:
 
-1. **[01-design-taste-archetypes.md](./references/01-design-taste-archetypes.md)**: Aesthetic archetypes, typography scale, OpenType matrix, text restraint rules, single-accent discipline, and macro/micro spacing.
+1. **[01-design-taste-archetypes.md](./references/01-design-taste-archetypes.md)**: Aesthetic archetypes, typography scale, OpenType matrix, text restraint rules, single-accent discipline, strict monospace containment, and anti-cyberpunk kicker rules.
 2. **[02-component-architecture.md](./references/02-component-architecture.md)**: Compound components, polymorphism, CVA, container queries, and React 19 / RSC rules.
 3. **[03-shadcn-ui-guide.md](./references/03-shadcn-ui-guide.md)**: Customizing shadcn beyond defaults, scrollable select, cmdk combobox, submenus, responsive drawer.
 4. **[04-base-ui-guide.md](./references/04-base-ui-guide.md)**: `@base-ui-components/react` (Base UI) unstyled primitives, NumberField, Autocomplete, data-attributes.
@@ -206,7 +227,7 @@ When tackling specific areas, read the corresponding in-depth guide:
 7. **[07-state-ux-polish.md](./references/07-state-ux-polish.md)**: 5 UI States, loading skeletons, actionable empty states, and error recovery.
 8. **[08-senior-component-catalog.md](./references/08-senior-component-catalog.md)**: Full anatomy, API specs, and accessibility checklist for all major UI components.
 9. **[09-gold-standard-style-signatures.md](./references/09-gold-standard-style-signatures.md)**: Forensic tokens for 10 Gold Standards (Linear, Vercel, Stripe, Resend, Cursor, Mercury, Ramp, PostHog, Anthropic, Raycast) + Inspiration Vaults.
-10. **[10-section-layout-choreography.md](./references/10-section-layout-choreography.md)**: Blueprint of Section A to Section E, Asymmetric Anchor Bento 70/30, Sticky Narrative Split-Screen, and Feature Placement Decision Tree.
+10. **[10-section-layout-choreography.md](./references/10-section-layout-choreography.md)**: Blueprint of Section A to Section E, Anchor Bento 70/30, Modern Navbar & Footer architecture, and Feature Placement Tree.
 
 ---
 
@@ -223,3 +244,5 @@ Refer to ready-to-use production implementations in `examples/`:
 - **[command-menu.tsx](./examples/command-menu.tsx)**: Command Palette (`⌘K`) with keyboard traversal and group shortcuts.
 - **[select-advanced.tsx](./examples/select-advanced.tsx)**: Advanced Select with scrollable viewport, group labels, and searchable combobox.
 - **[dropdown-advanced.tsx](./examples/dropdown-advanced.tsx)**: Advanced DropdownMenu with submenus, checkboxes, radio groups, and shortcut badges.
+- **[navbar-modern.tsx](./examples/navbar-modern.tsx)**: Modern Vercel/Linear-inspired Navbar with backdrop-blur, ⌘K search trigger, and mobile drawer.
+- **[footer-modern.tsx](./examples/footer-modern.tsx)**: Modern Vercel/Linear-inspired Multi-Column Footer with live operational status indicator.

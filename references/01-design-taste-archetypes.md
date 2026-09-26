@@ -248,3 +248,54 @@ To eliminate rigid, uniform spacing (`p-6` everywhere), apply the **Extreme Cont
   </div>
 </section>
 ```
+
+---
+
+## 10. The Strict Monospace Containment Law
+
+> **`font-mono` is a Technical Tool, Not a Design Cosmetic.**  
+> AI coding agents frequently fall into the trap of mono-fetishization: slapping `font-mono` on version badges, list numbers, category kickers, and subtitles to make them look "technical". In real staff-level design, this screams cheap cyberpunk/crypto AI slop.  
+> High-end software (Linear, Apple, Vercel, Stripe) uses refined proportional sans-serif or serif typography for human communication, and reserves monospace strictly for machine instructions.
+
+### The Monospace Boundary Matrix:
+
+| UI Element | Allowed Font Family | Forbidden Font Family | Recommended Tailwind Classes |
+| :--- | :--- | :--- | :--- |
+| **CLI / Terminal Commands** | `font-mono` ✅ | Sans / Serif ❌ | `font-mono text-xs text-foreground/90` |
+| **Code Blocks & Syntax** | `font-mono` ✅ | Sans / Serif ❌ | `font-mono text-xs leading-relaxed` |
+| **Keyboard Shortcuts (`<kbd>`)** | `font-mono` ✅ | Sans / Serif ❌ | `font-mono text-[10px] tracking-widest` |
+| **Commit SHAs / Hashes / UUIDs** | `font-mono` ✅ | Sans / Serif ❌ | `font-mono text-[11px] text-muted-foreground` |
+| **Tabular Numbers (Data / Telemetry)**| `font-mono tabular-nums` ✅| Normal sans ❌ | `font-mono text-sm tabular-nums` |
+| **Version Indicators (`v3.2`)** | **`font-sans`** ✅ | `font-mono` ❌ | `font-sans text-xs text-muted-foreground` |
+| **List Numbers (`01`, `02`, `1`)** | **`font-sans` / `font-serif`** ✅| `font-mono` ❌ | `font-sans text-sm font-semibold tracking-tight` |
+| **Category Eyebrows / Kickers** | **`font-sans`** ✅ | `font-mono` ❌ | `font-sans text-xs font-semibold text-primary` |
+| **Section Subtitles & Badges** | **`font-sans`** ✅ | `font-mono` ❌ | `font-sans text-sm text-muted-foreground` |
+
+---
+
+## 11. Anti-Cyberpunk Kicker & Headline Confidence Rules
+
+> **Confident Headlines Don't Need Loud Badges to Validate Them.**  
+> The telltale sign of AI-generated landing pages is the robotic "double-slash" kicker badge placed above every single heading:  
+> ❌ `<div className="...">NEXT-GEN AGENTIC CODING</div>`  
+> ❌ `<span className="...">CORE ARCHITECTURE // HARDWARE ACCELERATED AGENTS</span>`  
+> ❌ `<span className="...">ENGINEERING WORKFLOW // V3.2</span>`  
+> This artificial styling degrades the product's credibility.
+
+### The Rules of Headline Architecture:
+1. **Confident Headline First**:  
+   Great interfaces (like Vercel, Linear, Apple) start directly with a bold, clear headline without any preceding kicker. If the title is strong, let it lead!
+2. **Natural Category Eyebrow (When Categorization is Truly Needed)**:  
+   If a page section genuinely requires a taxonomy eyebrow (e.g. distinguishing *Security* from *Performance*), use **natural sans-serif typography with normal title casing and zero double-slashes**:
+   ```tsx
+   // ✅ REFINED SENIOR EYEBROW:
+   <span className="text-xs font-semibold text-primary">Architecture</span>
+   <h2 className="text-3xl font-semibold tracking-tight text-foreground mt-2">
+     State synchronization at the planetary edge.
+   </h2>
+   ```
+3. **Banned AI Kicker Patterns**:
+   - ❌ NO double slashes: `//`, `///`, `::` inside titles or kickers.
+   - ❌ NO uppercase buzzwords: `NEXT-GEN`, `AGENTIC`, `SUPERCHARGED`, `AI-POWERED`.
+   - ❌ NO unnecessary floating pill wrappers around single words of text.
+

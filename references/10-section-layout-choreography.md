@@ -81,9 +81,9 @@ export function SectionHeroCockpit() {
         
         {/* Kolom Kiri: 42% Visual Space (col-span-5) */}
         <div className="lg:col-span-5 flex flex-col items-start gap-6">
-          {/* Typographic Micro-Label (Bukan Pill Badge ✨) */}
-          <span className="text-[11px] font-mono uppercase tracking-[0.2em] text-muted-foreground select-none">
-            ENGINEERING WORKFLOW // V3.2
+          {/* Confident Category Eyebrow (Human Sans-Serif, no robotic // slop) */}
+          <span className="text-xs font-semibold text-primary">
+            Engineering Workflow
           </span>
 
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-[-0.035em] text-foreground leading-[1.08]">
@@ -115,14 +115,14 @@ export function SectionHeroCockpit() {
                 <div className="size-2.5 rounded-full bg-border" />
                 <div className="size-2.5 rounded-full bg-border" />
               </div>
-              <span className="font-mono text-[11px] text-muted-foreground">active_session.live</span>
+              <span className="text-xs font-medium text-muted-foreground">active_session.live</span>
               <div className="size-2 rounded-full bg-emerald-500" />
             </div>
 
             {/* Live Interactive Cockpit: Kanban/Timeline/Editor Asli */}
             <div className="p-5 font-mono text-xs space-y-3">
               <div className="flex items-center justify-between pb-3 border-b border-border/40">
-                <span className="text-muted-foreground">WORKSPACE // ACME-INFRA</span>
+                <span className="text-muted-foreground font-sans text-xs">Workspace: Acme Infra</span>
                 <span className="text-emerald-400">SYNCED 4ms AGO</span>
               </div>
               {/* Cockpit items... */}
@@ -160,8 +160,8 @@ export function SectionAnchorBento() {
     <section className="py-24 px-6 lg:px-12 max-w-7xl mx-auto">
       {/* Section Header yang tenang */}
       <div className="max-w-2xl mb-12">
-        <span className="text-[11px] font-mono uppercase tracking-[0.2em] text-muted-foreground">
-          CORE CAPABILITIES
+        <span className="text-xs font-semibold text-primary">
+          Core Capabilities
         </span>
         <h2 className="text-3xl font-semibold tracking-[-0.03em] text-foreground mt-2">
           Engineered for deterministic speed.
@@ -174,7 +174,7 @@ export function SectionAnchorBento() {
         {/* FITUR 1: THE ANCHOR HERO (col-span-8, min-h-[420px]) */}
         <div className="lg:col-span-8 rounded-xl border border-border/80 bg-card p-6 flex flex-col justify-between relative overflow-hidden group">
           <div className="max-w-md z-10">
-            <span className="font-mono text-[11px] text-muted-foreground">FITUR 01 // ORCHESTRATION</span>
+            <span className="text-xs font-medium text-muted-foreground">State Orchestration</span>
             <h3 className="text-xl font-medium tracking-tight text-foreground mt-1">
               Visual State Synchronization
             </h3>
@@ -203,7 +203,7 @@ export function SectionAnchorBento() {
           {/* FITUR 2: THE FRICTION-REDUCER (col-span-12 / col-span-4) */}
           <div className="flex-1 rounded-xl border border-border/80 bg-card p-6 flex flex-col justify-between">
             <div>
-              <span className="font-mono text-[11px] text-muted-foreground">FITUR 02 // VELOCITY</span>
+              <span className="text-xs font-medium text-muted-foreground">Instant Velocity</span>
               <h3 className="text-base font-medium tracking-tight text-foreground mt-1">
                 Zero-Context Switching
               </h3>
@@ -228,7 +228,7 @@ export function SectionAnchorBento() {
           {/* FITUR 3: THE TELEMETRY NODE (col-span-12 / col-span-4) */}
           <div className="flex-1 rounded-xl border border-border/80 bg-card p-6 flex flex-col justify-between">
             <div>
-              <span className="font-mono text-[11px] text-muted-foreground">FITUR 03 // TELEMETRY</span>
+              <span className="text-xs font-medium text-muted-foreground">Real-time Telemetry</span>
               <h3 className="text-base font-medium tracking-tight text-foreground mt-1">
                 Sub-Millisecond Engine
               </h3>
@@ -299,8 +299,8 @@ export function SectionStickySplitNarrative() {
         
         {/* SISI KIRI: STICKY NARRATIVE COLUMN (col-span-5) */}
         <div className="lg:col-span-5 lg:sticky lg:top-28 lg:self-start space-y-6">
-          <span className="text-[11px] font-mono uppercase tracking-[0.2em] text-muted-foreground">
-            ARCHITECTURE PIPELINE
+          <span className="text-xs font-semibold text-primary">
+            Architecture Pipeline
           </span>
           <h2 className="text-3xl sm:text-4xl font-semibold tracking-[-0.03em] text-foreground leading-tight">
             From typed definition to planetary edge in seconds.
@@ -315,8 +315,8 @@ export function SectionStickySplitNarrative() {
           {steps.map((step) => (
             <div key={step.num} className="rounded-xl border border-border/80 bg-card p-6 sm:p-8 space-y-4 shadow-sm">
               <div className="flex items-center justify-between">
-                <span className="font-mono text-xs font-semibold text-primary">{step.num} // PHASE</span>
-                <span className="text-xs font-mono text-muted-foreground">ACTIVE RUNTIME</span>
+                <span className="font-sans text-xs font-bold text-primary">{step.num}</span>
+                <span className="text-xs text-muted-foreground font-sans">Active Runtime</span>
               </div>
               <h3 className="text-xl font-medium tracking-tight text-foreground">{step.title}</h3>
               <p className="text-sm text-muted-foreground leading-relaxed">{step.desc}</p>
@@ -392,3 +392,158 @@ Saat kamu merancang halaman baru dengan daftar fitur dari user:
 3. **Section C (Sticky Split-Screen)**:
    - Nonaktifkan `sticky top` di mobile (`lg:sticky`).
    - Tampilkan judul naratif di atas, lalu tumpuk kartu tahap 01, 02, 03 ke bawah secara linear.
+
+---
+
+## 6. Arsitektur Navbar & Footer Modern (Standar Vercel & Linear)
+
+Navbar dan Footer adalah bingkai penentu kualitas pertama dan terakhir dari sebuah produk. Desain AI amatir sering menaruh tombol theme toggle sembarangan di navbar dan membuat footer seadanya.
+
+### Section F: The Modern Architectural Navbar (Vercel / Linear Benchmark)
+
+```tsx
+// Pattern Section F: Modern Architectural Navbar
+export function ModernNavbar() {
+  return (
+    <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/80 backdrop-blur-md">
+      <div className="mx-auto flex h-14 max-w-7xl items-center justify-between px-6 lg:px-8">
+        
+        {/* Sisi Kiri: Brand Logo & Product Identifier */}
+        <div className="flex items-center gap-6">
+          <a href="/" className="flex items-center gap-2 text-foreground font-semibold text-sm tracking-tight">
+            <div className="size-5 rounded-md bg-foreground flex items-center justify-center text-background font-bold text-xs">
+              ▲
+            </div>
+            <span>Platform</span>
+          </a>
+
+          {/* Quiet Navigation Links (Sans-serif, muted hover) */}
+          <nav className="hidden md:flex items-center gap-1 text-sm font-medium text-muted-foreground">
+            <a href="#features" className="px-3 py-1.5 rounded-md hover:text-foreground hover:bg-muted/40 transition-colors">
+              Features
+            </a>
+            <a href="#solutions" className="px-3 py-1.5 rounded-md hover:text-foreground hover:bg-muted/40 transition-colors">
+              Solutions
+            </a>
+            <a href="#docs" className="px-3 py-1.5 rounded-md hover:text-foreground hover:bg-muted/40 transition-colors">
+              Documentation
+            </a>
+            <a href="#pricing" className="px-3 py-1.5 rounded-md hover:text-foreground hover:bg-muted/40 transition-colors">
+              Pricing
+            </a>
+          </nav>
+        </div>
+
+        {/* Sisi Kanan: ⌘K Quick Search & High-Contrast Primary CTA */}
+        <div className="flex items-center gap-3">
+          {/* Subtle Command Search Trigger */}
+          <button
+            type="button"
+            className="hidden sm:flex h-8 items-center gap-2 rounded-lg border border-border/60 bg-muted/20 px-2.5 text-xs text-muted-foreground hover:border-border hover:text-foreground transition-colors"
+          >
+            <span>Search docs...</span>
+            <kbd className="rounded border border-border bg-muted/60 px-1.5 py-0.5 font-mono text-[10px]">⌘K</kbd>
+          </button>
+
+          {/* Single High-Contrast Action Button (Solid) */}
+          <a
+            href="#get-started"
+            className="inline-flex h-8 items-center justify-center rounded-lg bg-foreground px-3.5 text-xs font-medium text-background transition-all hover:opacity-90 active:scale-[0.98]"
+          >
+            Start Free
+          </a>
+        </div>
+
+      </div>
+    </header>
+  );
+}
+```
+
+---
+
+### Section G: The Modern High-Craft Footer (Vercel / Linear Benchmark)
+
+```tsx
+// Pattern Section G: Modern High-Craft Footer
+export function ModernFooter() {
+  const footerColumns = [
+    {
+      title: "Product",
+      links: ["Features", "Multiplayer Engine", "Enterprise", "Changelog", "Roadmap"],
+    },
+    {
+      title: "Developers",
+      links: ["Documentation", "API Reference", "SDK Libraries", "CLI Tools", "Open Source"],
+    },
+    {
+      title: "Resources",
+      links: ["Customer Stories", "Security & Compliance", "System Status", "Community", "Brand Assets"],
+    },
+    {
+      title: "Company",
+      links: ["About", "Careers", "Blog", "Privacy Policy", "Terms of Service"],
+    },
+  ];
+
+  return (
+    <footer className="border-t border-border/50 bg-background pt-16 pb-12 px-6 lg:px-12">
+      <div className="mx-auto max-w-7xl">
+        
+        {/* Multi-Column Technical Grid */}
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-8 lg:gap-12 pb-12 border-b border-border/40">
+          
+          {/* Kolom 1: Brand & Operational Status Indicator */}
+          <div className="col-span-2 md:col-span-1 space-y-4">
+            <div className="flex items-center gap-2 font-semibold text-sm tracking-tight text-foreground">
+              <div className="size-5 rounded-md bg-foreground flex items-center justify-center text-background font-bold text-xs">
+                ▲
+              </div>
+              <span>Platform</span>
+            </div>
+            
+            <p className="text-xs text-muted-foreground leading-relaxed max-w-xs">
+              State-deterministic infrastructure for high-velocity software teams.
+            </p>
+
+            {/* Live Operational Status Indicator (Solid Dot) */}
+            <div className="inline-flex items-center gap-2 rounded-full border border-border/60 bg-muted/30 px-2.5 py-1 text-[11px] text-muted-foreground font-sans">
+              <span className="size-1.5 rounded-full bg-emerald-500" />
+              <span>All systems normal</span>
+            </div>
+          </div>
+
+          {/* Kolom 2-5: Quiet Link Columns */}
+          {footerColumns.map((col) => (
+            <div key={col.title} className="space-y-3">
+              <h4 className="text-xs font-semibold text-foreground tracking-tight">{col.title}</h4>
+              <ul className="space-y-2">
+                {col.links.map((link) => (
+                  <li key={link}>
+                    <a href={`#${link.toLowerCase().replace(/\s+/g, "-")}`} className="text-xs text-muted-foreground hover:text-foreground transition-colors">
+                      {link}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+
+        </div>
+
+        {/* Bottom Bar: Copyright & Subtle Region Badge */}
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-muted-foreground font-sans">
+          <p>© 2026 Platform Systems, Inc. All rights reserved.</p>
+          <div className="flex items-center gap-4">
+            <span>Edge: Frankfurt (fra1)</span>
+            <span>Privacy</span>
+            <span>Security</span>
+          </div>
+        </div>
+
+      </div>
+    </footer>
+  );
+}
+```
+

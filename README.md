@@ -39,7 +39,7 @@ The skill includes deep-dive engineering teardowns and token sets for:
 
 ---
 
-## 💎 The 16 Golden Commandments
+## 💎 The 18 Golden Commandments
 
 1. **Aesthetic Direction First**: Declare an intentional archetype (*Technical Precision*, *Editorial Modern*, *Warm Minimalist*, or *Neo-Craftsman*).
 2. **The Anchor Cadence**: Establish an Anchor item with dominant hierarchy.
@@ -54,9 +54,11 @@ The skill includes deep-dive engineering teardowns and token sets for:
 11. **Distinct Typographic Identity & OpenType Precision**: Negative kerning (`tracking-[-0.035em]`), tight line-height, and OpenType features (`cv01`, `ss01`, `ss03`, `tnum`).
 12. **The Macro vs Micro Spacing Engine**: Extreme contrast between expansive section breathing room (`py-24+`) and compact inner wells (`p-3`).
 13. **Haram Bikin Ulang Roda (Leverage Headless Primitives)**: Use scrollable grouped selects, cmdk comboboxes, submenus, and Base UI NumberField/OTPField.
-14. **Haram Ping Dot Dekoratif & Pill Badge Klise ✨**: Replace radar ping dots with solid state dots; replace floating emoji pills with typographic micro-labels (`text-[11px] font-mono uppercase tracking-[0.2em]`).
+14. **Haram Ping Dot Dekoratif, Pill Badge Klise ✨ & Kicker Pseudo-Cyberpunk**: Banned decorative `animate-ping`, floating emoji pills, and robotic double-slash `//` kickers. Confident headlines lead directly.
 15. **Haram Theme Toggle Tanpa Izin**: Commit to the product's native atmosphere. Never slap a Sun/Moon toggle onto navbars by default.
 16. **Haram 3-Column Card Slop (Asymmetric Layout Choreography)**: Enforce Section A (Hero + Live Cockpit), Section B (Asymmetric Anchor Bento 70/30), Section C (Sticky Narrative Split-Screen), Section D (Interactive Workbench), and Section E (High-Density Spec Matrix).
+17. **Strict Monospace Containment**: `font-mono` is strictly reserved for terminal commands, code, `<kbd>`, and tabular numbers. Versions, list numbers, and subheadings must use `font-sans`.
+18. **Arsitektur Navbar & Footer Modern (Standar Vercel/Linear)**: Minimalist sticky navbar with backdrop-blur, quiet nav links, ⌘K search trigger, solid high-contrast CTA; multi-column architectural footer with live system status indicator.
 
 ---
 
@@ -64,10 +66,10 @@ The skill includes deep-dive engineering teardowns and token sets for:
 
 ```text
 frontend-god-skills/
-├── SKILL.md                          # Main Skill orchestrator (16 Commandments & 14-Point Audit Gate)
+├── SKILL.md                          # Main Skill orchestrator (18 Commandments & 16-Point Audit Gate)
 ├── README.md                         # Public documentation & installation guide
 ├── references/
-│   ├── 01-design-taste-archetypes.md # 4 Aesthetic archetypes, Anchor Cadence, typography, text restraint, spacing
+│   ├── 01-design-taste-archetypes.md # 4 Archetypes, typography, text restraint, mono containment, anti-cyberpunk
 │   ├── 02-component-architecture.md  # Compound patterns, polymorphism (asChild), CVA, Container Queries, RSC
 │   ├── 03-shadcn-ui-guide.md         # Customizing shadcn beyond defaults, scrollable select, cmdk combobox, submenus
 │   ├── 04-base-ui-guide.md           # Base UI (@base-ui-components/react) primitives, NumberField, data-attributes
@@ -76,7 +78,7 @@ frontend-god-skills/
 │   ├── 07-state-ux-polish.md         # 5 States: loading skeletons, actionable empty states, error boundary, optimistic UI
 │   ├── 08-senior-component-catalog.md# Full specifications and anatomy for all core UI components
 │   ├── 09-gold-standard-style-signatures.md # Forensic teardowns: 10 Gold Standards + Inspiration Vaults
-│   └── 10-section-layout-choreography.md    # Section A to E blueprints, Anchor Bento 70/30, and Feature Placement Tree
+│   └── 10-section-layout-choreography.md    # Section A to E blueprints, Anchor Bento 70/30, Modern Navbar & Footer
 ├── examples/
 │   ├── button.tsx                    # Polymorphic Button (CVA, loading, icon slots, tactile press)
 │   ├── input-group.tsx               # Senior Input with prefix/suffix icons, ⌘K badge, clear button
@@ -87,7 +89,9 @@ frontend-god-skills/
 │   ├── animated-tabs.tsx             # Framer Motion tab slider with layoutId
 │   ├── command-menu.tsx              # Command Palette (⌘K) with keyboard traversal & group shortcuts
 │   ├── select-advanced.tsx           # Advanced Select with scrollable viewport, group labels, and combobox
-│   └── dropdown-advanced.tsx         # Advanced DropdownMenu with submenus, checkboxes, radio, and shortcuts
+│   ├── dropdown-advanced.tsx         # Advanced DropdownMenu with submenus, checkboxes, radio, and shortcuts
+│   ├── navbar-modern.tsx             # Modern Vercel/Linear-inspired Navbar with backdrop-blur & ⌘K search
+│   └── footer-modern.tsx             # Modern Vercel/Linear-inspired Multi-Column Footer with live status indicator
 └── scripts/
     └── install.sh                    # Symlink installer for real-time global agent integration
 ```
