@@ -7,7 +7,7 @@ allowed-tools: Read Write Edit Glob Grep
 # frontend-god
 
 > **Senior Frontend & Design Engineer Skill (Staff Level)**  
-> Transforms AI coding agents into world-class design engineers. Eliminates generic "AI Slop" by enforcing intentional aesthetic archetypes, composable React architecture, Tailwind CSS v4 & v3 token mastery, headless primitives (shadcn/ui & Base UI), optical iconography, tactile motion, extreme text restraint, single-accent color discipline, and robust state polish.
+> Transforms AI coding agents into world-class design engineers. Eliminates generic "AI Slop" by enforcing intentional aesthetic archetypes, composable React architecture, Tailwind CSS v4 & v3 token mastery, headless primitives (shadcn/ui & Base UI), optical iconography, tactile motion, extreme text restraint, single-accent color discipline, and forensic benchmarks from **Linear, Vercel, Stripe, Anthropic, and Raycast**.
 
 ---
 
@@ -22,9 +22,25 @@ Activate this skill whenever:
 
 ---
 
-## The 10 Golden Commandments of Frontend God
+## Style Signature Selection Protocol
 
-Every interface and component built under this skill MUST obey these ten non-negotiable rules:
+Before writing any markup, align with one of the 5 Gold Standard Style Signatures (or let the product's brand dictate it). **Once chosen, DO NOT MIX styles**:
+
+| Style Signature | Benchmark Identity | Key Visual Formula |
+| :--- | :--- | :--- |
+| **Linear (Orbiter)** | High-precision dev tool, calm dark | `#08090a` canvas, `#5e6ad2` accent, hairline moonlight borders (`rgba(255,255,255,0.07)`), Inter with `cv01/ss03`, weight 510, Berkeley/Geist Mono. |
+| **Vercel (Geist)** | Compiler-like monochrome restraint | `#000000` canvas, `#ffffff` ink, shadow-as-border (`0 0 0 1px rgba(255,255,255,0.08)`), blueprint gridlines, Geist Sans/Mono tracking `-2.4px`. |
+| **Stripe (Söhne)** | Fintech authority & twilight depth | Deep navy `#0a2540` canvas, blurple `#635bff` accent, light-weight display headlines (300–400) with whispered authority, multi-layer twilight shadows. |
+| **Anthropic (Editorial)** | Intellectual research & safety | Slate Ink `#141413` and Ivory Cream `#faf9f5` full-bleed band alternation, Instrument Serif 90px display, generous literary whitespace. |
+| **Raycast (Desktop)** | Keyboard-first desktop instrument | Blue-black `#07080a`, Raycast Red `#ff6363` accent, inset glass highlights (`box-shadow: inset 0 1px 0 0 rgba(255,255,255,0.06)`), ⌘K action panel. |
+
+📖 *Deep dive: [09-gold-standard-style-signatures.md](./references/09-gold-standard-style-signatures.md)*
+
+---
+
+## The 12 Golden Commandments of Frontend God
+
+Every interface and component built under this skill MUST obey these twelve non-negotiable rules:
 
 ### 1. Aesthetic Direction First (Zero AI Slop)
 Never write JSX without first declaring or inheriting an **Aesthetic Archetype** (Technical Precision, Editorial Modern, Warm Minimalist, or Neo-Craftsman). Reject generic AI tells:
@@ -36,7 +52,7 @@ Never write JSX without first declaring or inheriting an **Aesthetic Archetype**
 In any grid or dashboard section, **never render identical copy-paste cards**.
 - One item MUST serve as the **Anchor** (e.g., larger aspect ratio, primary metric focus, or distinct background treatment).
 - Secondary items must have subordinate hierarchy. Vary rhythm, height, or density deliberately.
-- 📖 *Deep dive: [01-design-taste-archetypes.md](./references/01-design-taste-archetypes.md#the-anchor-cadence-rule)*
+- 📖 *Deep dive: [01-design-taste-archetypes.md](./references/01-design-taste-archetypes.md#2-the-anchor-cadence-rule-break-visual-monotony)*
 
 ### 3. Composable Architecture & Semantic Tokens
 - Build components using **Compound Components** (`<Card.Header>`, `<Card.Title>`), polymorphic rendering via `asChild` (Radix Slot) or render props, and type-safe variants with **Class Variance Authority (`cva`)**.
@@ -45,13 +61,13 @@ In any grid or dashboard section, **never render identical copy-paste cards**.
 
 ### 4. Container Queries for True Modularity
 Reusable components (cards, widgets, inputs) must not rely solely on viewport `@media` breakpoints (`md:`, `lg:`). Use **CSS Container Queries** (`@container`, `@sm:`, `@md:`) so components adapt intelligently whether placed in a full-width grid, a modal, or a 320px sidebar.
-- 📖 *Deep dive: [02-component-architecture.md](./references/02-component-architecture.md#container-queries-for-modular-components)*
+- 📖 *Deep dive: [02-component-architecture.md](./references/02-component-architecture.md#4-container-queries-for-modular-components-container)*
 
 ### 5. Next.js App Router & React 19 Boundaries
 - Keep components as **React Server Components (RSC)** by default.
 - Push `'use client'` down to the smallest interactive leaf nodes.
 - Use `useOptimistic` for instant feedback and `useTransition` for non-blocking UI updates.
-- 📖 *Deep dive: [02-component-architecture.md](./references/02-component-architecture.md#nextjs-app-router--react-19-discipline)*
+- 📖 *Deep dive: [02-component-architecture.md](./references/02-component-architecture.md#5-nextjs-app-router--react-19-discipline)*
 
 ### 6. Dual Headless Primitives: shadcn/ui vs Base UI
 Know exactly when to choose which primitive:
@@ -90,11 +106,24 @@ Every data-driven component MUST account for all 5 states: **Idle, Loading Skele
   - **Isolated Semantic Status**: Colors like `emerald-500` (green), `rose-500` (red), or `amber-500` (yellow) are **STRICTLY RESERVED** for actual boolean system states (Build PASS/FAIL, Git Diff `+`/`-`, System Online/Offline), NEVER as decorative card cosmetics.
 - 📖 *Deep dive: [01-design-taste-archetypes.md](./references/01-design-taste-archetypes.md#7-the-single-accent--monochromatic-discipline) & [05-icon-system.md](./references/05-icon-system.md#6-icon-color-discipline-neutral-first--anti-rainbow-rules)*
 
+### 11. Distinct Typographic Identity & OpenType Precision
+**Reject unstyled, default system fonts.**
+- Apply OpenType stylistic sets: `cv01` & `ss03` on Inter for curved technical glyphs, or use curated fonts: **Geist**, **Instrument Serif**, **Plus Jakarta Sans**, or **Cabinet Grotesk**.
+- Large display headlines MUST use optical negative tracking (`tracking-[-0.035em]` or `-1.5px` to `-3px`) and tight line-height (`leading-none` or `leading-[1.1]`) to create compressed, authoritative title blocks.
+- 📖 *Deep dive: [01-design-taste-archetypes.md](./references/01-design-taste-archetypes.md#8-the-opentype-typography-precision-matrix)*
+
+### 12. The Macro vs Micro Spacing Engine (Dynamic Rhythm)
+**Eliminate rigid, uniform spacing (`p-6` everywhere).**
+- Enforce the **Extreme Contrast Spacing Law**:
+  - **Macro Sections**: Expansive breathing room (`py-24` to `py-36` on desktop).
+  - **Micro Wells**: Compact, high information density (`p-2.5` to `p-3.5` with tight `gap-1.5`).
+- 📖 *Deep dive: [01-design-taste-archetypes.md](./references/01-design-taste-archetypes.md#9-the-macro-vs-micro-spacing-engine)*
+
 ---
 
 ## Pre-Flight Delivery Gate (Self-Audit Protocol)
 
-**BEFORE delivering any frontend component or page to the user, you MUST silently verify this 8-point checklist:**
+**BEFORE delivering any frontend component or page to the user, you MUST silently verify this 10-point checklist:**
 
 | Check | Item | Verification Criteria |
 | :---: | :--- | :--- |
@@ -106,6 +135,8 @@ Every data-driven component MUST account for all 5 states: **Idle, Loading Skele
 | [ ] | **6. Responsive Modularity** | Cards and nested panels behave properly in narrow layouts via `@container` or defensive flex-wrapping. |
 | [ ] | **7. Text Scannability** | **No card has > 1 sentence or > 12 words of description**. No generic filler marketing buzzwords. Visuals/metrics speak for themselves. |
 | [ ] | **8. Single-Accent Color** | **Zero rainbow icons**. Icons are neutral-first or match the single primary accent. Green/red strictly isolated to system status. |
+| [ ] | **9. Typographic Identity** | Headlines use tight negative tracking (`tracking-[-0.03em]`); OpenType features or curated fonts applied. |
+| [ ] | **10. Dynamic Spacing** | Clear contrast between macro section padding (`py-24+`) and micro inner wells (`p-3`); no uniform `p-6` everywhere. |
 
 If any check fails, fix it immediately before returning code.
 
@@ -115,7 +146,7 @@ If any check fails, fix it immediately before returning code.
 
 When tackling specific areas, read the corresponding in-depth guide:
 
-1. **[01-design-taste-archetypes.md](./references/01-design-taste-archetypes.md)**: Aesthetic archetypes, typography scale, color tokens, text restraint rules, and single-accent discipline.
+1. **[01-design-taste-archetypes.md](./references/01-design-taste-archetypes.md)**: Aesthetic archetypes, typography scale, OpenType matrix, text restraint rules, single-accent discipline, and macro/micro spacing.
 2. **[02-component-architecture.md](./references/02-component-architecture.md)**: Compound components, polymorphism, CVA, container queries, and React 19 / RSC rules.
 3. **[03-shadcn-ui-guide.md](./references/03-shadcn-ui-guide.md)**: Customizing shadcn beyond defaults, Tailwind v4 `@theme`, custom variants.
 4. **[04-base-ui-guide.md](./references/04-base-ui-guide.md)**: `@base-ui-components/react` (Base UI) unstyled primitives & data-attributes styling.
@@ -123,6 +154,7 @@ When tackling specific areas, read the corresponding in-depth guide:
 6. **[06-motion-microinteractions.md](./references/06-motion-microinteractions.md)**: Spring physics, `layoutId` transitions, and the 100ms feel.
 7. **[07-state-ux-polish.md](./references/07-state-ux-polish.md)**: 5 UI States, loading skeletons, actionable empty states, and error recovery.
 8. **[08-senior-component-catalog.md](./references/08-senior-component-catalog.md)**: Full anatomy, API specs, and accessibility checklist for all major UI components.
+9. **[09-gold-standard-style-signatures.md](./references/09-gold-standard-style-signatures.md)**: Forensically teardown design tokens and layout blueprints for Linear, Vercel, Stripe, Anthropic, and Raycast, plus Godly/Mobbin vault.
 
 ---
 

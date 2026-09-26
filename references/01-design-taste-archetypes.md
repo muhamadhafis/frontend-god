@@ -1,44 +1,44 @@
 # Reference 01: Design Taste, Aesthetic Archetypes & Anti-Slop
 
 > **Aesthetic Direction is Non-Negotiable.**  
-> A great frontend is not created by throwing random CSS utilities at markup. It begins with a cohesive visual identity, curated typography, intentional color theory, disciplined text restraint, and deliberate spatial rhythm.
+> A great frontend is not created by throwing random CSS utilities at markup. It begins with a cohesive visual identity, curated typography, intentional color theory, disciplined text restraint, dynamic spacing contrast, and deliberate spatial rhythm.
 
 ---
 
-## 1. The 4 Aesthetic Archetypes
+## 1. The 4 Aesthetic Archetypes & Industry Benchmarks
 
-Before building any interface, select or align with one of these four curated archetypes. Never mix incompatible styles (e.g., combining playful neo-brutalist solid black borders with delicate glassmorphism).
+Before building any interface, select or align with one of these curated archetypes. Each maps directly to an industry gold standard (deep-dived in [09-gold-standard-style-signatures.md](./09-gold-standard-style-signatures.md)):
 
 ```
-+-----------------------------------------------------------------------------+
-|                               DESIGN ARCHETYPES                             |
-+----------------------+----------------------+-------------------------------+
-| Technical Precision  | Editorial Modern     | Warm Minimalist | Neo-Craft   |
-| (Linear / Vercel)    | (Stripe Press / Read)| (Notion / Ray)  | (Craft Dev) |
-| High-density, mono   | Serif display, books | Stone, tactile  | Bold borders|
-+----------------------+----------------------+-------------------------------+
++-------------------------------------------------------------------------------+
+|                        AESTHETIC ARCHETYPES & BENCHMARKS                      |
++---------------------+---------------------+-----------------------------------+
+| Technical Precision | Editorial Modern    | Warm Minimalist   | Neo-Craft     |
+| (Linear / Vercel)   | (Stripe / Anthropic)| (Notion / Raycast)| (Craft Dev)   |
+| High-density, mono  | Serif display, books| Stone, tactile    | Bold borders  |
++---------------------+---------------------+-----------------------------------+
 ```
 
 ### Archetype A: Technical Precision (The "Linear / Vercel" Standard)
 - **Personality**: High-performance, razor-sharp, developer-centric, disciplined.
-- **Palette**: Deep monochrome (true blacks `#09090b` or near-black `#0b0f17`, zinc `#71717a`, stark white `#ffffff`). Accent is laser-focused: single vibrant point color (e.g., Electric Blue `#3b82f6`, Electric Violet `#6366f1`, Emerald `#10b981`, or Amber `#f59e0b`).
-- **Borders & Surfaces**: 1px crisp borders (`border-white/10` or `border-zinc-800`), dark surface layering (`bg-zinc-900/60`).
-- **Typography**: Clean sans-serif (Geist, Inter) paired with monospaced accents (Geist Mono, JetBrains Mono) for tags, IDs, stats, and shortcuts.
+- **Palette**: Deep monochrome (true blacks `#09090b` or `#000000`, zinc `#71717a`, stark white `#ffffff`). Accent is laser-focused: single vibrant point color (e.g., Electric Blue `#3b82f6` or Indigo `#5e6ad2`).
+- **Borders & Surfaces**: 1px hairline moonlight borders (`rgba(255,255,255,0.07)`), dark surface layering (`bg-[#0e1015]`).
+- **Typography**: Geist Sans or Inter Variable with OpenType `cv01/ss03` paired with Geist Mono / Berkeley Mono for tags, IDs, stats, and shortcuts.
 - **Best For**: Developer tools, engineering dashboards, cloud consoles, SaaS analytics.
 
-### Archetype B: Editorial Modern (The "Stripe Press / ReadCV" Standard)
+### Archetype B: Editorial Modern (The "Stripe Press / Anthropic" Standard)
 - **Personality**: Humanist, intellectual, sophisticated, timeless.
-- **Palette**: Warm high-contrast neutrals (Ivory `#fafaf9`, Warm Cream `#f5f5f4`, Ink `#1c1917`, Soft Charcoal `#44403c`). Accent is deep and grounded (Burgundy `#881337`, Forest `#14532d`, or Warm Rust `#9a3412`).
-- **Borders & Surfaces**: Generous whitespace, subtle hairline dividers (`border-stone-200` / `border-stone-800`), matte surfaces without shadows.
-- **Typography**: High-contrast Serif display (Playfair Display, Instrument Serif, Fraunces) for prominent headlines, paired with ultra-clean humanist Sans (Inter, Plus Jakarta Sans) for body copy.
+- **Palette**: Warm high-contrast neutrals (Ivory Cream `#faf9f5`, Slate Ink `#141413`, Soft Stone `#b0aea5`). Accent is deep and grounded (Burgundy `#881337`, Forest `#14532d`, or Blurple `#635bff`).
+- **Borders & Surfaces**: Generous whitespace, subtle hairline dividers (`border-stone-200` / `border-stone-800`), matte surfaces without heavy shadows.
+- **Typography**: High-contrast Serif display (Instrument Serif, Playfair Display, Fraunces) for prominent headlines, paired with ultra-clean humanist Sans (Inter, Satoshi) for body copy.
 - **Best For**: Publications, AI research labs, design agencies, high-end portfolio sites, luxury SaaS.
 
 ### Archetype C: Warm Minimalist (The "Notion / Raycast" Standard)
 - **Personality**: Approachable, tactile, serene, delightfully ergonomic.
-- **Palette**: Warm stone & slate undertones (`bg-stone-50` / `bg-stone-900`, `text-stone-700` / `text-stone-300`). Accents are soft pastels with high-contrast text badges.
-- **Borders & Surfaces**: Generous corner radii (`rounded-xl` or `rounded-2xl`), subtle tactile border highlights, ambient micro-shadows.
-- **Typography**: Modern geometric or humanist sans (Inter, Cal Sans, Geist).
-- **Best For**: Productivity suites, notes apps, team collaboration hubs, consumer SaaS.
+- **Palette**: Warm stone & slate undertones (`bg-stone-50` / `bg-stone-900`, `text-stone-700` / `text-stone-300`). Accents are soft pastels with high-contrast text badges or Raycast Red `#ff6363`.
+- **Borders & Surfaces**: Inset highlights (`box-shadow: inset 0 1px 0 0 rgba(255,255,255,0.06)`), subtle tactile border highlights, ambient micro-shadows.
+- **Typography**: Modern geometric or humanist sans (Inter with `ss03`, Geist).
+- **Best For**: Productivity suites, notes apps, team collaboration hubs, desktop utilities.
 
 ### Archetype D: Neo-Craftsman (Modern Functional Brutalism)
 - **Personality**: Unapologetic, tactile, retro-modern, engineered.
@@ -107,22 +107,6 @@ Never rely on heavy, fuzzy drop shadows (`shadow-2xl shadow-purple-500/50`) to c
 /* Surface-2: Elevated Sheets & Dialogs */
 --popover: 240 10% 9%;
 --popover-foreground: 0 0% 98%;
-```
-
-### Implementation Pattern in Tailwind:
-```tsx
-// Surface-0 (Page Canvas)
-<main className="min-h-screen bg-background text-foreground antialiased">
-  
-  // Surface-1 (Card with intentional 1px border)
-  <div className="rounded-xl border border-border/60 bg-card p-6 text-card-foreground">
-    
-    // Surface-2 (Inner nested well or floating dropdown)
-    <div className="rounded-lg border border-border/40 bg-popover/80 p-4 shadow-sm backdrop-blur-sm">
-      ...
-    </div>
-  </div>
-</main>
 ```
 
 ---
@@ -199,37 +183,6 @@ Before writing any component, verify you are NOT introducing these common AI slo
    - *"Everything you need to build at lightspeed"*
    - Replace these with concrete domain facts: *"Local git worktrees"*, *"Zero cloud latency"*, *"VPC-isolated"*.
 
-### Before & After: The Scannability Transformation
-
-#### ❌ AI Text Slop (Cluttered, Boring, Unread):
-```tsx
-<div className="rounded-xl border p-6">
-  <div className="text-blue-400"><Cpu /></div>
-  <h3 className="text-xl font-bold">Deep Cognitive Core</h3>
-  <p className="text-sm text-muted-foreground mt-2">
-    Native multi-modal reasoning tuned for large AST traversal, code generation,
-    and terminal debugging across complex distributed enterprise codebases without
-    loss of architectural context.
-  </p>
-</div>
-```
-
-#### ✅ Senior Scannable UI (Clean, Punchy, High Signal-to-Noise):
-```tsx
-<div className="rounded-xl border border-border/60 bg-card p-5">
-  <div className="flex items-center justify-between">
-    <span className="text-xs font-mono text-muted-foreground uppercase tracking-wider">Engine</span>
-    <Badge variant="outline">Gemini 3.8</Badge>
-  </div>
-  <div className="mt-3 font-mono text-2xl font-bold tracking-tight text-foreground tabular-nums">
-    AST Traversal
-  </div>
-  <p className="mt-1 text-xs text-muted-foreground">
-    Native multi-modal AST reasoning with zero context drift.
-  </p>
-</div>
-```
-
 ---
 
 ## 7. The Single-Accent & Monochromatic Discipline
@@ -259,3 +212,39 @@ Before writing any component, verify you are NOT introducing these common AI slo
      - `Test Suite: PASS` / `FAIL`
      - `System Status: Degraded`
    - They are **STRICTLY FORBIDDEN** from being used as decorative cosmetics for arbitrary feature cards!
+
+---
+
+## 8. The OpenType Typography Precision Matrix
+
+Senior typography goes beyond `font-sans` by activating targeted OpenType features:
+
+| Target Aesthetic | Primary Font | OpenType Features | Tailwind / CSS Utility | Effect |
+| :--- | :--- | :--- | :--- | :--- |
+| **Linear (Orbiter)** | Inter Variable | `cv01`, `ss03` | `font-feature-settings: "cv01" on, "ss03" on;` | Curved technical `l`, flat-top `t`, clean geometric numbers |
+| **Stripe (Söhne)** | Söhne / Inter | `ss01`, `tnum` | `font-feature-settings: "ss01" on, "tnum" on;` | Modern geometric `a`, fixed-width financial alignment |
+| **Vercel (Geist)** | Geist Sans | Negative kerning | `tracking-[-0.035em]` | Laser-compressed display headings |
+| **Anthropic (Editorial)** | Instrument Serif | Ligatures | `font-serif tracking-tight leading-[1.08]` | Printed journal essay authority |
+
+---
+
+## 9. The Macro vs Micro Spacing Engine
+
+To eliminate rigid, uniform spacing (`p-6` everywhere), apply the **Extreme Contrast Spacing Law**:
+
+```tsx
+// Outer Section: Macro Spacing (Expansive breathing room)
+<section className="py-24 sm:py-32 lg:py-36">
+  <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    
+    // Outer Card: Structural Framing
+    <div className="rounded-2xl border border-border/60 bg-card p-6 sm:p-8">
+      
+      // Inner Well: Micro Spacing (Compact, high information density)
+      <div className="rounded-xl border border-border/40 bg-background/50 p-2.5 sm:p-3 space-y-1.5 font-mono text-xs">
+        {/* Compact, dense data rows */}
+      </div>
+    </div>
+  </div>
+</section>
+```
