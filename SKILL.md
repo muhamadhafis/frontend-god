@@ -96,11 +96,12 @@ Every data-driven component MUST account for all 5 states: **Idle, Loading Skele
 
 ### 9. Extreme Text Restraint & High-Velocity Scannability (Zero Wall-of-Text)
 **UI is an interactive software cockpit, NOT a corporate marketing essay.**
-- ❌ **FORBIDDEN**: Multi-sentence paragraphs (3–4 lines) filling every card and section. Generic AI filler phrases (*"designed to seamlessly integrate with your existing workflow"*).
+- ❌ **FORBIDDEN**: Multi-sentence paragraphs (3–4 lines) filling every card and section. Generic AI filler phrases (*"designed to seamlessly integrate with your existing workflow"*). Dense event log stream wall-of-text or clutter footers (`v2.4.0 LTS • Python 3.12`) inside Hero cockpits when headlines already state the core purpose.
 - ✅ **REQUIRED**:
   - **Section Subtitles**: Maximum **1 concise sentence** ($\le 16$ words) or omitted completely if the heading is self-explanatory.
   - **Card Descriptions**: Maximum **1 short sentence or punchy fragment** ($\le 12$ words).
   - **Visual / Code / Metric Cards**: **0 sentence descriptions**! Let the live interactive preview, the metric numeral, or the code snippet speak for itself. Use micro-labels (2–3 words) instead of full prose.
+  - **Cockpit Visual Restraint**: Keep illustrations and cockpits clean, minimal, and focused on 1 core mechanism without cluttering logs or extra metric boxes.
 - 📖 *Deep dive: [01-design-taste-archetypes.md](./references/01-design-taste-archetypes.md#6-the-law-of-text-restraint--high-velocity-scannability)*
 
 ### 10. Strict Single-Accent Palette & Monochromatic Icon Discipline (Anti-Rainbow)
@@ -132,6 +133,7 @@ Every data-driven component MUST account for all 5 states: **Idle, Loading Skele
   - Scrollable & grouped select viewports (`SelectGroup`, `SelectScrollUpButton`).
   - Searchable comboboxes and multi-select via `Popover` + `Command` (cmdk).
   - Nested submenus (`DropdownMenuSub`) and shortcut badges (`<kbd>`).
+  - Global Keyboard Shortcut Listeners: `⌘K` / `Ctrl+K` triggers must use global `window.addEventListener('keydown', ...)` with toggle state logic (`onToggle`).
   - Responsive modals: Desktop `<Dialog>` $\rightarrow$ Mobile bottom-sheet `<Drawer>` via `useMediaQuery`.
   - Base UI `NumberField` and `OTPField` for bulletproof form ergonomics.
 - 📖 *Deep dive: [03-shadcn-ui-guide.md](./references/03-shadcn-ui-guide.md) & [04-base-ui-guide.md](./references/04-base-ui-guide.md)*
@@ -162,15 +164,17 @@ Every data-driven component MUST account for all 5 states: **Idle, Loading Skele
 - ✅ **REQUIRED**: Commit to the chosen product atmosphere (e.g. Linear is natively dark, Mercury is natively warm cream, Vercel is monochrome). Only add theme switching when the user explicitly requests light/dark mode support.
 - 📖 *Deep dive: [09-gold-standard-style-signatures.md](./references/09-gold-standard-style-signatures.md)*
 
-### 16. Haram 3-Column Card Slop (Terapkan Asymmetric Layout Choreography & Anchor Features)
-**Never fill every section with 3 identical cards (`grid-cols-3`).**
+### 16. Haram 3-Column Card Slop (Terapkan Asymmetric Layout Choreography & Full-Viewport Framing)
+**Never fill every section with 3 identical cards (`grid-cols-3`). Frame sections as full-viewport focused experiences.**
 - ❌ **FORBIDDEN**: Repeating `grid-cols-3` with identical icon, title, and 3-line description across every section.
-- ✅ **REQUIRED**: Enforce the **Section Layout Choreography Blueprints**:
-  - **Section A**: Asymmetric Hero (42% Left text + CTA, 58% Right **Above-the-fold Live Product Cockpit**).
-  - **Section B**: Asymmetric Anchor Bento Grid (70% Fitur 1 Anchor Hero + 30% Stacked Fitur 2 & Fitur 3).
-  - **Section C**: Sticky Narrative Split-Screen (35% Sticky step counter + 65% Scrolling preview stream).
-  - **Section D**: Deep-Dive Interactive Workbench ("One Loud Element" tabbed code/output playground).
-  - **Section E**: High-Density Spec & Proof Matrix (Monospace tabular ledger).
+- ✅ **REQUIRED**:
+  - **Full-Viewport Section Framing (`min-h-screen`)**: Each landing page section MUST use `min-h-screen flex flex-col justify-center py-20 lg:py-0` layout framing so 1 section fills the full device viewport when scrolled into view.
+  - **Section Layout Choreography Blueprints**:
+    - **Section A**: Asymmetric Hero (42% Left text + CTA, 58% Right **Above-the-fold Live Product Cockpit**).
+    - **Section B**: Asymmetric Anchor Bento Grid (70% Fitur 1 Anchor Hero + 30% Stacked Fitur 2 & Fitur 3).
+    - **Section C**: Sticky Narrative Split-Screen (35% Sticky step counter + 65% Scrolling preview stream).
+    - **Section D**: Deep-Dive Interactive Workbench ("One Loud Element" tabbed code/output playground).
+    - **Section E**: High-Density Spec & Proof Matrix (Monospace tabular ledger).
 - 📖 *Deep dive: [10-section-layout-choreography.md](./references/10-section-layout-choreography.md)*
 
 ### 17. Strict Monospace Containment (Font-Mono Hanya untuk Mesin & Kode Riil)
@@ -181,9 +185,9 @@ Every data-driven component MUST account for all 5 states: **Idle, Loading Skele
   - Versions, list numbers, category eyebrows, and subtitles **MUST use standard proportional sans-serif (`font-sans`) or serif (`font-serif`)**.
 - 📖 *Deep dive: [01-design-taste-archetypes.md](./references/01-design-taste-archetypes.md#10-the-strict-monospace-containment-law)*
 
-### 18. Arsitektur Navbar & Footer Modern (Standar Vercel, Linear & Oversized Wordmark Pattern)
+### 18. Arsitektur Floating Pill Navbar & Modern Footer (Standar Vercel, Linear & Oversized Wordmark Pattern)
 **Frame the product with architectural restraint, poise, and editorial closure.**
-- ✅ **Modern Navbar**: Minimalist sticky header with `border-b border-border/40 backdrop-blur-md bg-background/80`, quiet sans-serif nav links (`hover:text-foreground hover:bg-muted/40`), subtle `⌘K` search shortcut trigger, single solid high-contrast primary CTA, and zero theme-toggle clutter.
+- ✅ **Floating Pill Navbar**: Floating centered inset header (`fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-2rem)] max-w-5xl rounded-full border border-border/40 bg-background/85 backdrop-blur-xl shadow-2xl px-4 py-2 flex items-center justify-between`), quiet pill nav links (`hover:text-foreground hover:bg-muted/40 rounded-full px-3 py-1`), subtle `⌘K` search shortcut trigger, single solid primary CTA, and zero theme-toggle clutter.
 - ✅ **Modern Footer**: Multi-column architectural grid (Product, Platform, Resources, Company, Legal), quiet sans-serif links, live operational status indicator (`border border-emerald-500/30 bg-emerald-500/10 text-emerald-400` + "All systems normal" - **NO interior dot slop & NO `animate-ping`**), and **Oversized Brand Wordmark** (`text-[13vw] font-bold tracking-tighter text-foreground/[0.06]`) for a grounded, editorial closure.
 - 📖 *Deep dive: [10-section-layout-choreography.md](./references/10-section-layout-choreography.md#6-arsitektur-navbar--footer-modern-standar-vercel--linear)*
 

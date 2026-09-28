@@ -399,58 +399,57 @@ Saat kamu merancang halaman baru dengan daftar fitur dari user:
 
 Navbar dan Footer adalah bingkai penentu kualitas pertama dan terakhir dari sebuah produk. Desain AI amatir sering menaruh tombol theme toggle sembarangan di navbar dan membuat footer seadanya.
 
-### Section F: The Modern Architectural Navbar (Vercel / Linear Benchmark)
+### Section F: The Modern Floating Pill Navbar (Unik & Exclusive Benchmark)
+
+Pola **Floating Pill Navbar** memberikan kesan tampilan produk yang unik, melayang, dan terpisah dari gaya navbar full-bleed standar.
 
 ```tsx
-// Pattern Section F: Modern Architectural Navbar
-export function ModernNavbar() {
+// Pattern Section F: Modern Floating Pill Navbar (Floating Inset Pill)
+export function FloatingPillNavbar({ onOpenSearch }: { onOpenSearch: () => void }) {
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/80 backdrop-blur-md">
-      <div className="mx-auto flex h-14 max-w-7xl items-center justify-between px-6 lg:px-8">
+    <header className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-2rem)] max-w-5xl rounded-full border border-border/40 bg-background/85 backdrop-blur-xl shadow-2xl shadow-black/40 transition-all">
+      <div className="flex h-12 items-center justify-between px-4 sm:px-6">
         
-        {/* Sisi Kiri: Brand Logo & Product Identifier */}
+        {/* Sisi Kiri: Brand Logo & Quiet Links */}
         <div className="flex items-center gap-6">
           <a href="/" className="flex items-center gap-2 text-foreground font-semibold text-sm tracking-tight">
-            <div className="size-5 rounded-md bg-foreground flex items-center justify-center text-background font-bold text-xs">
+            <div className="size-6 rounded-full bg-foreground flex items-center justify-center text-background font-bold text-xs">
               ▲
             </div>
             <span>Platform</span>
           </a>
 
-          {/* Quiet Navigation Links (Sans-serif, muted hover) */}
-          <nav className="hidden md:flex items-center gap-1 text-sm font-medium text-muted-foreground">
-            <a href="#features" className="px-3 py-1.5 rounded-md hover:text-foreground hover:bg-muted/40 transition-colors">
-              Features
+          <nav className="hidden md:flex items-center gap-1 text-xs font-medium text-muted-foreground">
+            <a href="#overview" className="rounded-full px-3 py-1 hover:text-foreground hover:bg-muted/50 transition-colors">
+              Overview
             </a>
-            <a href="#solutions" className="px-3 py-1.5 rounded-md hover:text-foreground hover:bg-muted/40 transition-colors">
-              Solutions
+            <a href="#features" className="rounded-full px-3 py-1 hover:text-foreground hover:bg-muted/50 transition-colors">
+              Capabilities
             </a>
-            <a href="#docs" className="px-3 py-1.5 rounded-md hover:text-foreground hover:bg-muted/40 transition-colors">
-              Documentation
+            <a href="#workbench" className="rounded-full px-3 py-1 hover:text-foreground hover:bg-muted/50 transition-colors">
+              Surfaces
             </a>
-            <a href="#pricing" className="px-3 py-1.5 rounded-md hover:text-foreground hover:bg-muted/40 transition-colors">
-              Pricing
+            <a href="#specs" className="rounded-full px-3 py-1 hover:text-foreground hover:bg-muted/50 transition-colors">
+              Telemetry
             </a>
           </nav>
         </div>
 
-        {/* Sisi Kanan: ⌘K Quick Search & High-Contrast Primary CTA */}
-        <div className="flex items-center gap-3">
-          {/* Subtle Command Search Trigger */}
+        {/* Sisi Kanan: ⌘K Shortcut Trigger & Action CTA */}
+        <div className="flex items-center gap-2.5">
           <button
-            type="button"
-            className="hidden sm:flex h-8 items-center gap-2 rounded-lg border border-border/60 bg-muted/20 px-2.5 text-xs text-muted-foreground hover:border-border hover:text-foreground transition-colors"
+            onClick={onOpenSearch}
+            className="hidden sm:flex items-center gap-2 rounded-full border border-border/60 bg-muted/30 px-3 py-1 text-xs text-muted-foreground hover:border-border hover:text-foreground transition-all"
           >
-            <span>Search docs...</span>
-            <kbd className="rounded border border-border bg-muted/60 px-1.5 py-0.5 font-mono text-[10px]">⌘K</kbd>
+            <span>Search docs</span>
+            <kbd className="rounded border border-border/80 bg-muted/60 px-1.5 py-0.2 font-mono text-[10px]">⌘K</kbd>
           </button>
 
-          {/* Single High-Contrast Action Button (Solid) */}
           <a
-            href="#get-started"
-            className="inline-flex h-8 items-center justify-center rounded-lg bg-foreground px-3.5 text-xs font-medium text-background transition-all hover:opacity-90 active:scale-[0.98]"
+            href="#console"
+            className="inline-flex h-8 items-center justify-center rounded-full bg-primary px-3.5 text-xs font-medium text-primary-foreground transition-all hover:opacity-90 active:scale-[0.98]"
           >
-            Start Free
+            Console
           </a>
         </div>
 
