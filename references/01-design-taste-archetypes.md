@@ -301,3 +301,22 @@ To eliminate rigid, uniform spacing (`p-6` everywhere), apply the **Extreme Cont
    - ❌ NO uppercase buzzwords: `NEXT-GEN`, `AGENTIC`, `SUPERCHARGED`, `AI-POWERED`.
    - ❌ NO unnecessary floating pill wrappers around single words of text.
 
+---
+
+## 12. Zero Drop-Shadow Law (Haram Heavy Drop Shadows)
+
+> **Heavy Drop Shadows Are Forbidden AI Slop.**  
+> AI coding assistants habitually coat floating components, buttons, dropdowns, and cards in heavy, fuzzy Tailwind drop shadows (`shadow-2xl shadow-indigo-600/30`, `shadow-xl`, `shadow-lg`). In modern high-craft interfaces (Linear, Vercel, Stripe), this creates muddy, dated UI clutter.  
+> Senior design engineering achieves separation and floating elevation strictly through **hairline borders, elevated surface layering, and backdrop blur**.
+
+### The Floating UI Elevation Formula:
+
+| Component Type | Forbidden Slop Pattern ❌ | Required Craft Pattern ✅ |
+| :--- | :--- | :--- |
+| **Floating Navbar** | `shadow-2xl shadow-purple-900/40` | `border border-white/10 bg-[#08090a]/85 backdrop-blur-xl` |
+| **Modal / Dialog / ⌘K** | `shadow-2xl shadow-indigo-950/50` | `border border-white/10 bg-[#0d0f14]` |
+| **Action Buttons** | `shadow-lg shadow-indigo-600/30` | `bg-indigo-600 text-white hover:bg-indigo-500` |
+| **Feature Cards** | `shadow-xl shadow-slate-900/10` | `border border-white/10 bg-[#0c0e12]` |
+| **Status Badges** | `shadow-sm shadow-emerald-500/20` | `border border-emerald-500/30 bg-emerald-500/10` |
+
+

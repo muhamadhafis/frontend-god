@@ -187,15 +187,25 @@ Every data-driven component MUST account for all 5 states: **Idle, Loading Skele
 
 ### 18. Arsitektur Floating Pill Navbar & Modern Footer (Standar Vercel, Linear & Oversized Wordmark Pattern)
 **Frame the product with architectural restraint, poise, and editorial closure.**
-- ✅ **Floating Pill Navbar**: Floating centered inset header (`fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-2rem)] max-w-5xl rounded-full border border-border/40 bg-background/85 backdrop-blur-xl shadow-2xl px-4 py-2 flex items-center justify-between`), quiet pill nav links (`hover:text-foreground hover:bg-muted/40 rounded-full px-3 py-1`), subtle `⌘K` search shortcut trigger, single solid primary CTA, and zero theme-toggle clutter.
+- ✅ **Floating Pill Navbar**: Floating centered inset header (`fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-2rem)] max-w-5xl rounded-full border border-border/40 bg-background/85 backdrop-blur-xl px-4 py-2 flex items-center justify-between`), quiet pill nav links (`hover:text-foreground hover:bg-muted/40 rounded-full px-3 py-1`), subtle `⌘K` search shortcut trigger, single solid primary CTA, and zero theme-toggle clutter.
 - ✅ **Modern Footer**: Multi-column architectural grid (Product, Platform, Resources, Company, Legal), quiet sans-serif links, live operational status indicator (`border border-emerald-500/30 bg-emerald-500/10 text-emerald-400` + "All systems normal" - **NO interior dot slop & NO `animate-ping`**), and **Oversized Brand Wordmark** (`text-[13vw] font-bold tracking-tighter text-foreground/[0.06]`) for a grounded, editorial closure.
 - 📖 *Deep dive: [10-section-layout-choreography.md](./references/10-section-layout-choreography.md#6-arsitektur-navbar--footer-modern-standar-vercel--linear)*
+
+### 19. Haram Heavy Drop Shadows (Hukom Murni Floating UI & Zero-Shadow Law)
+**Heavy drop shadows in modern dark/light mode interfaces are FORBIDDEN AI slop.**
+- ❌ **FORBIDDEN**: Applying heavy drop-shadow utilities (`shadow-sm`, `shadow-md`, `shadow-lg`, `shadow-xl`, `shadow-2xl`, `shadow-indigo-600/30`) to floating UI components, buttons, cards, navbars, and modals.
+- ✅ **REQUIRED**: Floating components and cards MUST rely exclusively on:
+  1. Hairline semi-transparent borders (`border border-white/10` / `border-border/40`).
+  2. Elevated surface layering (`bg-[#0c0e12]` over `bg-[#08090a]`).
+  3. Crisp backdrop blur (`backdrop-blur-xl`).
+  4. Subtle inset highlights if tactile emphasis is required (`box-shadow: inset 0 1px 0 0 rgba(255,255,255,0.06)`).
+- 📖 *Deep dive: [01-design-taste-archetypes.md](./references/01-design-taste-archetypes.md#12-zero-drop-shadow-law-haram-heavy-drop-shadows)*
 
 ---
 
 ## Pre-Flight Delivery Gate (Self-Audit Protocol)
 
-**BEFORE delivering any frontend component or page to the user, you MUST silently verify this 16-point checklist:**
+**BEFORE delivering any frontend component or page to the user, you MUST silently verify this 17-point checklist:**
 
 | Check | Item | Verification Criteria |
 | :---: | :--- | :--- |
@@ -215,6 +225,7 @@ Every data-driven component MUST account for all 5 states: **Idle, Loading Skele
 | [ ] | **14. Asymmetric Layout** | No repetitive 3-column card rows. Section A has Live Cockpit, Section B has 70/30 Anchor Bento. |
 | [ ] | **15. Zero Kicker Slop** | No robotic double-slash `//` kickers or buzzword pills above headings. Confident headlines lead directly. |
 | [ ] | **16. Monospace Containment**| `font-mono` used strictly in terminal/code/tabular contexts. Versions and list numbers use `font-sans`. |
+| [ ] | **17. Zero Drop Shadow Law** | No `shadow-` drop shadow classes on floating components. Rely on hairline borders, backdrop blur, and surface layering. |
 
 If any check fails, fix it immediately before returning code.
 
