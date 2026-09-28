@@ -92,10 +92,9 @@ export function ModernFooter({
               State-deterministic infrastructure and live workflow orchestration for high-velocity software teams.
             </p>
 
-            {/* Live Operational Status Indicator (Solid Dot, No Cheesy Radar Ping) */}
-            <div className="inline-flex items-center gap-2 rounded-full border border-border/60 bg-muted/30 px-2.5 py-1 text-[11px] text-muted-foreground font-sans">
-              <span className="size-1.5 rounded-full bg-emerald-500" />
-              <span>All systems normal</span>
+            {/* Live Operational Status Indicator (Clean Border & Tint - No Status Dot Slop) */}
+            <div className="inline-flex items-center rounded border border-emerald-500/30 bg-emerald-500/10 px-2.5 py-1 text-[11px] font-sans font-medium text-emerald-400">
+              All systems normal
             </div>
           </div>
 

@@ -466,7 +466,7 @@ export function ModernNavbar() {
 
 Footer modern masa kini mengombinasikan **grid multi-kolom terstruktur** dengan **Oversized Brand Wordmark** (teks brand raksasa `text-[13vw]` ber-opacity halus `text-foreground/[0.06]`) di bagian penutup. Ini memberikan kesan *editorial closure* yang grounded, berwibawa, dan sangat modern.
 
-> **Aturan Indikator Status**: Tetap menggunakan **dot solid statis** (`size-1.5 rounded-full bg-emerald-500`). **Haram** menggunakan `animate-ping` radar circles.
+> **Aturan Indikator Status**: Gunakan border dan background tint murni (misal `border border-emerald-500/30 bg-emerald-500/10 text-emerald-400`). **Haram** menggunakan dot dekoratif di dalam badge maupun `animate-ping` radar circles.
 
 ```tsx
 // Pattern Section G: Modern High-Craft Footer with Oversized Wordmark
@@ -510,10 +510,9 @@ export function ModernFooter() {
               State-deterministic infrastructure for high-velocity software teams.
             </p>
 
-            {/* Live Operational Status Indicator (Solid Dot - NO animate-ping) */}
-            <div className="inline-flex items-center gap-2 rounded-full border border-border/60 bg-muted/30 px-2.5 py-1 text-[11px] text-muted-foreground font-sans">
-              <span className="size-1.5 rounded-full bg-emerald-500" />
-              <span>All systems normal</span>
+            {/* Live Operational Status Indicator (Clean Border & Background Tint - NO interior dot slop) */}
+            <div className="inline-flex items-center rounded border border-emerald-500/30 bg-emerald-500/10 px-2.5 py-1 text-[11px] text-emerald-400 font-sans font-medium">
+              All systems normal
             </div>
           </div>
 

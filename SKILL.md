@@ -137,13 +137,15 @@ Every data-driven component MUST account for all 5 states: **Idle, Loading Skele
 - 📖 *Deep dive: [03-shadcn-ui-guide.md](./references/03-shadcn-ui-guide.md) & [04-base-ui-guide.md](./references/04-base-ui-guide.md)*
 
 ### 14. Haram Ping Dot Dekoratif, Pill Badge Klise ✨ & Kicker Pseudo-Cyberpunk (// Slop)
-**Eliminate cosmetic radar pings, floating emoji pill badges, and robotic double-slash kickers.**
+**Eliminate cosmetic radar pings, interior status dots, floating emoji pill badges, and robotic double-slash kickers.**
 - ❌ **FORBIDDEN**:
+  - Interior status dots (`<span className="size-1.5 rounded-full bg-emerald-400" />`) inside status badges or pill labels.
   - Slapping `animate-ping` radar circles onto static marketing cards.
   - Floating pill badges with `✨ New` or `AI-Powered` above headlines.
   - Pseudo-cyberpunk uppercase kickers: `<div ...>NEXT-GEN AGENTIC CODING</div>` or `<span ...>CORE ARCHITECTURE // HARDWARE ACCELERATED AGENTS</span>`.
   - Double slashes (`//`, `///`, `::`) inside titles or section labels.
 - ✅ **REQUIRED**:
+  - **Clean Status Badges**: Use border and background tint murni (`border border-emerald-500/30 bg-emerald-500/10 text-emerald-400`) without interior dots.
   - **Confident Headline First**: High-craft products (Linear, Vercel, Apple) let the headline lead directly without unnecessary kicker clutter.
   - **Natural Category Eyebrow**: If taxonomy is genuinely needed, use natural title-cased sans-serif without slashes:
     ```tsx
@@ -182,7 +184,7 @@ Every data-driven component MUST account for all 5 states: **Idle, Loading Skele
 ### 18. Arsitektur Navbar & Footer Modern (Standar Vercel, Linear & Oversized Wordmark Pattern)
 **Frame the product with architectural restraint, poise, and editorial closure.**
 - ✅ **Modern Navbar**: Minimalist sticky header with `border-b border-border/40 backdrop-blur-md bg-background/80`, quiet sans-serif nav links (`hover:text-foreground hover:bg-muted/40`), subtle `⌘K` search shortcut trigger, single solid high-contrast primary CTA, and zero theme-toggle clutter.
-- ✅ **Modern Footer**: Multi-column architectural grid (Product, Platform, Resources, Company, Legal), quiet sans-serif links, live operational status indicator (`size-1.5 rounded-full bg-emerald-500` + "All systems normal" - **NO `animate-ping`**), and **Oversized Brand Wordmark** (`text-[13vw] font-bold tracking-tighter text-foreground/[0.06]`) for a grounded, editorial closure.
+- ✅ **Modern Footer**: Multi-column architectural grid (Product, Platform, Resources, Company, Legal), quiet sans-serif links, live operational status indicator (`border border-emerald-500/30 bg-emerald-500/10 text-emerald-400` + "All systems normal" - **NO interior dot slop & NO `animate-ping`**), and **Oversized Brand Wordmark** (`text-[13vw] font-bold tracking-tighter text-foreground/[0.06]`) for a grounded, editorial closure.
 - 📖 *Deep dive: [10-section-layout-choreography.md](./references/10-section-layout-choreography.md#6-arsitektur-navbar--footer-modern-standar-vercel--linear)*
 
 ---
@@ -204,7 +206,7 @@ Every data-driven component MUST account for all 5 states: **Idle, Loading Skele
 | [ ] | **9. Typographic Identity** | Headlines use tight negative tracking (`tracking-[-0.03em]`); OpenType features or curated fonts applied. |
 | [ ] | **10. Dynamic Spacing** | Clear contrast between macro section padding (`py-24+`) and micro inner wells (`p-3`); no uniform `p-6`. |
 | [ ] | **11. Headless Primitives** | No fragile hand-rolled `div` dropdowns/selects. Scrollable select, combobox, or Base UI used. |
-| [ ] | **12. Zero Slop Micro-Tells** | No decorative `animate-ping` radar circles. No floating `✨` pill badges. |
+| [ ] | **12. Zero Slop Micro-Tells** | No interior status dots (`<span className="h-1.5 w-1.5 bg-emerald-400" />`). No `animate-ping` radar circles. No floating `✨` pill badges. |
 | [ ] | **13. Native Atmosphere** | No unrequested navbar theme toggles. Single atmosphere committed. |
 | [ ] | **14. Asymmetric Layout** | No repetitive 3-column card rows. Section A has Live Cockpit, Section B has 70/30 Anchor Bento. |
 | [ ] | **15. Zero Kicker Slop** | No robotic double-slash `//` kickers or buzzword pills above headings. Confident headlines lead directly. |

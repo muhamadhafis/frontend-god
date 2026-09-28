@@ -157,7 +157,9 @@ Before writing any component, verify you are NOT introducing these common AI slo
 - ❌ **No Meaningless Bento Grids**: Do not use uneven masonry grids unless the content genuinely requires diverse visual proportions.
 - ❌ **No Fake Centered Stats**: Do not put 3 centered numbers in a row with generic icons in glowing circles. Ground stats in actionable contexts.
 - ❌ **No Rainbow Icons**: Do not give every card a different colored icon (Card 1 blue, Card 2 green, Card 3 amber, Card 4 purple).
-- ❌ **No Wall-of-Text Cards**: Do not write 3–4 line explanatory paragraphs inside UI cards. Use scannable fragments, micro-labels, or interactive visual components.
+- ❌ **No Wall-of-Text Cards**: Do not write 3–4 line explanatory paragraphs inside UI cards. Use scannability fragments, micro-labels, or interactive visual components.
+- ❌ **No Decorative Interior Status Dots (Anti-Ping / Anti-Dot Rule)**: Do not insert interior dot elements (`<span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />`) inside status badges or pill badges. Use clean border and background tint styling (`border border-emerald-500/30 bg-emerald-500/10 text-emerald-400`).
+- ❌ **No Uppercase Kicker Clutter**: Do not place uppercase micro-labels (`CORE ARCHITECTURE`, `FEATURE ANCHOR`) or double slashes (`//`) above headings. Headlines must lead directly with confidence.
 
 ---
 
