@@ -92,6 +92,7 @@ Know exactly when to choose which primitive:
 Every data-driven component MUST account for all 5 states: **Idle, Loading Skeleton (Zero CLS), Actionable Empty State, Human-Friendly Error Boundary, and Optimistic UI**.
 - Motion must use **Spring Physics** (`{ type: "spring", stiffness: 400, damping: 30 }`), not robotic linear easings.
 - Enforce the "100ms Feel": tooltip delay 150ms, tactile button press `active:scale-[0.98]`, and prominent focus-visible rings.
+- **Button Hover Pill Morphing Rule**: Action buttons MUST morph smoothly from standard system radii (`rounded-lg` / `rounded-md`) into a `hover:rounded-full` shape on hover using `transition-all duration-300 ease-out`.
 - 📖 *Deep dive: [06-motion-microinteractions.md](./references/06-motion-microinteractions.md) & [07-state-ux-polish.md](./references/07-state-ux-polish.md)*
 
 ### 9. Extreme Text Restraint & High-Velocity Scannability (Zero Wall-of-Text)
@@ -164,17 +165,16 @@ Every data-driven component MUST account for all 5 states: **Idle, Loading Skele
 - ✅ **REQUIRED**: Commit to the chosen product atmosphere (e.g. Linear is natively dark, Mercury is natively warm cream, Vercel is monochrome). Only add theme switching when the user explicitly requests light/dark mode support.
 - 📖 *Deep dive: [09-gold-standard-style-signatures.md](./references/09-gold-standard-style-signatures.md)*
 
-### 16. Haram 3-Column Card Slop (Terapkan Asymmetric Layout Choreography & Full-Viewport Framing)
-**Never fill every section with 3 identical cards (`grid-cols-3`). Frame sections as full-viewport focused experiences.**
+### 16. Haram 3-Column Card Slop (Terapkan Asymmetric Layout Choreography & Alternating Section Cadence)
+**Never fill every section with 3 identical cards (`grid-cols-3`). Frame sections as full-viewport focused experiences with alternating layout rhythm.**
 - ❌ **FORBIDDEN**: Repeating `grid-cols-3` with identical icon, title, and 3-line description across every section.
 - ✅ **REQUIRED**:
   - **Full-Viewport Section Framing (`min-h-screen`)**: Each landing page section MUST use `min-h-screen flex flex-col justify-center py-20 lg:py-0` layout framing so 1 section fills the full device viewport when scrolled into view.
-  - **Section Layout Choreography Blueprints**:
-    - **Section A**: Asymmetric Hero (42% Left text + CTA, 58% Right **Above-the-fold Live Product Cockpit**).
-    - **Section B**: Asymmetric Anchor Bento Grid (70% Fitur 1 Anchor Hero + 30% Stacked Fitur 2 & Fitur 3).
-    - **Section C**: Sticky Narrative Split-Screen (35% Sticky step counter + 65% Scrolling preview stream).
-    - **Section D**: Deep-Dive Interactive Workbench ("One Loud Element" tabbed code/output playground).
-    - **Section E**: High-Density Spec & Proof Matrix (Monospace tabular ledger).
+  - **Alternating Layout Cadence**:
+    - **Section 1 (Hero)**: Top-Down Stacked (Centered Text Top $\rightarrow$ Centered Cockpit Visual Bottom).
+    - **Section 2**: Left (Ilustrasi / 70% Anchor Card) $\rightarrow$ Right (Teks Header & Secondary Stacked Cards).
+    - **Section 3**: Left (Teks Header & Surface Selection Tabs) $\rightarrow$ Right (Ilustrasi Interactive Workbench).
+    - **Section 4**: Left (Ilustrasi Visual Security Sandbox Gauge) $\rightarrow$ Right (Teks Header & Specs Ledger Table).
 - 📖 *Deep dive: [10-section-layout-choreography.md](./references/10-section-layout-choreography.md)*
 
 ### 17. Strict Monospace Containment (Font-Mono Hanya untuk Mesin & Kode Riil)

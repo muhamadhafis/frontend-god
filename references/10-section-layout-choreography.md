@@ -68,15 +68,48 @@ graph TD
 
 ---
 
-### Section A: The Asymmetric Hero with Above-the-Fold Cockpit (Pola Linear / Cursor)
+### Section A: The Top-Down Stacked Hero (Pola Clean Software Cockpit)
 
-Antarmuka ini menolak hero teks di tengah. Di layar desktop, layar dibagi secara asimetris:
+Hero dapat menggunakan **Top-Down Stacked Layout** (Teks Terpusat di Atas $\rightarrow$ Cockpit Visual Terpusat di Bawah) atau **Asymmetric Split Layout**. Dalam irama selang-seling (zig-zag):
+
+1. **Section 1 (Hero)**: Top-Down Stacked (Teks Terpusat Top $\rightarrow$ Cockpit Visual Bottom).
+2. **Section 2**: Left (Ilustrasi / 70% Anchor Card) $\rightarrow$ Right (Teks Header & Secondary Stacked Cards).
+3. **Section 3**: Left (Teks Header & Tabs) $\rightarrow$ Right (Ilustrasi Interactive Workbench).
+4. **Section 4**: Left (Ilustrasi Visual Security Gauge) $\rightarrow$ Right (Teks Header & Specs Ledger Table).
 
 ```tsx
-// Pattern Section A: Asymmetric Hero Cockpit
-export function SectionHeroCockpit() {
+// Pattern Section A: Top-Down Stacked Hero Cockpit
+export function SectionHeroStacked() {
   return (
-    <section className="relative min-h-[90vh] border-b border-border/50 px-6 pt-24 pb-16 lg:px-12 flex items-center">
+    <section className="min-h-screen flex flex-col justify-center relative pt-24 pb-16 lg:py-0 overflow-hidden border-b border-border/40">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10 w-full flex flex-col items-center">
+        
+        {/* Top Centered Header Content */}
+        <div className="max-w-3xl mx-auto text-center flex flex-col items-center space-y-6">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-foreground leading-[1.08]">
+            Autonomous AI agents built for software development.
+          </h1>
+          <p className="text-base text-muted-foreground max-w-2xl leading-relaxed font-sans text-center">
+            State-deterministic infrastructure and live workflow orchestration for high-velocity software teams.
+          </p>
+          <div className="flex items-center justify-center gap-3.5 pt-2">
+            <button className="rounded-lg hover:rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-all duration-300 ease-out">
+              Get Started
+            </button>
+          </div>
+        </div>
+
+        {/* Bottom Centered Cockpit Visual */}
+        <div className="max-w-4xl mx-auto mt-10 w-full">
+          <div className="rounded-xl border border-border/60 bg-card p-6 shadow-2xl">
+            {/* Focused visual cockpit */}
+          </div>
+        </div>
+
+      </div>
+    </section>
+  );
+}
       <div className="mx-auto w-full max-w-7xl grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
         
         {/* Kolom Kiri: 42% Visual Space (col-span-5) */}
