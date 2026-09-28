@@ -269,6 +269,9 @@ To eliminate rigid, uniform spacing (`p-6` everywhere), apply the **Extreme Cont
 | **Commit SHAs / Hashes / UUIDs** | `font-mono` ✅ | Sans / Serif ❌ | `font-mono text-[11px] text-muted-foreground` |
 | **Tabular Numbers (Data / Telemetry)**| `font-mono tabular-nums` ✅| Normal sans ❌ | `font-mono text-sm tabular-nums` |
 | **Version Indicators (`v3.2`)** | **`font-sans`** ✅ | `font-mono` ❌ | `font-sans text-xs text-muted-foreground` |
+| **Email Addresses & URLs** | **`font-sans`** ✅ | `font-mono` ❌ | `font-sans text-sm font-semibold` |
+| **Phone Numbers** | **`font-sans`** ✅ | `font-mono` ❌ | `font-sans text-sm text-foreground` |
+| **Table Text Specs & Statuses**| **`font-sans`** ✅ | `font-mono` ❌ | `font-sans text-xs font-medium` |
 | **List Numbers (`01`, `02`, `1`)** | **`font-sans` / `font-serif`** ✅| `font-mono` ❌ | `font-sans text-sm font-semibold tracking-tight` |
 | **Category Eyebrows / Kickers** | **`font-sans`** ✅ | `font-mono` ❌ | `font-sans text-xs font-semibold text-primary` |
 | **Section Subtitles & Badges** | **`font-sans`** ✅ | `font-mono` ❌ | `font-sans text-sm text-muted-foreground` |

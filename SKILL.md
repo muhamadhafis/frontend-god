@@ -179,15 +179,15 @@ Every data-driven component MUST account for all 5 states: **Idle, Loading Skele
 
 ### 17. Strict Monospace Containment (Font-Mono Hanya untuk Mesin & Kode Riil)
 **`font-mono` is a technical tool, not a design cosmetic.**
-- ❌ **FORBIDDEN**: Using `font-mono` on regular labels, version indicators (`v3.2`), list numbers (`01`, `02`), subtitles, and dates to look "technical".
+- ❌ **FORBIDDEN**: Using `font-mono` on regular labels, version indicators (`v3.2`), list numbers (`01`, `02`), subtitles, email addresses (`sample@mail.com`), phone numbers, URLs, table parameter headers, and non-numeric table text (`ENFORCED`, `PASS`, `gVisor / Docker`).
 - ✅ **REQUIRED**:
   - `font-mono` is **STRICTLY RESERVED** for: CLI / Terminal snippets (`$ npm ...`), code blocks, keyboard shortcuts (`<kbd>⌘K</kbd>`), commit SHAs / UUIDs, and tabular financial/telemetry numbers (`tabular-nums font-mono`).
-  - Versions, list numbers, category eyebrows, and subtitles **MUST use standard proportional sans-serif (`font-sans`) or serif (`font-serif`)**.
+  - Email addresses, URLs, phone numbers, versions, list numbers, category eyebrows, subtitles, and table text descriptions **MUST use standard proportional sans-serif (`font-sans`) or serif (`font-serif`)**.
 - 📖 *Deep dive: [01-design-taste-archetypes.md](./references/01-design-taste-archetypes.md#10-the-strict-monospace-containment-law)*
 
 ### 18. Arsitektur Floating Pill Navbar & Modern Footer (Standar Vercel, Linear & Oversized Wordmark Pattern)
 **Frame the product with architectural restraint, poise, and editorial closure.**
-- ✅ **Floating Pill Navbar**: Floating centered inset header (`fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-2rem)] max-w-5xl rounded-full border border-border/40 bg-background/85 backdrop-blur-xl px-4 py-2 flex items-center justify-between`), quiet pill nav links (`hover:text-foreground hover:bg-muted/40 rounded-full px-3 py-1`), subtle `⌘K` search shortcut trigger, single solid primary CTA, and zero theme-toggle clutter.
+- ✅ **Floating Pill Navbar**: Floating centered inset header (`fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-2rem)] max-w-5xl rounded-full border border-border/40 bg-background/85 backdrop-blur-xl px-4 py-2 flex items-center justify-between`), quiet pill nav links (`hover:text-foreground hover:bg-muted/40 rounded-full px-3 py-1 whitespace-nowrap shrink-0`), subtle `⌘K` search shortcut trigger, single solid primary CTA, and zero theme-toggle clutter. All nav links MUST enforce single-line text formatting using `whitespace-nowrap shrink-0`.
 - ✅ **Modern Footer**: Multi-column architectural grid (Product, Platform, Resources, Company, Legal), quiet sans-serif links, live operational status indicator (`border border-emerald-500/30 bg-emerald-500/10 text-emerald-400` + "All systems normal" - **NO interior dot slop & NO `animate-ping`**), and **Oversized Brand Wordmark** (`text-[13vw] font-bold tracking-tighter text-foreground/[0.06]`) for a grounded, editorial closure.
 - 📖 *Deep dive: [10-section-layout-choreography.md](./references/10-section-layout-choreography.md#6-arsitektur-navbar--footer-modern-standar-vercel--linear)*
 
@@ -201,11 +201,20 @@ Every data-driven component MUST account for all 5 states: **Idle, Loading Skele
   4. Subtle inset highlights if tactile emphasis is required (`box-shadow: inset 0 1px 0 0 rgba(255,255,255,0.06)`).
 - 📖 *Deep dive: [01-design-taste-archetypes.md](./references/01-design-taste-archetypes.md#12-zero-drop-shadow-law-haram-heavy-drop-shadows)*
 
+### 20. Haram Unicode Arrow Symbols & Single-Line Nav Discipline
+**Never use raw text unicode arrows (`←`, `->`) or let navbar links wrap into multi-line text.**
+- ❌ **FORBIDDEN**:
+  - Inserting raw text unicode arrows (`←`, `->`, `-->`, `⇒`, `▶`) directly inside button labels, back links, or action text (`← Kirim formulir baru`).
+  - Allowing navbar navigation links to wrap into 2 lines.
+- ✅ **REQUIRED**:
+  - **Optical Iconography**: ALWAYS use Lucide React icon components (`<ArrowLeft className="h-3.5 w-3.5" />`, `<ArrowRight />`, `<ChevronRight />`) with optical sizing and vertical alignment.
+  - **Single-Line Navbar Links**: EVERY navbar link MUST enforce `whitespace-nowrap shrink-0` to remain strictly 1 single line across all screen sizes.
+
 ---
 
 ## Pre-Flight Delivery Gate (Self-Audit Protocol)
 
-**BEFORE delivering any frontend component or page to the user, you MUST silently verify this 17-point checklist:**
+**BEFORE delivering any frontend component or page to the user, you MUST silently verify this 18-point checklist:**
 
 | Check | Item | Verification Criteria |
 | :---: | :--- | :--- |
@@ -224,8 +233,9 @@ Every data-driven component MUST account for all 5 states: **Idle, Loading Skele
 | [ ] | **13. Native Atmosphere** | No unrequested navbar theme toggles. Single atmosphere committed. |
 | [ ] | **14. Asymmetric Layout** | No repetitive 3-column card rows. Section A has Live Cockpit, Section B has 70/30 Anchor Bento. |
 | [ ] | **15. Zero Kicker Slop** | No robotic double-slash `//` kickers or buzzword pills above headings. Confident headlines lead directly. |
-| [ ] | **16. Monospace Containment**| `font-mono` used strictly in terminal/code/tabular contexts. Versions and list numbers use `font-sans`. |
+| [ ] | **16. Monospace Containment**| `font-mono` used strictly in terminal/code/tabular contexts. Emails (`sample@mail.com`), URLs, and versions use `font-sans`. |
 | [ ] | **17. Zero Drop Shadow Law** | No `shadow-` drop shadow classes on floating components. Rely on hairline borders, backdrop blur, and surface layering. |
+| [ ] | **18. Optical Icons & Single Nav** | No text unicode arrows (`←`). All navbar links enforce `whitespace-nowrap shrink-0`. |
 
 If any check fails, fix it immediately before returning code.
 
