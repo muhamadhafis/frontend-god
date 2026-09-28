@@ -49,11 +49,17 @@ const FOOTER_COLUMNS: FooterColumn[] = [
   },
 ];
 
-export function ModernFooter({ className }: { className?: string }) {
+export function ModernFooter({
+  wordmark = "PLATFORM",
+  className,
+}: {
+  wordmark?: string;
+  className?: string;
+}) {
   return (
     <footer
       className={cn(
-        "border-t border-border/50 bg-background pt-16 pb-12 px-4 sm:px-6 lg:px-8",
+        "border-t border-border/50 bg-background pt-16 pb-12 px-4 sm:px-6 lg:px-8 overflow-hidden",
         className
       )}
     >
@@ -116,6 +122,15 @@ export function ModernFooter({ className }: { className?: string }) {
           ))}
 
         </div>
+
+        {/* Oversized Footer Typography / Wordmark Pattern */}
+        {wordmark && (
+          <div className="w-full border-b border-border/30 py-8 sm:py-12 text-center select-none pointer-events-none">
+            <span className="block text-[13vw] font-bold tracking-tighter leading-none text-foreground/[0.06] uppercase">
+              {wordmark}
+            </span>
+          </div>
+        )}
 
         {/* Grounded Bottom Bar: Copyright, Edge Location, & Legal Links */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-muted-foreground font-sans">

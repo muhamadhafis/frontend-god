@@ -58,7 +58,7 @@ The skill includes deep-dive engineering teardowns and token sets for:
 15. **Haram Theme Toggle Tanpa Izin**: Commit to the product's native atmosphere. Never slap a Sun/Moon toggle onto navbars by default.
 16. **Haram 3-Column Card Slop (Asymmetric Layout Choreography)**: Enforce Section A (Hero + Live Cockpit), Section B (Asymmetric Anchor Bento 70/30), Section C (Sticky Narrative Split-Screen), Section D (Interactive Workbench), and Section E (High-Density Spec Matrix).
 17. **Strict Monospace Containment**: `font-mono` is strictly reserved for terminal commands, code, `<kbd>`, and tabular numbers. Versions, list numbers, and subheadings must use `font-sans`.
-18. **Arsitektur Navbar & Footer Modern (Standar Vercel/Linear)**: Minimalist sticky navbar with backdrop-blur, quiet nav links, ⌘K search trigger, solid high-contrast CTA; multi-column architectural footer with live system status indicator.
+18. **Arsitektur Navbar & Footer Modern (Vercel/Linear & Oversized Wordmark Pattern)**: Minimalist sticky navbar with backdrop-blur, quiet nav links, ⌘K search trigger, solid high-contrast CTA; multi-column architectural footer with solid status dot (NO `animate-ping`) and Oversized Brand Wordmark (`text-[13vw] font-bold text-foreground/[0.06]`).
 
 ---
 

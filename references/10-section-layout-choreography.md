@@ -462,10 +462,14 @@ export function ModernNavbar() {
 
 ---
 
-### Section G: The Modern High-Craft Footer (Vercel / Linear Benchmark)
+### Section G: The Modern High-Craft Footer (Vercel / Linear Benchmark & Oversized Wordmark Pattern)
+
+Footer modern masa kini mengombinasikan **grid multi-kolom terstruktur** dengan **Oversized Brand Wordmark** (teks brand raksasa `text-[13vw]` ber-opacity halus `text-foreground/[0.06]`) di bagian penutup. Ini memberikan kesan *editorial closure* yang grounded, berwibawa, dan sangat modern.
+
+> **Aturan Indikator Status**: Tetap menggunakan **dot solid statis** (`size-1.5 rounded-full bg-emerald-500`). **Haram** menggunakan `animate-ping` radar circles.
 
 ```tsx
-// Pattern Section G: Modern High-Craft Footer
+// Pattern Section G: Modern High-Craft Footer with Oversized Wordmark
 export function ModernFooter() {
   const footerColumns = [
     {
@@ -487,7 +491,7 @@ export function ModernFooter() {
   ];
 
   return (
-    <footer className="border-t border-border/50 bg-background pt-16 pb-12 px-6 lg:px-12">
+    <footer className="border-t border-border/50 bg-background pt-16 pb-12 px-6 lg:px-12 overflow-hidden">
       <div className="mx-auto max-w-7xl">
         
         {/* Multi-Column Technical Grid */}
@@ -506,7 +510,7 @@ export function ModernFooter() {
               State-deterministic infrastructure for high-velocity software teams.
             </p>
 
-            {/* Live Operational Status Indicator (Solid Dot) */}
+            {/* Live Operational Status Indicator (Solid Dot - NO animate-ping) */}
             <div className="inline-flex items-center gap-2 rounded-full border border-border/60 bg-muted/30 px-2.5 py-1 text-[11px] text-muted-foreground font-sans">
               <span className="size-1.5 rounded-full bg-emerald-500" />
               <span>All systems normal</span>
@@ -531,6 +535,13 @@ export function ModernFooter() {
 
         </div>
 
+        {/* Oversized Brand Wordmark (Editorial Grounded Closure) */}
+        <div className="w-full border-b border-border/30 py-8 sm:py-12 text-center select-none pointer-events-none">
+          <span className="block text-[13vw] font-bold tracking-tighter leading-none text-foreground/[0.06] uppercase">
+            PLATFORM
+          </span>
+        </div>
+
         {/* Bottom Bar: Copyright & Subtle Region Badge */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-muted-foreground font-sans">
           <p>© 2026 Platform Systems, Inc. All rights reserved.</p>
@@ -538,6 +549,14 @@ export function ModernFooter() {
             <span>Edge: Frankfurt (fra1)</span>
             <span>Privacy</span>
             <span>Security</span>
+          </div>
+        </div>
+
+      </div>
+    </footer>
+  );
+}
+```
           </div>
         </div>
 

@@ -179,10 +179,10 @@ Every data-driven component MUST account for all 5 states: **Idle, Loading Skele
   - Versions, list numbers, category eyebrows, and subtitles **MUST use standard proportional sans-serif (`font-sans`) or serif (`font-serif`)**.
 - 📖 *Deep dive: [01-design-taste-archetypes.md](./references/01-design-taste-archetypes.md#10-the-strict-monospace-containment-law)*
 
-### 18. Arsitektur Navbar & Footer Modern (Standar Vercel & Linear Tanpa Clutter)
-**Frame the product with architectural restraint and poise.**
+### 18. Arsitektur Navbar & Footer Modern (Standar Vercel, Linear & Oversized Wordmark Pattern)
+**Frame the product with architectural restraint, poise, and editorial closure.**
 - ✅ **Modern Navbar**: Minimalist sticky header with `border-b border-border/40 backdrop-blur-md bg-background/80`, quiet sans-serif nav links (`hover:text-foreground hover:bg-muted/40`), subtle `⌘K` search shortcut trigger, single solid high-contrast primary CTA, and zero theme-toggle clutter.
-- ✅ **Modern Footer**: Multi-column architectural grid (Product, Platform, Resources, Company, Legal), quiet sans-serif links, live operational status indicator (`size-1.5 rounded-full bg-emerald-500` + "All systems normal"), and clean grounded copyright bar.
+- ✅ **Modern Footer**: Multi-column architectural grid (Product, Platform, Resources, Company, Legal), quiet sans-serif links, live operational status indicator (`size-1.5 rounded-full bg-emerald-500` + "All systems normal" - **NO `animate-ping`**), and **Oversized Brand Wordmark** (`text-[13vw] font-bold tracking-tighter text-foreground/[0.06]`) for a grounded, editorial closure.
 - 📖 *Deep dive: [10-section-layout-choreography.md](./references/10-section-layout-choreography.md#6-arsitektur-navbar--footer-modern-standar-vercel--linear)*
 
 ---
