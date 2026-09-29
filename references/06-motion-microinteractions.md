@@ -132,20 +132,20 @@ export function AccessibleCard() {
 ### The Required Tailwind Class Chain for Rounded Hover Morphing:
 
 ```tsx
-// ❌ WRONG (border-radius pops instantly without animation):
+// ❌ WRONG (border-radius pops in <0.5ms due to 9999px CSS clamping):
 <button className="rounded-lg hover:rounded-full transition duration-300">
   Click me
 </button>
 
-// ✅ CORRECT (liquid-smooth radius interpolation + zero content bleed):
-<button className="rounded-lg hover:rounded-full transition-all duration-300 ease-out overflow-hidden">
+// ✅ CORRECT (liquid-smooth 24px radius interpolation + zero content bleed):
+<button className="rounded-lg hover:rounded-3xl transition-all duration-300 ease-out overflow-hidden">
   Click me
 </button>
 ```
 
 ### Key Technical Pillars:
-1. `transition-all`: Forces Tailwind/CSS to include `border-radius` in the transition property matrix.
-2. `duration-300`: Standard 300ms duration allows human eyes to track the pill morph smoothly.
-3. `ease-out`: Decelerates near completion for a natural physical feel.
-4. `overflow-hidden`: Clips child content and background layers during border radius interpolation.
+1. **`transition-all`**: Forces Tailwind/CSS to include `border-radius` in the transition property matrix.
+2. **`hover:rounded-3xl` (24px)**: Avoids CSS 9999px clamping (`hover:rounded-full`). A 24px target radius creates a 16px delta ($8\text{px} \rightarrow 24\text{px}$), allowing human eyes to perceive every frame of the 300ms curve morphing animation.
+3. **`duration-300 ease-out`**: Standard 300ms duration with natural deceleration.
+4. **`overflow-hidden`**: Clips child content and background layers during border radius interpolation.
 

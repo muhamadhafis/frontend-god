@@ -62,7 +62,7 @@ export function AdvancedRegionSelect({
     <SelectPrimitive.Root value={value} onValueChange={onValueChange} defaultValue="fra1">
       <SelectPrimitive.Trigger
         className={cn(
-          "flex h-9 w-[280px] items-center justify-between rounded-lg hover:rounded-full border border-border/70 bg-card px-3 py-2 text-xs font-sans text-foreground",
+          "flex h-9 w-[280px] items-center justify-between rounded-lg hover:rounded-3xl border border-border/70 bg-card px-3 py-2 text-xs font-sans text-foreground overflow-hidden",
           "transition-all duration-300 ease-out hover:bg-accent/50 hover:border-border",
           "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background",
           "disabled:cursor-not-allowed disabled:opacity-50",

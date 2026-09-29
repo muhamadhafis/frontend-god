@@ -107,7 +107,7 @@ export function ModernNavbar({
           <a
             href="#get-started"
             className={cn(
-              "inline-flex h-8 items-center justify-center rounded-lg hover:rounded-full bg-foreground px-3.5 text-xs font-medium text-background",
+              "inline-flex h-8 items-center justify-center rounded-lg hover:rounded-3xl bg-foreground px-3.5 text-xs font-medium text-background overflow-hidden",
               "transition-all duration-300 ease-out active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring whitespace-nowrap shrink-0"
             )}
           >

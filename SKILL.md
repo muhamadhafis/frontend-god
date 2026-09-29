@@ -92,7 +92,7 @@ Know exactly when to choose which primitive:
 Every data-driven component MUST account for all 5 states: **Idle, Loading Skeleton (Zero CLS), Actionable Empty State, Human-Friendly Error Boundary, and Optimistic UI**.
 - Motion must use **Spring Physics** (`{ type: "spring", stiffness: 400, damping: 30 }`), not robotic linear easings.
 - Enforce the "100ms Feel": tooltip delay 150ms, tactile button press `active:scale-[0.98]`, and prominent focus-visible rings.
-- **Button Hover Pill Morphing Rule**: Action buttons MUST morph smoothly from standard system radii (`rounded-lg` / `rounded-md`) into a `hover:rounded-full` shape on hover. **Tailwind CSS Directive**: Because standard Tailwind `transition` class ignores `border-radius` by default, buttons MUST specify `transition-all duration-300 ease-out overflow-hidden` to ensure `border-radius` interpolates liquid-smoothly without content bleed.
+- **Button Hover Pill Morphing Rule**: Action buttons MUST morph smoothly from standard system radii (`rounded-lg` / `rounded-md`) into a full pill shape on hover. **Tailwind CSS & CSS Clamping Directive**: Do NOT use `hover:rounded-full` (`9999px` CSS clamping causes the animation to complete in <0.5ms, appearing instant/unanimated). ALWAYS use `hover:rounded-3xl` (`24px` radius delta) paired with `transition-all duration-300 ease-out overflow-hidden` so the 300ms curving animation is buttery-smooth and clearly visible to human eyes.
 - 📖 *Deep dive: [06-motion-microinteractions.md](./references/06-motion-microinteractions.md) & [07-state-ux-polish.md](./references/07-state-ux-polish.md)*
 
 ### 9. Extreme Text Restraint & High-Velocity Scannability (Zero Wall-of-Text)

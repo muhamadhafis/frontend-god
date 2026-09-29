@@ -35,7 +35,7 @@ export function AdvancedDropdownMenuDemo() {
         <button
           type="button"
           className={cn(
-            "inline-flex h-9 items-center gap-2 rounded-lg hover:rounded-full border border-border/70 bg-card px-3 text-xs font-medium text-foreground",
+            "inline-flex h-9 items-center gap-2 rounded-lg hover:rounded-3xl border border-border/70 bg-card px-3 text-xs font-medium text-foreground overflow-hidden",
             "transition-all duration-300 ease-out hover:bg-accent hover:text-accent-foreground",
             "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background",
             "data-[state=open]:border-primary/80"
