@@ -121,3 +121,31 @@ export function AccessibleCard() {
 // In Tailwind CSS:
 // <div className="transition-transform duration-200 motion-reduce:transition-none motion-reduce:transform-none" />
 ```
+
+---
+
+## 5. Tailwind CSS Border-Radius Hover Transition Formula
+
+> **Why standard `transition` fails on `rounded-*`**:  
+> Tailwind CSS's default `transition` class only targets `color`, `background-color`, `border-color`, `opacity`, `shadow`, and `transform`. **It explicitly excludes `border-radius`.**
+
+### The Required Tailwind Class Chain for Rounded Hover Morphing:
+
+```tsx
+// ❌ WRONG (border-radius pops instantly without animation):
+<button className="rounded-lg hover:rounded-full transition duration-300">
+  Click me
+</button>
+
+// ✅ CORRECT (liquid-smooth radius interpolation + zero content bleed):
+<button className="rounded-lg hover:rounded-full transition-all duration-300 ease-out overflow-hidden">
+  Click me
+</button>
+```
+
+### Key Technical Pillars:
+1. `transition-all`: Forces Tailwind/CSS to include `border-radius` in the transition property matrix.
+2. `duration-300`: Standard 300ms duration allows human eyes to track the pill morph smoothly.
+3. `ease-out`: Decelerates near completion for a natural physical feel.
+4. `overflow-hidden`: Clips child content and background layers during border radius interpolation.
+
