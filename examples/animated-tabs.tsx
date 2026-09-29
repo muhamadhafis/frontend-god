@@ -70,7 +70,7 @@ export function AnimatedTabs({
             {isActive && (
               <motion.div
                 layoutId="activeTabIndicator"
-                className="absolute inset-0 rounded-lg bg-background shadow-xs border border-border/60"
+                className="absolute inset-0 rounded-lg bg-background border border-border/60"
                 transition={{
                   type: "spring",
                   stiffness: 450,

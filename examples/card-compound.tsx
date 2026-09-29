@@ -22,10 +22,10 @@ export function Card({
       <div
         className={cn(
           "@container relative flex flex-col rounded-xl border border-border/60 bg-card text-card-foreground transition-all duration-200",
-          variant === "default" && "shadow-xs hover:border-border/80",
+          variant === "default" && "hover:border-border/80",
           variant === "interactive" &&
-            "cursor-pointer shadow-xs hover:-translate-y-0.5 hover:border-border hover:shadow-md active:scale-[0.99]",
-          variant === "flat" && "border-border/40 shadow-none",
+            "cursor-pointer hover:-translate-y-0.5 hover:border-border active:scale-[0.99]",
+          variant === "flat" && "border-border/40",
           className
         )}
         {...props}

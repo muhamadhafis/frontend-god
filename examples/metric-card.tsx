@@ -1,4 +1,5 @@
 import * as React from "react";
+import { TrendingUp, TrendingDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 export interface MetricCardProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -24,26 +25,20 @@ export function MetricCard({
   return (
     <div
       className={cn(
-        "@container relative flex flex-col justify-between overflow-hidden rounded-xl border border-border/60 bg-card p-5 text-card-foreground shadow-xs transition-all hover:border-border/80",
+        "@container relative flex flex-col justify-between overflow-hidden rounded-xl border border-border/60 bg-card p-5 text-card-foreground transition-all hover:border-border/80",
         className
       )}
       {...props}
     >
-      {/* Top Header: Label & Live Ping Status */}
+      {/* Top Header: Label & Clean Status Badge */}
       <div className="flex items-center justify-between gap-2">
-        <span className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground select-none">
+        <span className="text-xs font-semibold text-muted-foreground select-none font-sans">
           {label}
         </span>
         {status === "live" && (
-          <div className="flex items-center gap-1.5" title="Live streaming telemetry">
-            <span className="relative flex size-2">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
-              <span className="relative inline-flex size-2 rounded-full bg-emerald-500" />
-            </span>
-            <span className="text-[10px] font-medium text-emerald-500 uppercase tracking-tight">
-              Live
-            </span>
-          </div>
+          <span className="rounded border border-emerald-500/30 bg-emerald-500/10 px-2 py-0.5 text-[10px] font-sans font-medium text-emerald-400">
+            LIVE
+          </span>
         )}
       </div>
 
@@ -56,23 +51,25 @@ export function MetricCard({
         {delta && (
           <span
             className={cn(
-              "inline-flex items-center gap-0.5 rounded-md px-1.5 py-0.5 text-xs font-semibold tabular-nums",
+              "inline-flex items-center gap-1 rounded border px-1.5 py-0.5 text-xs font-sans font-semibold tabular-nums",
               delta.isPositive
-                ? "bg-emerald-500/10 text-emerald-500"
-                : "bg-rose-500/10 text-rose-500"
+                ? "border-emerald-500/30 bg-emerald-500/10 text-emerald-400"
+                : "border-rose-500/30 bg-rose-500/10 text-rose-400"
             )}
           >
-            <span aria-hidden="true" className="text-[10px]">
-              {delta.isPositive ? "↑" : "↓"}
-            </span>
-            {delta.value}
+            {delta.isPositive ? (
+              <TrendingUp className="size-3" />
+            ) : (
+              <TrendingDown className="size-3" />
+            )}
+            <span>{delta.value}</span>
           </span>
         )}
       </div>
 
       {/* Contextual Subtext */}
       {subtext && (
-        <p className="mt-2 text-xs text-muted-foreground leading-relaxed">
+        <p className="mt-2 text-xs text-muted-foreground leading-relaxed font-sans">
           {subtext}
         </p>
       )}

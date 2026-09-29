@@ -4,16 +4,16 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 export const buttonVariants = cva(
-  "inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:pointer-events-none disabled:opacity-50 select-none active:scale-[0.98]",
+  "inline-flex items-center justify-center whitespace-nowrap rounded-lg hover:rounded-full text-sm font-medium transition-all duration-300 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:pointer-events-none disabled:opacity-50 select-none active:scale-[0.98] cursor-pointer",
   {
     variants: {
       variant: {
         default:
-          "bg-primary text-primary-foreground shadow-sm hover:bg-primary/90 hover:shadow",
+          "bg-primary text-primary-foreground hover:bg-primary/90 font-semibold",
         secondary:
-          "bg-secondary text-secondary-foreground shadow-xs hover:bg-secondary/80",
+          "bg-secondary text-secondary-foreground hover:bg-secondary/80 border border-border/40",
         destructive:
-          "bg-destructive text-destructive-foreground shadow-xs hover:bg-destructive/90",
+          "bg-destructive text-destructive-foreground hover:bg-destructive/90",
         outline:
           "border border-border/80 bg-background/50 text-foreground hover:bg-accent hover:text-accent-foreground backdrop-blur-xs",
         ghost:
@@ -23,13 +23,13 @@ export const buttonVariants = cva(
         minimal:
           "border border-transparent text-muted-foreground hover:border-border/60 hover:text-foreground",
         glow:
-          "relative bg-primary text-primary-foreground shadow-[0_0_20px_-3px_rgba(255,255,255,0.25)] hover:shadow-[0_0_25px_-2px_rgba(255,255,255,0.4)]",
+          "relative bg-primary text-primary-foreground border border-primary/40 hover:bg-primary/90",
       },
       size: {
-        xs: "h-7 rounded-sm px-2 text-xs gap-1.5",
+        xs: "h-7 rounded-md px-2 text-xs gap-1.5",
         sm: "h-8 rounded-md px-3 text-xs gap-1.5",
         md: "h-9 px-4 py-2 text-sm gap-2",
-        lg: "h-10 rounded-md px-6 text-base font-semibold gap-2.5",
+        lg: "h-10 rounded-xl px-6 text-base font-semibold gap-2.5",
         icon: "size-9 p-0 justify-center",
         "icon-sm": "size-7 p-0 justify-center",
       },

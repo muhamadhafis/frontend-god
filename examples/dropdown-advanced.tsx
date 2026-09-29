@@ -35,8 +35,8 @@ export function AdvancedDropdownMenuDemo() {
         <button
           type="button"
           className={cn(
-            "inline-flex h-9 items-center gap-2 rounded-lg border border-border/70 bg-card px-3 text-xs font-medium text-foreground",
-            "shadow-xs transition-colors hover:bg-accent hover:text-accent-foreground",
+            "inline-flex h-9 items-center gap-2 rounded-lg hover:rounded-full border border-border/70 bg-card px-3 text-xs font-medium text-foreground",
+            "transition-all duration-300 ease-out hover:bg-accent hover:text-accent-foreground",
             "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background",
             "data-[state=open]:border-primary/80"
           )}
@@ -51,14 +51,14 @@ export function AdvancedDropdownMenuDemo() {
           sideOffset={6}
           align="start"
           className={cn(
-            "z-50 min-w-[240px] overflow-hidden rounded-xl border border-border/80 bg-popover p-1 text-popover-foreground shadow-xl backdrop-blur-md",
+            "z-50 min-w-[240px] overflow-hidden rounded-xl border border-border/80 bg-popover p-1 text-popover-foreground backdrop-blur-md",
             "data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95",
             "data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95",
             "data-[side=bottom]:slide-in-from-top-2 data-[side=top]:slide-in-from-bottom-2"
           )}
         >
-          <DropdownMenuPrimitive.Label className="px-2 py-1.5 font-mono text-[10px] uppercase tracking-widest text-muted-foreground select-none">
-            Project // core-platform
+          <DropdownMenuPrimitive.Label className="px-2 py-1.5 font-sans text-[10px] font-semibold uppercase tracking-wider text-muted-foreground select-none">
+            Project Workspace
           </DropdownMenuPrimitive.Label>
 
           <DropdownMenuPrimitive.Group>
@@ -107,7 +107,7 @@ export function AdvancedDropdownMenuDemo() {
                 sideOffset={4}
                 alignOffset={-4}
                 className={cn(
-                  "z-50 min-w-[200px] overflow-hidden rounded-xl border border-border/80 bg-popover p-1 text-popover-foreground shadow-2xl backdrop-blur-md",
+                  "z-50 min-w-[200px] overflow-hidden rounded-xl border border-border/80 bg-popover p-1 text-popover-foreground backdrop-blur-md",
                   "data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95",
                   "data-[side=right]:slide-in-from-left-2 data-[side=left]:slide-in-from-right-2"
                 )}

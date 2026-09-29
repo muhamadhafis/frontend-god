@@ -62,8 +62,8 @@ export function AdvancedRegionSelect({
     <SelectPrimitive.Root value={value} onValueChange={onValueChange} defaultValue="fra1">
       <SelectPrimitive.Trigger
         className={cn(
-          "flex h-9 w-[280px] items-center justify-between rounded-lg border border-border/70 bg-card px-3 py-2 text-xs font-mono text-foreground",
-          "shadow-xs transition-all duration-150 hover:bg-accent/50 hover:border-border",
+          "flex h-9 w-[280px] items-center justify-between rounded-lg hover:rounded-full border border-border/70 bg-card px-3 py-2 text-xs font-sans text-foreground",
+          "transition-all duration-300 ease-out hover:bg-accent/50 hover:border-border",
           "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background",
           "disabled:cursor-not-allowed disabled:opacity-50",
           className
@@ -79,7 +79,7 @@ export function AdvancedRegionSelect({
       <SelectPrimitive.Portal>
         <SelectPrimitive.Content
           className={cn(
-            "relative z-50 max-h-72 min-w-[280px] overflow-hidden rounded-xl border border-border/80 bg-popover text-popover-foreground shadow-xl backdrop-blur-md",
+            "relative z-50 max-h-72 min-w-[280px] overflow-hidden rounded-xl border border-border/80 bg-popover text-popover-foreground backdrop-blur-md",
             "data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95",
             "data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95",
             "data-[side=bottom]:slide-in-from-top-2 data-[side=top]:slide-in-from-bottom-2"
@@ -212,7 +212,7 @@ export function SearchableFrameworkPicker({
           {/* Backdrop click interceptor */}
           <div className="fixed inset-0 z-40" onClick={() => setIsOpen(false)} />
 
-          <div className="absolute left-0 top-full z-50 mt-1.5 w-full rounded-xl border border-border/80 bg-popover p-1 text-popover-foreground shadow-xl backdrop-blur-md">
+          <div className="absolute left-0 top-full z-50 mt-1.5 w-full rounded-xl border border-border/80 bg-popover p-1 text-popover-foreground backdrop-blur-md">
             {/* Search Input Box */}
             <div className="relative flex items-center border-b border-border/40 px-2 pb-1.5 pt-1">
               <Search className="size-3.5 text-muted-foreground shrink-0 mr-2" />

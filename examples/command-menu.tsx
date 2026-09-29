@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import { Search } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 export interface CommandItem {
@@ -76,13 +77,11 @@ export function CommandPalette({
       {/* Modal Dialog */}
       <div
         onKeyDown={handleKeyDown}
-        className="relative z-50 w-full max-w-xl overflow-hidden rounded-xl border border-border/80 bg-popover shadow-2xl text-popover-foreground transition-all duration-150 animate-in fade-in-0 zoom-in-95"
+        className="relative z-50 w-full max-w-xl overflow-hidden rounded-xl border border-border/80 bg-popover text-popover-foreground transition-all duration-150 animate-in fade-in-0 zoom-in-95"
       >
         {/* Search Input Bar */}
         <div className="flex items-center border-b border-border/50 px-4">
-          <span className="text-muted-foreground mr-2 text-sm select-none" aria-hidden="true">
-            🔍
-          </span>
+          <Search className="size-4 text-muted-foreground mr-2 shrink-0" />
           <input
             type="text"
             value={search}

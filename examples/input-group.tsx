@@ -14,7 +14,7 @@ export const InputGroup = React.forwardRef<HTMLDivElement, InputGroupProps>(
       <div
         ref={ref}
         className={cn(
-          "group relative flex w-full items-center rounded-md border border-input bg-background/50 text-sm shadow-xs transition-colors",
+          "group relative flex w-full items-center rounded-md border border-input bg-background/50 text-sm transition-colors",
           "focus-within:border-ring focus-within:ring-2 focus-within:ring-ring/20 focus-within:outline-hidden",
           hasError && "border-destructive focus-within:border-destructive focus-within:ring-destructive/20",
           isDisabled && "cursor-not-allowed opacity-50 bg-muted/30",
@@ -64,7 +64,7 @@ InputField.displayName = "InputField";
 
 export function KbdBadge({ children }: { children: React.ReactNode }) {
   return (
-    <kbd className="pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border border-border/80 bg-muted px-1.5 font-mono text-[10px] font-medium text-muted-foreground shadow-2xs">
+    <kbd className="pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border border-border/80 bg-muted px-1.5 font-mono text-[10px] font-medium text-muted-foreground">
       {children}
     </kbd>
   );

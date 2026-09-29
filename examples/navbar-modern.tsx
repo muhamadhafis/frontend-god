@@ -69,7 +69,7 @@ export function ModernNavbar({
               <a
                 key={item.label}
                 href={item.href}
-                className="px-3 py-1.5 rounded-md hover:text-foreground hover:bg-muted/40 transition-colors"
+                className="px-3 py-1.5 rounded-full hover:text-foreground hover:bg-muted/40 transition-colors whitespace-nowrap shrink-0"
               >
                 {item.label}
               </a>
@@ -84,12 +84,12 @@ export function ModernNavbar({
             type="button"
             onClick={onOpenSearch}
             className={cn(
-              "hidden sm:flex h-8 items-center gap-2 rounded-lg border border-border/60 bg-muted/20 px-2.5 text-xs text-muted-foreground",
+              "hidden sm:flex h-8 items-center gap-2 rounded-full border border-border/60 bg-muted/20 px-2.5 text-xs text-muted-foreground",
               "transition-colors hover:border-border hover:text-foreground focus:outline-none focus:ring-2 focus:ring-ring"
             )}
           >
             <Search className="size-3.5 opacity-60" />
-            <span>Search docs...</span>
+            <span className="whitespace-nowrap">Search docs...</span>
             <kbd className="rounded border border-border bg-muted/60 px-1.5 py-0.5 font-mono text-[10px] tracking-wider text-muted-foreground">
               ⌘K
             </kbd>
@@ -98,7 +98,7 @@ export function ModernNavbar({
           {/* Secondary Quiet Link */}
           <a
             href="#sign-in"
-            className="hidden sm:inline-flex text-xs font-medium text-muted-foreground hover:text-foreground transition-colors px-2 py-1.5"
+            className="hidden sm:inline-flex text-xs font-medium text-muted-foreground hover:text-foreground transition-colors px-2 py-1.5 whitespace-nowrap shrink-0"
           >
             Sign In
           </a>
@@ -107,8 +107,8 @@ export function ModernNavbar({
           <a
             href="#get-started"
             className={cn(
-              "inline-flex h-8 items-center justify-center rounded-lg bg-foreground px-3.5 text-xs font-medium text-background",
-              "shadow-xs transition-all hover:opacity-90 active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              "inline-flex h-8 items-center justify-center rounded-lg hover:rounded-full bg-foreground px-3.5 text-xs font-medium text-background",
+              "transition-all duration-300 ease-out active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring whitespace-nowrap shrink-0"
             )}
           >
             Get Started
