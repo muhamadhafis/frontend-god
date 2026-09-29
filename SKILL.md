@@ -210,11 +210,23 @@ Every data-driven component MUST account for all 5 states: **Idle, Loading Skele
   - **Optical Iconography**: ALWAYS use Lucide React icon components (`<ArrowLeft className="h-3.5 w-3.5" />`, `<ArrowRight />`, `<ChevronRight />`) with optical sizing and vertical alignment.
   - **Single-Line Navbar Links**: EVERY navbar link MUST enforce `whitespace-nowrap shrink-0` to remain strictly 1 single line across all screen sizes.
 
+### 21. Haram Hand-Rolled Forms & Strict Input Validation Law (shadcn/ui Primitives, Indonesian Phone 08/628 & Anti-XSS Sanitization)
+**Every form created MUST leverage shadcn/ui or Base UI primitives and enforce strict input validation.**
+- ❌ **FORBIDDEN**:
+  - Hand-rolling custom unvalidated `<input>` wrappers without shadcn/ui or Base UI form primitives (`Form`, `FormField`, `FormItem`, `FormLabel`, `FormControl`, `FormMessage`).
+  - Allowing arbitrary string input for phone numbers (e.g. accepting letters, symbols like `+`, or non-Indonesian prefix formats).
+  - Accepting dangerous programming code injection symbols (`<`, `>`, `!`, `(`, `)`, `?`, `/`, `\`, `{`, `}`, `;`, `$`) inside normal text fields (Name, Message, Subtitle).
+- ✅ **REQUIRED**:
+  - **shadcn/ui Form Primitives**: Use `Form` + `react-hook-form` + `zod` for all interactive forms.
+  - **Indonesian Phone Format (`08` / `628`)**: Phone inputs MUST contain ONLY numeric digits (`0-9`) and MUST start with prefix `08` or `628` (`/^(08|628)[0-9]{8,11}$/`).
+  - **XSS & Code Symbol Sanitization**: Text fields MUST reject programming injection symbols (`< > ! ( ) ? / \ { } $ ;`). Names MUST enforce `/^[a-zA-Z\s'-]{2,50}$/`.
+- 📖 *Deep dive: [03-shadcn-ui-guide.md](./references/03-shadcn-ui-guide.md) & [07-state-ux-polish.md](./references/07-state-ux-polish.md#6-strict-input-validation--xss-character-sanitization-protocol)*
+
 ---
 
 ## Pre-Flight Delivery Gate (Self-Audit Protocol)
 
-**BEFORE delivering any frontend component or page to the user, you MUST silently verify this 18-point checklist:**
+**BEFORE delivering any frontend component or page to the user, you MUST silently verify this 19-point checklist:**
 
 | Check | Item | Verification Criteria |
 | :---: | :--- | :--- |
@@ -236,6 +248,7 @@ Every data-driven component MUST account for all 5 states: **Idle, Loading Skele
 | [ ] | **16. Monospace Containment**| `font-mono` used strictly in terminal/code/tabular contexts. Emails (`sample@mail.com`), URLs, and versions use `font-sans`. |
 | [ ] | **17. Zero Drop Shadow Law** | No `shadow-` drop shadow classes on floating components. Rely on hairline borders, backdrop blur, and surface layering. |
 | [ ] | **18. Optical Icons & Single Nav** | No text unicode arrows (`←`). All navbar links enforce `whitespace-nowrap shrink-0`. |
+| [ ] | **19. Form Primitives & Validation** | Built with shadcn/ui primitives (`Form`, `FormField`). Indonesian phone format (`08`/`628`) & anti-XSS code symbol sanitization enforced. |
 
 If any check fails, fix it immediately before returning code.
 

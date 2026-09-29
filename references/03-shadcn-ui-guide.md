@@ -426,3 +426,46 @@ export function ResponsiveFormModal({
 - [ ] **Surface-Aware Borders**: Gunakan `border-border/70` atau `border-border/50` daripada border pekat solid.
 - [ ] **Accessible Focus Rings**: Pertahankan `focus-visible:ring-offset-background` agar cincin fokus tidak tenggelam di background gelap.
 - [ ] **Haram Custom Div Dropdowns**: Selalu gunakan komponen primitif Radix/shadcn yang sudah 100% compliant WAI-ARIA.
+
+---
+
+## 7. Standard Zod Validation Schemas (Indonesian Phone 08/628 & Anti-XSS Sanitization)
+
+When constructing forms with shadcn `<Form>`, use these standardized Zod schemas:
+
+```typescript
+import { z } from "zod";
+
+export const contactFormSchema = z.object({
+  // Name: 2-50 characters, letters/spaces/hyphens/apostrophes only (No < ! ( ) ? / \ $ { } ;)
+  name: z
+    .string()
+    .min(2, "Nama minimal 2 karakter")
+    .max(50, "Nama maksimal 50 karakter")
+    .regex(
+      /^[a-zA-Z\s'-]+$/,
+      "Nama hanya boleh berupa huruf dan tidak boleh mengandung simbol program (< ! ( ) ? / dll)"
+    ),
+
+  // Email: Standard RFC email format
+  email: z.string().email("Format email tidak valid (contoh: user@domain.com)"),
+
+  // Indonesian Phone: Only digits, MUST start with 08 or 628 (10-13 digits total)
+  phone: z
+    .string()
+    .regex(
+      /^(08|628)[0-9]{8,11}$/,
+      "No. telp wajib diawali 08 atau 628 dan hanya boleh berisi 10-13 digit angka"
+    ),
+
+  // Message/Reason: Must reject code injection symbols (< > ! ( ) ? / \ { } $ ;)
+  reason: z
+    .string()
+    .min(5, "Alasan / pesan minimal 5 karakter")
+    .refine(
+      (val) => !/[<>/\\\{\}\$\;\!\?\(\)]/.test(val),
+      "Pesan tidak boleh mengandung simbol program (< ! ( ) ? / \\ dll)"
+    ),
+});
+```
+

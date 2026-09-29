@@ -147,3 +147,20 @@ Always verify your components with stress test inputs:
    ```
 2. **Numeric Precision**: Quantities with commas and currency signs. Always apply `font-mono tabular-nums`.
 3. **Empty Arrays**: How does the table render when `rows = []`? Does it crash on `.map()` or render an empty state?
+
+---
+
+## 6. Strict Input Validation & XSS Character Sanitization Protocol
+
+> **Form Ergonomics Rule**: Never allow invalid strings or dangerous script injection symbols to reach your server or submit action.  
+> Senior design engineers validate inputs in real-time and provide explicit, human-friendly error messages below each field using shadcn `<FormMessage>`.
+
+### Validation Matrix:
+
+| Field Type | Allowed Pattern | Forbidden Input | Standard Error Message |
+| :--- | :--- | :--- | :--- |
+| **Indonesian Phone** | `/^(08\|628)[0-9]{8,11}$/` | Letters, `+`, `(`, `)`, non-08/628 prefixes | *"No. telp wajib diawali 08 atau 628 dan hanya boleh berisi 10-13 digit angka"* |
+| **Full Name** | `/^[a-zA-Z\s'-]{2,50}$/` | `< > ! ( ) ? / \ { } $ ;` | *"Nama hanya boleh berisi huruf (2-50 karakter) dan tidak boleh mengandung simbol program"* |
+| **Email Address** | `/^[^\s@]+@[^\s@]+\.[^\s@]+$/` | Missing `@`, spaces, invalid domains | *"Format email tidak valid (contoh: user@domain.com)"* |
+| **Pesan / Reason** | `/[<>/\\\{\}\$\;\!\?\(\)]/` (Rejects symbols) | Script tags (`<script>`), `{}` | *"Pesan tidak boleh mengandung simbol program (< ! ( ) ? / \\ dll)"* |
+
