@@ -1,6 +1,6 @@
 ---
 name: frontend-god
-description: "Senior Frontend & Design Engineer skill for React & Next.js. Crafts non-AI-slop interfaces, reusable compound components, shadcn/ui & Base UI integrations, optical iconography, spring motion, container queries, section layout choreography, and 5-state UX polish."
+description: "Senior Frontend & Design Engineer skill for React 19, Next.js & Vite. Crafts non-AI-slop interfaces, B2B cockpit high-density dashboards, Tailwind CSS v4 (@theme) & shadcn/ui integrations, compound components, optical iconography, spring motion, container queries, section choreography, and 27-point delivery gate polish."
 allowed-tools: Read Write Edit Glob Grep
 ---
 
@@ -44,9 +44,9 @@ Before writing any markup, align with one of the 10 Gold Standard Style Signatur
 
 ---
 
-## The 16 Golden Commandments of Frontend God
+## The Golden Commandments of Frontend God
 
-Every interface and component built under this skill MUST obey these sixteen non-negotiable rules:
+Every interface and component built under this skill MUST obey these non-negotiable rules:
 
 ### 1. Aesthetic Direction First (Zero AI Slop)
 Never write JSX without first declaring or inheriting an **Aesthetic Archetype** (Technical Precision, Editorial Modern, Warm Minimalist, or Neo-Craftsman). Reject generic AI tells:
@@ -60,19 +60,21 @@ In any grid or dashboard section, **never render identical copy-paste cards**.
 - Secondary items must have subordinate hierarchy. Vary rhythm, height, or density deliberately.
 - 📖 *Deep dive: [01-design-taste-archetypes.md](./references/01-design-taste-archetypes.md#2-the-anchor-cadence-rule-break-visual-monotony)*
 
-### 3. Composable Architecture & Semantic Tokens
+### 3. Composable Architecture & Semantic Tokens (OKLCH Strictness)
 - Build components using **Compound Components** (`<Card.Header>`, `<Card.Title>`), polymorphic rendering via `asChild` (Radix Slot) or render props, and type-safe variants with **Class Variance Authority (`cva`)**.
-- **Zero Hardcoded Colors**: Never write arbitrary colors like `bg-blue-600` or `#1e293b`. All colors must route through semantic CSS tokens (`bg-primary`, `text-muted-foreground`, `border-border`).
+- **Zero Hardcoded Colors & OKLCH Semantic Discipline**: Never write arbitrary hardcoded colors like `bg-blue-600`, `bg-[#1c1c1a]`, or `bg-[#ffffff]`. All colors must route through semantic CSS tokens (`bg-primary`, `bg-background`, `bg-card`, `text-foreground`, `text-muted-foreground`, `border-border`) backed by native OKLCH or HSL CSS variables. Never mix hardcoded hex with semantic tokens.
 - 📖 *Deep dive: [02-component-architecture.md](./references/02-component-architecture.md)*
 
 ### 4. Container Queries for True Modularity
 Reusable components (cards, widgets, inputs) must not rely solely on viewport `@media` breakpoints (`md:`, `lg:`). Use **CSS Container Queries** (`@container`, `@sm:`, `@md:`) so components adapt intelligently whether placed in a full-width grid, a modal, or a 320px sidebar.
 - 📖 *Deep dive: [02-component-architecture.md](./references/02-component-architecture.md#4-container-queries-for-modular-components-container)*
 
-### 5. Next.js App Router & React 19 Boundaries
+### 5. Next.js App Router & React 19 Boundaries (Actions, Transitions & Hydration Safety)
 - Keep components as **React Server Components (RSC)** by default.
 - Push `'use client'` down to the smallest interactive leaf nodes.
-- Use `useOptimistic` for instant feedback and `useTransition` for non-blocking UI updates.
+- **React 19 Action & Transition Hooks**: Prioritize `useActionState`, `useOptimistic`, and `useTransition` for asynchronous mutations and forms. Stop writing boilerplate manual `const [loading, setLoading] = useState(false)` loops.
+- **Graceful Network & Abort Handling**: Every asynchronous interval or data telemetry polling stream MUST include an `AbortController` cleanup in `useEffect` to eliminate memory leaks and unmount state collisions.
+- **Hydration Mismatch Prevention**: Components accessing `window`, `localStorage`, or client-local temporal formatting (`toLocaleString()`) MUST implement a mounted check (`const [mounted, setMounted] = useState(false)`) or static fallback to prevent SSR hydration mismatches in Next.js / Vite SSR.
 - 📖 *Deep dive: [02-component-architecture.md](./references/02-component-architecture.md#5-nextjs-app-router--react-19-discipline)*
 
 ### 6. Dual Headless Primitives: shadcn/ui vs Base UI
@@ -159,10 +161,12 @@ Every data-driven component MUST account for all 5 states: **Idle, Loading Skele
     ```
 - 📖 *Deep dive: [01-design-taste-archetypes.md](./references/01-design-taste-archetypes.md#11-anti-cyberpunk-kicker--headline-confidence-rules)*
 
-### 15. Haram Theme Toggle Tanpa Izin (Komit pada Satu Atmosfer Native)
+### 15. Haram Theme Toggle Tanpa Izin (Komit pada Satu Atmosfer Native & OKLCH Theme Transition)
 **Stop slapping sun/moon theme switchers onto every navbar.**
 - ❌ **FORBIDDEN**: Inserting a theme toggle into navigation bars by default. It signals design indecision.
+- ❌ **FORBIDDEN (Hex Mutation Anti-Pattern)**: When user explicitly requests Light Mode or Dark Mode, NEVER replace JSX classes from semantic tokens (`bg-card`, `bg-background`) into manual hardcoded hex (`bg-[#ffffff]`, `bg-[#000000]`). This destroys text contrast and breaks design system uniformity.
 - ✅ **REQUIRED**: Commit to the chosen product atmosphere (e.g. Linear is natively dark, Mercury is natively warm cream, Vercel is monochrome). Only add theme switching when the user explicitly requests light/dark mode support.
+- ✅ **REQUIRED (Semantic CSS Variables Transition)**: When implementing theme switching, toggle exclusively via `:root` and `.dark` semantic CSS variables (using OKLCH tokens) in CSS. JSX components MUST strictly consume semantic tokens (`bg-background`, `bg-card`, `text-foreground`, `text-muted-foreground`, `border-border`).
 - 📖 *Deep dive: [09-gold-standard-style-signatures.md](./references/09-gold-standard-style-signatures.md)*
 
 ### 16. Haram 3-Column Card Slop (Terapkan Asymmetric Layout Choreography & Alternating Section Cadence)
@@ -222,11 +226,65 @@ Every data-driven component MUST account for all 5 states: **Idle, Loading Skele
   - **XSS & Code Symbol Sanitization**: Text fields MUST reject programming injection symbols (`< > ! ( ) ? / \ { } $ ;`). Names MUST enforce `/^[a-zA-Z\s'-]{2,50}$/`.
 - 📖 *Deep dive: [03-shadcn-ui-guide.md](./references/03-shadcn-ui-guide.md) & [07-state-ux-polish.md](./references/07-state-ux-polish.md#6-strict-input-validation--xss-character-sanitization-protocol)*
 
+### 22. Modern Tooling & Build Compatibility (Vite, TS 5.8+, Tailwind CSS v4 CSS-First & shadcn CLI v4)
+**Never allow modern tooling misconfigurations or deprecations to break production builds.**
+- ❌ **FORBIDDEN (Tailwind v4 Legacy Config Slop)**: Creating `tailwind.config.js`, `tailwind.config.ts`, or `postcss.config.js` when Tailwind CSS v4 (`@tailwindcss/vite` or `@import "tailwindcss";`) is used.
+- ❌ **FORBIDDEN (Deprecated baseUrl Dependency)**: Relying solely on deprecated `baseUrl` in modern TypeScript 5.8+ / 6.x projects that trigger `error TS5101: Option 'baseUrl' is deprecated`.
+- ✅ **REQUIRED**:
+  - **Tailwind CSS v4 CSS-First Declarations**: Declare all custom tokens, animations, and typography inside CSS `@theme` blocks or native `:root` / `.dark` variables.
+  - **TypeScript 5.8+ Deprecation Resilience**: In Vite / Next.js projects using `baseUrl` with path aliases, ensure `"ignoreDeprecations": "6.0"` is present under `compilerOptions`, or prioritize modern `package.json#imports` (`#/*` / `@/*`).
+  - **shadcn CLI Modular tsconfig Support**: In Vite projects with modular tsconfigs (`tsconfig.app.json` + `tsconfig.node.json`), ensure path aliases (`@/*`) are mirrored in root `tsconfig.json` so `npx shadcn@latest init` and `apply --preset` complete without path resolution crashes.
+- 📖 *Deep dive: [03-shadcn-ui-guide.md](./references/03-shadcn-ui-guide.md#1-tailwind-css-v4-native-theme-configuration)*
+
+### 23. Zero Unused Imports & Variables Discipline (TypeScript Strictness)
+**Modern templates enforce `"noUnusedLocals": true` and `"noUnusedParameters": true`. A single unused import will fail CI/CD build (`tsc -b`).**
+- ❌ **FORBIDDEN**: Leaving unused Lucide icons (e.g. `import { Check, Copy, ArrowRight, Settings } ...` when only `Copy` is rendered), leftover CVA variant types, or stale React state hooks.
+- ✅ **REQUIRED**: Clean up all unreferenced symbols before finalizing code. Every import must be actively utilized in the file.
+
+### 24. Dual-Mode Layout Archetypes (Marketing Landing vs B2B Cockpit Mode)
+**Distinguish strictly between customer-acquisition marketing canvases and high-density SaaS command centers.**
+- **Marketing Landing Mode**:
+  - Purpose: Narrative storytelling, product positioning, and conversion.
+  - Spacing & Typography: Generous macro padding (`py-24` to `py-36` desktop), oversized display headlines, expansive visual breathing room.
+- **Cockpit / Dashboard Mode (B2B Engineering Density)**:
+  - Purpose: High-speed telemetry, data-dense manipulation, audit ledgers, command tables.
+  - Spacing & Structure: Compact, dense spacing (`p-3` to `p-4`, `gap-2` to `gap-3`), micro-status tags, tight table rows ($\le 36$px row height), multi-column filters, and desktop-optimized data visibility.
+- 📖 *Deep dive: [10-section-layout-choreography.md](./references/10-section-layout-choreography.md#7-dual-mode-layout-archetypes-marketing-landing-vs-b2b-cockpit-mode)*
+
+### 25. Data Density, Table Overflow Defense & Truncation Guards
+**Never allow wide data tables to blow out viewport horizontal bounds or hide data permanently.**
+- ❌ **FORBIDDEN**: Render wide metric tables or data grids without horizontal overflow containment, causing viewport horizontal scrolling on mobile/tablet.
+- ❌ **FORBIDDEN (Blind Truncation)**: Truncating long strings (`truncate`, `line-clamp-1`) without giving the user a way to inspect the full text.
+- ✅ **REQUIRED**:
+  - **Horizontal Scroll Defense**: Wrap all data tables and wide ledger metrics in `<div className="w-full overflow-x-auto scrollbar-thin">` with subtle border bounds.
+  - **Truncation Tooltip / Title Guard**: Any truncated table cell, hash, email, or URL MUST include `title={fullValue}` or a shadcn `<Tooltip>` primitive.
+  - **Tactile Copy Feedback (2-Second Checkmark)**: Every terminal command, API key, DSN, or commit SHA MUST feature a 1-click copy button with an instant state flip to `<Check />` reverting after exactly 2000ms.
+- 📖 *Deep dive: [07-state-ux-polish.md](./references/07-state-ux-polish.md#5-realistic-data-stress-testing-edge-cases)*
+
+### 26. Asynchronous Flow Hygiene, AbortController & SSR Hydration Guard
+**Production React applications must be resilient against race conditions, memory leaks, and SSR discrepancies.**
+- ✅ **AbortController on Polling/Fetch**: Any polling effect or interval telemetry loop MUST clean up using `controller.abort()` on unmount:
+  ```tsx
+  useEffect(() => {
+    const controller = new AbortController();
+    fetchTelemetry({ signal: controller.signal });
+    return () => controller.abort();
+  }, []);
+  ```
+- ✅ **SSR Hydration Defense**: When formatting client-specific dates or accessing `window`/`localStorage`, gate execution with a mounted flag or format deterministically (e.g. UTC / ISO) on the server to prevent Next.js / Vite SSR hydration crashes.
+- 📖 *Deep dive: [02-component-architecture.md](./references/02-component-architecture.md#5-nextjs-app-router--react-19-discipline)*
+
+### 27. Automated Build & Typecheck Self-Healing Gate
+**Never deliver broken code. Always verify compilation before concluding the task.**
+- ✅ **REQUIRED**:
+  - Automatically run project compilation / typecheck (`npm run build` or `npx tsc --noEmit` / `tsc -b`) to verify zero syntax, type, or unused-symbol errors.
+  - Automatically execute the configured workspace formatter (`npx prettier --write <modified-files>` or `npm run format`) to guarantee immaculate indentation and zero redundant blank lines.
+
 ---
 
 ## Pre-Flight Delivery Gate (Self-Audit Protocol)
 
-**BEFORE delivering any frontend component or page to the user, you MUST silently verify this 19-point checklist:**
+**BEFORE delivering any frontend component or page to the user, you MUST silently verify this 27-point checklist:**
 
 | Check | Item | Verification Criteria |
 | :---: | :--- | :--- |
@@ -234,7 +292,7 @@ Every data-driven component MUST account for all 5 states: **Idle, Loading Skele
 | [ ] | **2. Zero CLS Skeleton** | Loading skeletons mirror the exact dimensions, line counts, and padding of loaded content. |
 | [ ] | **3. Edge Case Stress** | Tested with long overflowing strings (`truncate`, `break-words`), empty arrays, and numerical spikes (`tabular-nums`). |
 | [ ] | **4. Tactile Response** | Buttons and clickables have `active:scale-[0.98]` and distinct hover/focus/disabled states. |
-| [ ] | **5. Semantic Tokens** | No hardcoded hex or raw Tailwind colors (`bg-blue-600` ❌ $\rightarrow$ `bg-primary` ✅). |
+| [ ] | **5. Semantic Tokens & OKLCH** | No hardcoded hex (`bg-[#1c1c1a]` / `bg-[#ffffff]`) mixed with tokens; all colors route through semantic tokens (`bg-primary`, `bg-background`, `bg-card`). |
 | [ ] | **6. Responsive Modularity** | Cards and nested panels behave properly in narrow layouts via `@container` or defensive flex-wrapping. |
 | [ ] | **7. Text Scannability** | **No card has > 1 sentence or > 12 words of description**. No generic filler marketing buzzwords. |
 | [ ] | **8. Single-Accent Color** | **Zero rainbow icons**. Icons are neutral-first or match the single primary accent. |
@@ -242,13 +300,21 @@ Every data-driven component MUST account for all 5 states: **Idle, Loading Skele
 | [ ] | **10. Dynamic Spacing** | Clear contrast between macro section padding (`py-24+`) and micro inner wells (`p-3`); no uniform `p-6`. |
 | [ ] | **11. Headless Primitives** | No fragile hand-rolled `div` dropdowns/selects. Scrollable select, combobox, or Base UI used. |
 | [ ] | **12. Zero Slop Micro-Tells** | No interior status dots (`<span className="h-1.5 w-1.5 bg-emerald-400" />`). No `animate-ping` radar circles. No floating `✨` pill badges. |
-| [ ] | **13. Native Atmosphere** | No unrequested navbar theme toggles. Single atmosphere committed. |
+| [ ] | **13. Native Atmosphere** | No unrequested navbar theme toggles. Theme changes committed via CSS `:root`/`.dark` tokens, not JSX class mutations. |
 | [ ] | **14. Asymmetric Layout** | No repetitive 3-column card rows. Section A has Live Cockpit, Section B has 70/30 Anchor Bento. |
 | [ ] | **15. Zero Kicker Slop** | No robotic double-slash `//` kickers or buzzword pills above headings. Confident headlines lead directly. |
 | [ ] | **16. Monospace Containment**| `font-mono` used strictly in terminal/code/tabular contexts. Emails (`sample@mail.com`), URLs, and versions use `font-sans`. |
 | [ ] | **17. Zero Drop Shadow Law** | No `shadow-` drop shadow classes on floating components. Rely on hairline borders, backdrop blur, and surface layering. |
 | [ ] | **18. Optical Icons & Single Nav** | No text unicode arrows (`←`). All navbar links enforce `whitespace-nowrap shrink-0`. |
 | [ ] | **19. Form Primitives & Validation** | Built with shadcn/ui primitives (`Form`, `FormField`). Indonesian phone format (`08`/`628`) & anti-XSS code symbol sanitization enforced. |
+| [ ] | **20. Tooling & Tailwind v4 Integrity** | No legacy `tailwind.config.js` in v4 projects. Custom tokens defined in CSS `@theme`. Modular tsconfig aliases resolved. |
+| [ ] | **21. Zero Unused Imports** | Verified zero unreferenced Lucide icons, CVA variants, or variables to satisfy `noUnusedLocals` / `tsc -b`. |
+| [ ] | **22. Dual-Mode Density Fidelity** | Appropriate layout archetype selected: Marketing Mode (airy, `py-24+`) vs Cockpit Mode (data-dense, `p-3`, table row height $\le 36$px). |
+| [ ] | **23. Table Horizontal Overflow** | Tables and wide grids wrapped in `overflow-x-auto` to prevent narrow viewport blowouts. |
+| [ ] | **24. Truncation Tooltip Guard** | Any truncated text (`truncate`, `line-clamp-1`) includes `title={...}` or `<Tooltip>` so full content is readable. |
+| [ ] | **25. Tactile Copy Feedback** | Terminal snippets, code blocks, and IDs include 1-click copy with 2-second checkmark flip feedback. |
+| [ ] | **26. Async Hygiene & Hydration** | Polling loops contain `AbortController` cleanup; client-only time/window logic guarded against SSR hydration mismatch. |
+| [ ] | **27. Self-Healing Build Gate** | Workspace build / typecheck clean (`npm run build` or `tsc -b`) and code formatted via Prettier. |
 
 If any check fails, fix it immediately before returning code.
 
@@ -286,3 +352,4 @@ Refer to ready-to-use production implementations in `examples/`:
 - **[dropdown-advanced.tsx](./examples/dropdown-advanced.tsx)**: Advanced DropdownMenu with submenus, checkboxes, radio groups, and shortcut badges.
 - **[navbar-modern.tsx](./examples/navbar-modern.tsx)**: Modern Vercel/Linear-inspired Navbar with backdrop-blur, ⌘K search trigger, and mobile drawer.
 - **[footer-modern.tsx](./examples/footer-modern.tsx)**: Modern Vercel/Linear-inspired Multi-Column Footer with live operational status indicator.
+- **[cockpit-table.tsx](./examples/cockpit-table.tsx)**: High-density B2B Cockpit table with $\le 36$px rows, horizontal overflow containment, truncation title guards, and tactile copy feedback.
