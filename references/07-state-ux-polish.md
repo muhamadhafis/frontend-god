@@ -164,3 +164,75 @@ Always verify your components with stress test inputs:
 | **Email Address** | `/^[^\s@]+@[^\s@]+\.[^\s@]+$/` | Missing `@`, spaces, invalid domains | *"Format email tidak valid (contoh: user@domain.com)"* |
 | **Pesan / Reason** | `/[<>/\\\{\}\$\;\!\?\(\)]/` (Rejects symbols) | Script tags (`<script>`), `{}` | *"Pesan tidak boleh mengandung simbol program (< ! ( ) ? / \\ dll)"* |
 
+---
+
+## 7. Native Tooltip & Truncation Guard Protocol
+
+When rendering data columns (hashes, URLs, database IDs, or verbose logs), never truncate text blindly without providing access to the full content.
+
+```tsx
+import * as React from "react";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
+
+export function TruncatedCell({ value, maxWidth = "max-w-[200px]" }: { value: string; maxWidth?: string }) {
+  return (
+    <TooltipProvider delayDuration={150}>
+      <Tooltip>
+        <TooltipTrigger asChild>
+          <span className={`inline-block truncate ${maxWidth} cursor-default font-mono text-xs`} title={value}>
+            {value}
+          </span>
+        </TooltipTrigger>
+        <TooltipContent side="top" className="max-w-xs break-all text-xs">
+          {value}
+        </TooltipContent>
+      </Tooltip>
+    </TooltipProvider>
+  );
+}
+```
+
+---
+
+## 8. Tactile Copy-to-Clipboard Feedback Protocol
+
+Any critical machine-readable credential, CLI snippet, DSN, or UUID MUST feature a 1-click copy action that flips visually to a confirmed `<Check />` state for exactly 2 seconds (2000ms):
+
+```tsx
+"use client";
+
+import * as React from "react";
+import { Check, Copy } from "lucide-react";
+import { Button } from "@/components/ui/button";
+
+export function CopySnippetButton({ textToCopy }: { textToCopy: string }) {
+  const [copied, setCopied] = React.useState(false);
+
+  const handleCopy = async () => {
+    try {
+      await navigator.clipboard.writeText(textToCopy);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch (err) {
+      console.error("Failed to copy string:", err);
+    }
+  };
+
+  return (
+    <Button
+      variant="ghost"
+      size="icon"
+      onClick={handleCopy}
+      className="size-7 text-muted-foreground hover:text-foreground transition-colors"
+      aria-label="Copy to clipboard"
+    >
+      {copied ? (
+        <Check className="size-3.5 text-emerald-500 animate-in zoom-in-50 duration-150" />
+      ) : (
+        <Copy className="size-3.5" />
+      )}
+    </Button>
+  );
+}
+```
+

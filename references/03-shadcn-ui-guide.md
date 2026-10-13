@@ -6,75 +6,143 @@
 
 ---
 
-## 1. Tailwind CSS v4 Native `@theme` Configuration
+## 1. Tailwind CSS v4 Native `@theme` & OKLCH Semantic Configuration
 
-In **Tailwind CSS v4**, configuration moves from `tailwind.config.js` to pure CSS using the `@theme` directive in `app/globals.css`.
+In **Tailwind CSS v4**, configuration moves from `tailwind.config.js` to pure CSS using the `@theme inline` and CSS-first directives in `app/globals.css`.
 
-### `app/globals.css` (Tailwind CSS v4 Standard)
+> [!WARNING]
+> **Larangan Legacy Config**: Dilarang keras membuat `tailwind.config.js`, `tailwind.config.ts`, atau `postcss.config.js` pada proyek Tailwind v4. Semua token warna, border, dan radius wajib dideklarasikan di CSS.
+
+### `app/globals.css` (Tailwind CSS v4 + OKLCH Standard)
 ```css
 @import "tailwindcss";
 
 @layer base {
   :root {
-    --background: 240 10% 3.9%;
-    --foreground: 0 0% 98%;
+    --background: oklch(0.985 0 0);
+    --foreground: oklch(0.145 0 0);
 
-    --card: 240 10% 6.5%;
-    --card-foreground: 0 0% 98%;
+    --card: oklch(1 0 0);
+    --card-foreground: oklch(0.145 0 0);
 
-    --popover: 240 10% 8%;
-    --popover-foreground: 0 0% 98%;
+    --popover: oklch(1 0 0);
+    --popover-foreground: oklch(0.145 0 0);
 
-    --primary: 240 5.9% 90%;
-    --primary-foreground: 240 5.9% 10%;
+    --primary: oklch(0.205 0 0);
+    --primary-foreground: oklch(0.985 0 0);
 
-    --secondary: 240 3.7% 15.9%;
-    --secondary-foreground: 0 0% 98%;
+    --secondary: oklch(0.97 0 0);
+    --secondary-foreground: oklch(0.205 0 0);
 
-    --muted: 240 3.7% 15.9%;
-    --muted-foreground: 240 5% 64.9%;
+    --muted: oklch(0.97 0 0);
+    --muted-foreground: oklch(0.556 0 0);
 
-    --accent: 240 3.7% 15.9%;
-    --accent-foreground: 0 0% 98%;
+    --accent: oklch(0.97 0 0);
+    --accent-foreground: oklch(0.205 0 0);
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
+    --destructive: oklch(0.577 0.245 27.325);
+    --destructive-foreground: oklch(0.985 0 0);
 
-    --border: 240 3.7% 15.9%;
-    --input: 240 3.7% 15.9%;
-    --ring: 240 4.9% 83.9%;
+    --border: oklch(0.922 0 0);
+    --input: oklch(0.922 0 0);
+    --ring: oklch(0.708 0 0);
 
-    /* Senior Radius Scale */
     --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: oklch(0.145 0 0);
+    --foreground: oklch(0.985 0 0);
+
+    --card: oklch(0.18 0 0);
+    --card-foreground: oklch(0.985 0 0);
+
+    --popover: oklch(0.18 0 0);
+    --popover-foreground: oklch(0.985 0 0);
+
+    --primary: oklch(0.985 0 0);
+    --primary-foreground: oklch(0.205 0 0);
+
+    --secondary: oklch(0.269 0 0);
+    --secondary-foreground: oklch(0.985 0 0);
+
+    --muted: oklch(0.269 0 0);
+    --muted-foreground: oklch(0.708 0 0);
+
+    --accent: oklch(0.269 0 0);
+    --accent-foreground: oklch(0.985 0 0);
+
+    --destructive: oklch(0.396 0.141 25.723);
+    --destructive-foreground: oklch(0.985 0 0);
+
+    --border: oklch(0.269 0 0);
+    --input: oklch(0.269 0 0);
+    --ring: oklch(0.439 0 0);
   }
 }
 
-@theme {
-  --color-background: hsl(var(--background));
-  --color-foreground: hsl(var(--foreground));
-  --color-card: hsl(var(--card));
-  --color-card-foreground: hsl(var(--card-foreground));
-  --color-popover: hsl(var(--popover));
-  --color-popover-foreground: hsl(var(--popover-foreground));
-  --color-primary: hsl(var(--primary));
-  --color-primary-foreground: hsl(var(--primary-foreground));
-  --color-secondary: hsl(var(--secondary));
-  --color-secondary-foreground: hsl(var(--secondary-foreground));
-  --color-muted: hsl(var(--muted));
-  --color-muted-foreground: hsl(var(--muted-foreground));
-  --color-accent: hsl(var(--accent));
-  --color-accent-foreground: hsl(var(--accent-foreground));
-  --color-destructive: hsl(var(--destructive));
-  --color-destructive-foreground: hsl(var(--destructive-foreground));
-  --color-border: hsl(var(--border));
-  --color-input: hsl(var(--input));
-  --color-ring: hsl(var(--ring));
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
 
   --radius-lg: var(--radius);
   --radius-md: calc(var(--radius) - 2px);
   --radius-sm: calc(var(--radius) - 4px);
 }
-```
+
+---
+
+## 1.1. Vite Modular tsconfig & shadcn CLI v4 Resilience
+
+### Masalah:
+1. `npx shadcn@latest init` gagal mendeteksi path alias `@/*` pada proyek Vite jika root `tsconfig.json` hanya berisi `references: [{ path: "./tsconfig.app.json" }]`.
+2. TypeScript 5.8+ / 6.x melempar `error TS5101: Option 'baseUrl' is deprecated`.
+
+### Solusi Baku:
+1. **Root `tsconfig.json` Path Mirroring**:
+   Sertakan deklarasi `compilerOptions` di root `tsconfig.json` untuk tooling CLI:
+   ```json
+   {
+     "files": [],
+     "references": [
+       { "path": "./tsconfig.app.json" },
+       { "path": "./tsconfig.node.json" }
+     ],
+     "compilerOptions": {
+       "baseUrl": ".",
+       "paths": {
+         "@/*": ["./src/*"]
+       },
+       "ignoreDeprecations": "6.0"
+     }
+   }
+   ```
+2. **Atau Native `package.json#imports`**:
+   ```json
+   {
+     "imports": {
+       "#/*": "./src/*"
+     }
+   }
+   ```
+   Hindari kegagalan build `tsc -b` dengan menyalakan `"ignoreDeprecations": "6.0"` saat masih menggunakan `baseUrl`.
 
 ---
 

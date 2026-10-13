@@ -242,3 +242,122 @@ export function BookmarkButton({ id, initialBookmarked }: { id: string; initialB
   );
 }
 ```
+
+### C. Use `useActionState` for Forms & Async Mutation Lifecycle
+Instead of managing `loading`, `error`, and `data` manually with three separate `useState` hooks, use React 19's native `useActionState`:
+
+```tsx
+"use client";
+
+import { useActionState } from "react";
+import { updateProfileSettings } from "@/app/actions";
+import { Button } from "@/components/ui/button";
+
+interface FormState {
+  error: string | null;
+  success: boolean;
+}
+
+const initialState: FormState = { error: null, success: false };
+
+export function ProfileForm() {
+  const [state, formAction, isPending] = useActionState(
+    async (prevState: FormState, formData: FormData) => {
+      try {
+        await updateProfileSettings(formData);
+        return { error: null, success: true };
+      } catch (err) {
+        return { error: (err as Error).message, success: false };
+      }
+    },
+    initialState
+  );
+
+  return (
+    <form action={formAction} className="space-y-4">
+      <input name="displayName" className="rounded-md border p-2 text-sm" placeholder="Your name" />
+      {state.error && <p className="text-xs text-destructive">{state.error}</p>}
+      {state.success && <p className="text-xs text-emerald-500">Profile saved successfully</p>}
+      <Button type="submit" disabled={isPending}>
+        {isPending ? "Saving..." : "Save Changes"}
+      </Button>
+    </form>
+  );
+}
+```
+
+---
+
+## 6. Graceful Network & Abort Handling (`AbortController`)
+
+Any ongoing telemetry pool, search auto-complete, or polling hook MUST cancel in-flight requests when unmounted or when input changes to prevent memory leaks and setState-on-unmounted warnings:
+
+```tsx
+"use client";
+
+import * as React from "react";
+
+export function useTelemetryFeed(endpoint: string, intervalMs = 5000) {
+  const [data, setData] = React.useState<Record<string, unknown> | null>(null);
+
+  React.useEffect(() => {
+    const controller = new AbortController();
+
+    async function poll() {
+      try {
+        const res = await fetch(endpoint, { signal: controller.signal });
+        if (!res.ok) throw new Error("HTTP error " + res.status);
+        const json = await res.json();
+        setData(json);
+      } catch (err: unknown) {
+        if ((err as Error).name !== "AbortError") {
+          console.error("Telemetry fetch failed:", err);
+        }
+      }
+    }
+
+    poll();
+    const interval = setInterval(poll, intervalMs);
+
+    return () => {
+      controller.abort();
+      clearInterval(interval);
+    };
+  }, [endpoint, intervalMs]);
+
+  return data;
+}
+```
+
+---
+
+## 7. SSR Hydration Mismatch Prevention
+
+Components accessing browser globals (`window`, `localStorage`, `navigator`) or localized date formats (`new Date().toLocaleString()`) will cause hydration mismatches between server and client markup.
+
+### The Antidote: Mounted State Guard or Deterministic Formatting
+```tsx
+"use client";
+
+import * as React from "react";
+
+export function ClientTimestamp({ date }: { date: string | Date }) {
+  const [mounted, setMounted] = React.useState(false);
+
+  React.useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  // Server render displays deterministic ISO/UTC string
+  if (!mounted) {
+    return <span className="font-mono text-xs tabular-nums text-muted-foreground">{new Date(date).toISOString().slice(0, 10)}</span>;
+  }
+
+  // Client renders exact local formatting once safely mounted
+  return (
+    <span className="font-mono text-xs tabular-nums text-foreground">
+      {new Date(date).toLocaleDateString(undefined, { month: "short", day: "numeric", year: "numeric" })}
+    </span>
+  );
+}
+```

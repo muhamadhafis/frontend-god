@@ -214,3 +214,16 @@ When a user requests a new frontend or component, the agent must check the indus
 
 > [!CAUTION]
 > **Strict Anti-Slop Directive:** Once a signature is chosen, **DO NOT MIX**. A Linear-style dark interface must never have warm cream Anthropic cards, nor should a Vercel monochrome dashboard have Stripe twilight blue glow!
+
+---
+
+## Part 4: Theme Mode Transitions & OKLCH Semantic Discipline
+
+When the user explicitly requests theme switching (Light / Dark mode):
+1. **Never Replace JSX Class Names with Hardcoded Hex**: Do NOT convert `bg-card` into `bg-[#ffffff]` or `text-foreground` into `text-[#111110]`.
+2. **Execute Switching via Semantic CSS Variables (`:root` vs `.dark`)**:
+   Map color shifts inside your stylesheet or CSS `@theme inline` block using uniform OKLCH values:
+   - Light Mode (`:root`): `--background: oklch(0.985 0 0);`, `--card: oklch(1 0 0);`, `--foreground: oklch(0.145 0 0);`
+   - Dark Mode (`.dark`): `--background: oklch(0.145 0 0);`, `--card: oklch(0.18 0 0);`, `--foreground: oklch(0.985 0 0);`
+3. **Preserve Contrast Hierarchy**: Background $\rightarrow$ Card Surface $\rightarrow$ Border $\rightarrow$ Text contrast must maintain distinct lightness steps in both light and dark states.
+

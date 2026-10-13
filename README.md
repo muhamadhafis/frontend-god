@@ -39,13 +39,13 @@ The skill includes deep-dive engineering teardowns and token sets for:
 
 ---
 
-## 💎 The 18 Golden Commandments
+## 💎 The Golden Commandments
 
 1. **Aesthetic Direction First**: Declare an intentional archetype (*Technical Precision*, *Editorial Modern*, *Warm Minimalist*, or *Neo-Craftsman*).
 2. **The Anchor Cadence**: Establish an Anchor item with dominant hierarchy.
-3. **Composable Architecture & Semantic Tokens**: Use Compound Components, `asChild` polymorphism, and CVA. Zero hardcoded colors.
+3. **Composable Architecture & Semantic Tokens**: Use Compound Components, `asChild` polymorphism, CVA, and strict OKLCH semantic tokens. Zero hardcoded colors.
 4. **Container Queries (`@container`)**: Reusable components adapt to their parent wrapper, not just screen width.
-5. **Next.js & React 19 Boundaries**: Keep Server Components (RSC) pure; push `'use client'` down to leaves.
+5. **Next.js & React 19 Boundaries**: Keep Server Components (RSC) pure; use `useActionState`, `useOptimistic`, and `useTransition`.
 6. **Dual Primitives Strategy**: Choose `shadcn/ui` (Radix) for rapid SaaS scaffolding or `Base UI` (`@base-ui-components/react`) for modern unstyled flexibility.
 7. **Optical Iconography**: Strict optical sizing (14px text $\rightarrow$ 16px icon) and uniform stroke width (Lucide / Phosphor).
 8. **The 5 UI States & Tactile Physics**: Always account for Idle, Zero-CLS Skeleton, Empty, Error, and Optimistic UI. Use Spring physics.
@@ -55,10 +55,19 @@ The skill includes deep-dive engineering teardowns and token sets for:
 12. **The Macro vs Micro Spacing Engine**: Extreme contrast between expansive section breathing room (`py-24+`) and compact inner wells (`p-3`).
 13. **Haram Bikin Ulang Roda (Leverage Headless Primitives)**: Use scrollable grouped selects, cmdk comboboxes, submenus, and Base UI NumberField/OTPField.
 14. **Haram Ping Dot Dekoratif, Pill Badge Klise ✨ & Kicker Pseudo-Cyberpunk**: Banned decorative `animate-ping`, floating emoji pills, and robotic double-slash `//` kickers. Confident headlines lead directly.
-15. **Haram Theme Toggle Tanpa Izin**: Commit to the product's native atmosphere. Never slap a Sun/Moon toggle onto navbars by default.
+15. **Haram Theme Toggle Tanpa Izin**: Commit to the product's native atmosphere. Theme switching executes strictly via CSS `:root`/`.dark` tokens, never JSX class mutations.
 16. **Haram 3-Column Card Slop (Asymmetric Layout Choreography)**: Enforce Section A (Hero + Live Cockpit), Section B (Asymmetric Anchor Bento 70/30), Section C (Sticky Narrative Split-Screen), Section D (Interactive Workbench), and Section E (High-Density Spec Matrix).
 17. **Strict Monospace Containment**: `font-mono` is strictly reserved for terminal commands, code, `<kbd>`, and tabular numbers. Versions, list numbers, and subheadings must use `font-sans`.
 18. **Arsitektur Navbar & Footer Modern (Vercel/Linear & Oversized Wordmark Pattern)**: Minimalist sticky navbar with backdrop-blur, quiet nav links, ⌘K search trigger, solid high-contrast CTA; multi-column architectural footer with solid status dot (NO `animate-ping`) and Oversized Brand Wordmark (`text-[13vw] font-bold text-foreground/[0.06]`).
+19. **Haram Heavy Drop Shadows**: Zero heavy drop shadows. Rely exclusively on hairline borders, backdrop blur, and surface elevation.
+20. **Haram Unicode Arrows & Single-Line Nav**: Optical Lucide arrows only; all navbar links enforce `whitespace-nowrap shrink-0`.
+21. **Haram Hand-Rolled Forms & Strict Input Validation**: Form primitives (`Form`, `FormField`), Indonesian phone format (`08`/`628`), and anti-XSS sanitization.
+22. **Modern Tooling & Build Compatibility**: Tailwind CSS v4 CSS-First (`@theme`), `"ignoreDeprecations": "6.0"` on TS 5.8+, and Vite modular tsconfig resilience.
+23. **Zero Unused Imports & Variables Discipline**: Zero unused Lucide icons, CVA types, or variables (`noUnusedLocals` verified).
+24. **Dual-Mode Layout Archetypes**: Marketing Landing (airy, `py-24+`) vs B2B Cockpit Mode (data-dense, `p-3`, table row height $\le 36$px).
+25. **Data Density, Table Overflow Defense & Truncation Guards**: Table horizontal scroll wrappers (`overflow-x-auto`), truncation `title={...}` guards, and 2-second checkmark copy feedback.
+26. **Asynchronous Flow Hygiene, AbortController & SSR Hydration Guard**: AbortController on telemetry polling, mounted guard for browser APIs.
+27. **Automated Verification Step**: Compile check (`npm run build` or `tsc -b`) and Prettier code formatting before finalizing.
 
 ---
 
@@ -66,19 +75,21 @@ The skill includes deep-dive engineering teardowns and token sets for:
 
 ```text
 frontend-god-skills/
-├── SKILL.md                          # Main Skill orchestrator (18 Commandments & 16-Point Audit Gate)
+├── SKILL.md                          # Main Skill orchestrator (27 Commandments & 27-Point Audit Gate)
 ├── README.md                         # Public documentation & installation guide
+├── PRD.md                            # Product Requirements Document
+├── CHANGELOG.md                      # Release & revision history
 ├── references/
 │   ├── 01-design-taste-archetypes.md # 4 Archetypes, typography, text restraint, mono containment, anti-cyberpunk
-│   ├── 02-component-architecture.md  # Compound patterns, polymorphism (asChild), CVA, Container Queries, RSC
-│   ├── 03-shadcn-ui-guide.md         # Customizing shadcn beyond defaults, scrollable select, cmdk combobox, submenus
+│   ├── 02-component-architecture.md  # Compound patterns, polymorphism (asChild), CVA, Container Queries, React 19, AbortController
+│   ├── 03-shadcn-ui-guide.md         # Tailwind v4 @theme OKLCH, Vite TS 5.8+ modular aliases, scrollable select, cmdk combobox
 │   ├── 04-base-ui-guide.md           # Base UI (@base-ui-components/react) primitives, NumberField, data-attributes
 │   ├── 05-icon-system.md             # Optical sizing, stroke consistency, Lucide & Phosphor rules, anti-rainbow
 │   ├── 06-motion-microinteractions.md# Spring physics, layoutId tab transitions, 100ms feel, tactile states
-│   ├── 07-state-ux-polish.md         # 5 States: loading skeletons, actionable empty states, error boundary, optimistic UI
+│   ├── 07-state-ux-polish.md         # 5 States: skeletons, empty states, error boundary, truncation guard, 2s copy feedback
 │   ├── 08-senior-component-catalog.md# Full specifications and anatomy for all core UI components
-│   ├── 09-gold-standard-style-signatures.md # Forensic teardowns: 10 Gold Standards + Inspiration Vaults
-│   └── 10-section-layout-choreography.md    # Section A to E blueprints, Anchor Bento 70/30, Modern Navbar & Footer
+│   ├── 09-gold-standard-style-signatures.md # Forensic teardowns: 10 Gold Standards, Inspiration Vaults, OKLCH theme switching
+│   └── 10-section-layout-choreography.md    # Section A to E blueprints, Anchor Bento 70/30, Dual-Mode Cockpit, table overflow
 ├── examples/
 │   ├── button.tsx                    # Polymorphic Button (CVA, loading, icon slots, tactile press)
 │   ├── input-group.tsx               # Senior Input with prefix/suffix icons, ⌘K badge, clear button
@@ -91,7 +102,10 @@ frontend-god-skills/
 │   ├── select-advanced.tsx           # Advanced Select with scrollable viewport, group labels, and combobox
 │   ├── dropdown-advanced.tsx         # Advanced DropdownMenu with submenus, checkboxes, radio, and shortcuts
 │   ├── navbar-modern.tsx             # Modern Vercel/Linear-inspired Navbar with backdrop-blur & ⌘K search
-│   └── footer-modern.tsx             # Modern Vercel/Linear-inspired Multi-Column Footer with live status indicator
+│   ├── footer-modern.tsx             # Modern Vercel/Linear-inspired Multi-Column Footer with live status indicator
+│   └── cockpit-table.tsx             # High-density B2B Cockpit table (≤36px rows, overflow-x-auto, truncation, copy feedback)
+├── tests/
+│   └── skill-rules.test.js           # Automated integrity verification test suite
 └── scripts/
     └── install.sh                    # Symlink installer for real-time global agent integration
 ```

@@ -588,12 +588,29 @@ export function ModernFooter() {
   );
 }
 ```
-          </div>
-        </div>
 
-      </div>
-    </footer>
-  );
-}
-```
+---
+
+## 7. Dual-Mode Layout Archetypes: Marketing Landing vs B2B Cockpit Mode
+
+Arsitektur antarmuka modern terbagi dalam dua arketipe mendasar yang tidak boleh dicampuradukkan:
+
+| Parameter | Marketing Landing Mode | Cockpit / Dashboard Mode (B2B) |
+| :--- | :--- | :--- |
+| **Tujuan Utama** | Akuisisi, storytelling, konversi | Kecepatan operasi, telemetri, inspeksi data |
+| **Macro Spacing** | `py-24` hingga `py-36` | `p-3` hingga `p-4` (compact shell) |
+| **Grid & Gap** | `gap-6` hingga `gap-8` | `gap-2` hingga `gap-3` |
+| **Tinggi Baris Data** | N/A (berbasis card) | $\le 36\text{px}$ per baris tabel |
+| **Tipografi** | Display besar (`text-4xl` s/d `text-6xl`) | Sans/Mono fungsional (`text-xs` s/d `text-sm`) |
+| **Density Index** | Low-Density (Airy & Breathing) | High-Density (Data-Dense & Compact) |
+
+---
+
+## 8. Horizontal Overflow Defense & Data Table Density Standards
+
+Setiap kontainer data tabular, audit log, atau ledger telemetri:
+1. **Wajib Memiliki Wrapper `overflow-x-auto`**: Mencegah tabel meledak dan merusak lebar viewport mobile/tablet.
+2. **Kompak $\le 36$px**: Memaksimalkan jumlah baris data yang terlihat di layar desktop engineering.
+3. **Truncation Guard**: Seluruh hash, SHA, atau ID panjang wajib diberi `title={val}` dan tombol salin tactile 2 detik.
+
 
