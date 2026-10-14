@@ -3,6 +3,7 @@
 import * as React from "react";
 import { ChevronDown, Menu, Search, X } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { ThemeToggle } from "./theme-toggle";
 
 export interface NavItem {
   label: string;
@@ -94,6 +95,9 @@ export function ModernNavbar({
               ⌘K
             </kbd>
           </button>
+
+          {/* Dual-Mode Semantic Theme Toggle */}
+          <ThemeToggle className="hidden sm:inline-flex" />
 
           {/* Secondary Quiet Link */}
           <a

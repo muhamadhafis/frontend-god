@@ -591,18 +591,19 @@ export function ModernFooter() {
 
 ---
 
-## 7. Dual-Mode Layout Archetypes: Marketing Landing vs B2B Cockpit Mode
+## 7. Three-Pillar Layout Architecture: Consumer vs Developer-Tool vs B2B Cockpit
 
-Arsitektur antarmuka modern terbagi dalam dua arketipe mendasar yang tidak boleh dicampuradukkan:
+Arsitektur antarmuka modern terbagi dalam tiga arketipe pilar yang tidak boleh dicampuradukkan:
 
-| Parameter | Marketing Landing Mode | Cockpit / Dashboard Mode (B2B) |
-| :--- | :--- | :--- |
-| **Tujuan Utama** | Akuisisi, storytelling, konversi | Kecepatan operasi, telemetri, inspeksi data |
-| **Macro Spacing** | `py-24` hingga `py-36` | `p-3` hingga `p-4` (compact shell) |
-| **Grid & Gap** | `gap-6` hingga `gap-8` | `gap-2` hingga `gap-3` |
-| **Tinggi Baris Data** | N/A (berbasis card) | $\le 36\text{px}$ per baris tabel |
-| **Tipografi** | Display besar (`text-4xl` s/d `text-6xl`) | Sans/Mono fungsional (`text-xs` s/d `text-sm`) |
-| **Density Index** | Low-Density (Airy & Breathing) | High-Density (Data-Dense & Compact) |
+| Parameter | Pilar 1: Consumer Showcase (Pear.vc) | Pilar 2: Developer Tool (Linear / Vercel) | Pilar 3: B2B Cockpit (Ramp / Mercury) |
+| :--- | :--- | :--- | :--- |
+| **Tujuan Utama** | Emosi manusia, trust, konversi consumer | Onboarding dev, demo API, tool workflow | Kecepatan operasi, telemetri, inspeksi data |
+| **Visual Hero** | Split-Text + Foto/Mockup Besar | Terminal CLI / Live Code Sandbox | Mini telemetry ledger + Quick action filter |
+| **Kode & Terminal** | **DILARANG KERAS (0 baris kode)** | Wajib ada (SDK, Bash, TypeScript) | Opsional jika terkait API webhook |
+| **Uptime Badge** | **DILARANG KERAS (Bukan server web)** | Relevan (Edge latency, 99.99% uptime) | Status sync database / ledger state |
+| **Macro Spacing** | `py-24` hingga `py-36` (Airy & Humanist) | `py-20` hingga `py-28` (Technical Focus) | `p-3` hingga `p-4` (Compact Screen Shell) |
+| **Kartu Fitur** | Kartu Besar + Ambient Soft Gradient | Bento 70/30 + Inset hair border | Data card + Multi-metric filter rows |
+| **Text Restraint** | $\le 12$ kata per kartu (1 kalimat) | 1-2 kalimat ringkas + snippet code | Label fungsional + angka tabular |
 
 ---
 
@@ -612,5 +613,31 @@ Setiap kontainer data tabular, audit log, atau ledger telemetri:
 1. **Wajib Memiliki Wrapper `overflow-x-auto`**: Mencegah tabel meledak dan merusak lebar viewport mobile/tablet.
 2. **Kompak $\le 36$px**: Memaksimalkan jumlah baris data yang terlihat di layar desktop engineering.
 3. **Truncation Guard**: Seluruh hash, SHA, atau ID panjang wajib diberi `title={val}` dan tombol salin tactile 2 detik.
+
+---
+
+## 9. Blueprint Koreografi Consumer Showcase Ala Pear.vc
+
+```mermaid
+graph TD
+    subgraph Pear_Hero ["Section 1: Split-Text Hero + Partner Strip"]
+        PH1["Kiri: Display Headline Berani (No Kicker/Eyebrow)"]
+        PH2["Kanan: Assurance Narrative Paragraph Ringkas"]
+        PH3["Bawah: Visual Produk/Portofolio Terpusat + Strip Logo Partner Monokrom"]
+    end
+
+    subgraph Pear_Bento ["Section 2: Ambient Soft-Gradient Bento Cards"]
+        PB1["Card 1: Yellow Ambient Aura + Visual Besar + Teks 1 Kalimat"]
+        PB2["Card 2: Purple Ambient Aura + Visual Besar + Teks 1 Kalimat"]
+        PB3["Card 3: Blue Ambient Aura + Visual Besar + Teks 1 Kalimat"]
+        PB4["Card 4: Green Ambient Aura + Visual Besar + Teks 1 Kalimat"]
+    end
+
+    subgraph Pear_Partnership ["Section 3: Split Photo Partnership Card"]
+        PP1["Kiri: Lifestyle/Founder Photography Resolusi Tinggi"]
+        PP2["Kanan: Headline Kerjasama & Action CTA Langsung"]
+    end
+```
+
 
 

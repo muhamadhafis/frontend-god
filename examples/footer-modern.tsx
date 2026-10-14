@@ -51,9 +51,11 @@ const FOOTER_COLUMNS: FooterColumn[] = [
 
 export function ModernFooter({
   wordmark = "PLATFORM",
+  consumerMode = false,
   className,
 }: {
   wordmark?: string;
+  consumerMode?: boolean;
   className?: string;
 }) {
   return (
@@ -92,10 +94,12 @@ export function ModernFooter({
               State-deterministic infrastructure and live workflow orchestration for high-velocity software teams.
             </p>
 
-            {/* Live Operational Status Indicator (Clean Border & Tint - No Status Dot Slop) */}
-            <div className="inline-flex items-center rounded border border-emerald-500/30 bg-emerald-500/10 px-2.5 py-1 text-[11px] font-sans font-medium text-emerald-400">
-              All systems normal
-            </div>
+            {/* Live Operational Status Indicator (Dev-Tool Mode Only; Suppressed on Consumer Web) */}
+            {!consumerMode && (
+              <div className="inline-flex items-center rounded border border-emerald-500/30 bg-emerald-500/10 px-2.5 py-1 text-[11px] font-sans font-medium text-emerald-400">
+                All systems normal
+              </div>
+            )}
           </div>
 
           {/* 4 Categorized Link Columns */}

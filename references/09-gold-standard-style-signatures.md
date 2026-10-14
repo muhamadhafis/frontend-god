@@ -197,12 +197,37 @@ When researching UI patterns or when a user references design inspiration, never
 
 ---
 
+### Signature 11: The Pear.vc Blueprint ("Editorial Visual & Ambient Soft-Gradient Cards")
+*The gold standard for consumer showcases, venture editorial, and human-centric platforms.*
+
+1. **Color & Surface Palette**:
+   - **Canvas Base**: Pure white `#ffffff` or Warm Ivory `#fafaf9`.
+   - **Text Tone**: Deep slate charcoal `#09090b` for display headlines; muted slate `#71717a` for single-sentence descriptions.
+   - **Surface Cards**: Soft airy slate surface `#f6f6fc` / `bg-muted/40` or border-isolated clean cards with no drop shadow.
+2. **Ambient Soft-Gradient Aura Formulas**:
+   Subtle radial gradients that glow gently behind product photography or central visual artifacts:
+   - **Yellow Aura**: `radial-gradient(ellipse at top, rgba(236, 255, 178, 0.45), transparent 70%)`
+   - **Purple Aura**: `radial-gradient(ellipse at top, rgba(228, 225, 254, 0.5), transparent 70%)`
+   - **Blue Aura**: `radial-gradient(ellipse at top, rgba(142, 209, 252, 0.35), transparent 70%)`
+   - **Green Aura**: `radial-gradient(ellipse at top, rgba(124, 238, 106, 0.3), transparent 70%)`
+3. **Card Anatomy & Extreme Text Discipline**:
+   - Header: Bold, direct benefit statement (e.g., `From idea to breakout`).
+   - Center Visual: Massive photography, founder portrait, or real-world product screenshot filling 60–70% of card height.
+   - Footer / Supporting Line: Exactly 1 sentence ($\le 12$ words). Never multi-paragraph marketing blocks.
+4. **Hero Architecture**:
+   - Asymmetric **Split-Text**: Large active title on the left, calm narrative assurance on the right.
+   - Followed immediately by a clean monochrome partner/investor strip.
+   - **Zero Code Slop**: Absolutely NO code blocks, CLI terminals, or devops server status capsules.
+
+---
+
 ## Part 3: Selection Protocol for Agents
 
 When a user requests a new frontend or component, the agent must check the industry domain and lock in **ONE** signature:
 
 | Domain / Industry | Recommended Signature | Key Visual Anchor |
 | :--- | :--- | :--- |
+| **Consumer Web / Editorial Showcase / Lifestyle** | **Pear.vc** | Light canvas, split-text hero, ambient soft-gradient cards, 0 code |
 | **DevTools / Cloud Infra / Terminals** | **Linear** or **Vercel** | `#08090a` or `#000000`, Geist/Inter `cv01`, ⌘K palette |
 | **Code Editor / AI Coding / Technical IDE** | **Cursor** | Warm Paper `#f7f7f4`, dark ink `#26251e`, Cursor Orange `#f54e00` |
 | **Email / Communications / Developer API** | **Resend** | Pure black `#000000`, Domaine Display serif, Green status dot |
@@ -213,17 +238,19 @@ When a user requests a new frontend or component, the agent must check the indus
 | **Desktop Productivity / Fast Utilities** | **Raycast** | Inset highlight border, high-density action rows, kbd shortcuts |
 
 > [!CAUTION]
-> **Strict Anti-Slop Directive:** Once a signature is chosen, **DO NOT MIX**. A Linear-style dark interface must never have warm cream Anthropic cards, nor should a Vercel monochrome dashboard have Stripe twilight blue glow!
+> **Strict Anti-Slop Directive:** Once a signature is chosen, **DO NOT MIX**. A Linear-style dark interface must never have warm cream Anthropic cards, nor should a consumer Pear.vc showcase have CLI terminal slop!
 
 ---
 
 ## Part 4: Theme Mode Transitions & OKLCH Semantic Discipline
 
-When the user explicitly requests theme switching (Light / Dark mode):
-1. **Never Replace JSX Class Names with Hardcoded Hex**: Do NOT convert `bg-card` into `bg-[#ffffff]` or `text-foreground` into `text-[#111110]`.
-2. **Execute Switching via Semantic CSS Variables (`:root` vs `.dark`)**:
+When building consumer-facing products or when the user requests theme switching (Light / Dark mode):
+1. **Theme Toggle Presence**: Provide an accessible Theme Toggle (Sun/Moon switch) in the floating navbar that toggles `.dark` on `document.documentElement`.
+2. **Never Replace JSX Class Names with Hardcoded Hex**: Do NOT convert `bg-card` into `bg-[#ffffff]` or `text-foreground` into `text-[#111110]`.
+3. **Execute Switching via Semantic CSS Variables (`:root` vs `.dark`)**:
    Map color shifts inside your stylesheet or CSS `@theme inline` block using uniform OKLCH values:
    - Light Mode (`:root`): `--background: oklch(0.985 0 0);`, `--card: oklch(1 0 0);`, `--foreground: oklch(0.145 0 0);`
    - Dark Mode (`.dark`): `--background: oklch(0.145 0 0);`, `--card: oklch(0.18 0 0);`, `--foreground: oklch(0.985 0 0);`
-3. **Preserve Contrast Hierarchy**: Background $\rightarrow$ Card Surface $\rightarrow$ Border $\rightarrow$ Text contrast must maintain distinct lightness steps in both light and dark states.
+4. **Preserve Contrast Hierarchy**: Background $\rightarrow$ Card Surface $\rightarrow$ Border $\rightarrow$ Text contrast must maintain distinct lightness steps in both light and dark states.
+
 

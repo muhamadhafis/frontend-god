@@ -322,4 +322,26 @@ To eliminate rigid, uniform spacing (`p-6` everywhere), apply the **Extreme Cont
 | **Feature Cards** | `shadow-xl shadow-slate-900/10` | `border border-white/10 bg-[#0c0e12]` |
 | **Status Badges** | `shadow-sm shadow-emerald-500/20` | `border border-emerald-500/30 bg-emerald-500/10` |
 
+---
+
+## 13. The Consumer & Editorial Showcase Archetype (Pear.vc Benchmark)
+
+> **Human Emotion, Tactile Clarity & Zero Code Slop.**  
+> When building interfaces for consumers, lifestyle products, editorial showcases, or general public platforms (e.g., Pear.vc, Apple, modern fintech consumer apps), the design imperatives diverge completely from developer tools:
+
+### Key Principles:
+1. **Zero Developer Code Tells**:
+   - ❌ **FORBIDDEN**: Terminal code blocks (`$ npm install`), API JSON schemas, devops uptime badges, or keyboard shortcut pills in the hero.
+   - ✅ **REQUIRED**: High-resolution photography, authentic lifestyle imagery, or tactile physical product mockups.
+2. **Ambient Soft-Gradient Aura**:
+   - Instead of sharp technical borders or dark cyber grids, cards use subtle ambient radial gradients in pastel tints (yellow, purple, blue, green) that bleed gently across the card canvas.
+3. **Strict Single-Sentence Restraint ($\le 12$ Words)**:
+   - Consumer cards must not read like technical whitepapers. The title states the benefit directly, and the supporting copy is strictly limited to 1 punchy sentence ($\le 12$ words).
+4. **Hero Split-Text Architecture**:
+   - Rather than centered robotic copy, hero sections deploy an asymmetric Split-Text layout:
+     - Left column: Bold active headline (`text-4xl md:text-6xl font-bold tracking-tight`).
+     - Right column: Grounded assurance paragraph explaining the core promise.
+     - Below: Monochrome partner/portfolio strip to cement trust instantly.
+
+
 
