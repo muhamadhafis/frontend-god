@@ -25,7 +25,7 @@ Activate this skill whenever:
 
 ## Style Signature Selection Protocol
 
-Before writing any markup, align with one of the 10 Gold Standard Style Signatures (or let the product's brand dictate it). **Once chosen, DO NOT MIX styles**:
+Before writing any markup, align with one of the 11 Gold Standard Style Signatures (or let the product's brand dictate it). **Once chosen, DO NOT MIX styles**:
 
 | Style Signature | Benchmark Identity | Key Visual Formula |
 | :--- | :--- | :--- |
@@ -39,6 +39,7 @@ Before writing any markup, align with one of the 10 Gold Standard Style Signatur
 | **PostHog (Product)** | Real interactive telemetry above fold | Dense interactive charts embedded directly in hero section, sharp retro-modern badges. |
 | **Anthropic (Editorial)** | Intellectual research & safety | Slate Ink `#141413` and Ivory Cream `#faf9f5` full-bleed band alternation, Instrument Serif 80px display, generous whitespace. |
 | **Raycast (Desktop)** | Keyboard-first desktop instrument | Blue-black `#07080a`, Raycast Red `#ff6363` accent, inset glass highlights (`box-shadow: inset 0 1px 0 0 rgba(255,255,255,0.06)`), ⌘K action panel. |
+| **Pear.vc (Editorial)** | Consumer & Editorial showcase, humanis | Light canvas `#ffffff` / `#fafaf9`, monochrome partner strip, massive `content-box` cards with ambient soft gradient tints (yellow, purple, blue, green), center photography, text $\le 12$ words. |
 
 📖 *Deep dive: [09-gold-standard-style-signatures.md](./references/09-gold-standard-style-signatures.md)*
 
@@ -141,18 +142,19 @@ Every data-driven component MUST account for all 5 states: **Idle, Loading Skele
   - Base UI `NumberField` and `OTPField` for bulletproof form ergonomics.
 - 📖 *Deep dive: [03-shadcn-ui-guide.md](./references/03-shadcn-ui-guide.md) & [04-base-ui-guide.md](./references/04-base-ui-guide.md)*
 
-### 14. Haram Ping Dot Dekoratif, Pill Badge Klise ✨ & Kicker Pseudo-Cyberpunk (// Slop)
-**Eliminate cosmetic radar pings, interior status dots, floating emoji pill badges, and robotic double-slash kickers.**
+### 14. Zero-Kicker, Anti-Cyberpunk (// Slop) & Zero-Eyebrow Law
+**Eliminate cosmetic radar pings, interior status dots, floating emoji pill badges, robotic double-slash kickers, and consumer category eyebrows.**
 - ❌ **FORBIDDEN**:
   - Interior status dots (`<span className="size-1.5 rounded-full bg-emerald-400" />`) inside status badges or pill labels.
   - Slapping `animate-ping` radar circles onto static marketing cards.
   - Floating pill badges with `✨ New` or `AI-Powered` above headlines.
   - Pseudo-cyberpunk uppercase kickers: `<div ...>NEXT-GEN AGENTIC CODING</div>` or `<span ...>CORE ARCHITECTURE // HARDWARE ACCELERATED AGENTS</span>`.
   - Double slashes (`//`, `///`, `::`) inside titles or section labels.
+  - **Consumer Eyebrow Slop**: In Consumer & Editorial interfaces (e.g. Pear.vc, Apple, lifestyle, commerce), placing a tiny category pill or eyebrow above the hero/section headline is **FORBIDDEN**. The display headline MUST lead directly.
 - ✅ **REQUIRED**:
   - **Clean Status Badges**: Use border and background tint murni (`border border-emerald-500/30 bg-emerald-500/10 text-emerald-400`) without interior dots.
-  - **Confident Headline First**: High-craft products (Linear, Vercel, Apple) let the headline lead directly without unnecessary kicker clutter.
-  - **Natural Category Eyebrow**: If taxonomy is genuinely needed, use natural title-cased sans-serif without slashes:
+  - **Confident Headline First**: High-craft consumer & editorial products let the display headline lead directly without kicker clutter.
+  - **B2B / Technical Eyebrow Exception**: Only in complex technical documentation or B2B developer portals where explicit taxonomy hierarchy is strictly necessary, use natural title-cased sans-serif without slashes:
     ```tsx
     <span className="text-xs font-semibold text-primary">Architecture</span>
     <h2 className="text-3xl font-semibold tracking-tight text-foreground mt-2">
@@ -161,24 +163,28 @@ Every data-driven component MUST account for all 5 states: **Idle, Loading Skele
     ```
 - 📖 *Deep dive: [01-design-taste-archetypes.md](./references/01-design-taste-archetypes.md#11-anti-cyberpunk-kicker--headline-confidence-rules)*
 
-### 15. Haram Theme Toggle Tanpa Izin (Komit pada Satu Atmosfer Native & OKLCH Theme Transition)
-**Stop slapping sun/moon theme switchers onto every navbar.**
-- ❌ **FORBIDDEN**: Inserting a theme toggle into navigation bars by default. It signals design indecision.
-- ❌ **FORBIDDEN (Hex Mutation Anti-Pattern)**: When user explicitly requests Light Mode or Dark Mode, NEVER replace JSX classes from semantic tokens (`bg-card`, `bg-background`) into manual hardcoded hex (`bg-[#ffffff]`, `bg-[#000000]`). This destroys text contrast and breaks design system uniformity.
-- ✅ **REQUIRED**: Commit to the chosen product atmosphere (e.g. Linear is natively dark, Mercury is natively warm cream, Vercel is monochrome). Only add theme switching when the user explicitly requests light/dark mode support.
-- ✅ **REQUIRED (Semantic CSS Variables Transition)**: When implementing theme switching, toggle exclusively via `:root` and `.dark` semantic CSS variables (using OKLCH tokens) in CSS. JSX components MUST strictly consume semantic tokens (`bg-background`, `bg-card`, `text-foreground`, `text-muted-foreground`, `border-border`).
+### 15. Theme Toggle Dual-Mode Semantik & OKLCH Transition Protocol
+**Legalitas Theme Toggle pada Produk Konsumen & Transisi Semantik CSS.**
+- ❌ **FORBIDDEN (Hex Mutation Anti-Pattern)**: When implementing Light Mode or Dark Mode, NEVER replace JSX classes from semantic tokens (`bg-card`, `bg-background`) into manual hardcoded hex (`bg-[#ffffff]`, `bg-[#000000]`). This destroys text contrast and breaks design system uniformity.
+- ✅ **REQUIRED (Consumer & General Web)**: For consumer-facing products, public landing pages, and content sites, providing an accessible **Theme Toggle** (Sun/Moon switch) in the navbar is recommended and encouraged.
+- ✅ **REQUIRED (Semantic CSS Variables Transition)**: Theme switching MUST toggle exclusively via `:root` and `.dark` semantic CSS variables (using OKLCH tokens) in CSS. JSX components MUST strictly consume semantic tokens (`bg-background`, `bg-card`, `text-foreground`, `text-muted-foreground`, `border-border`).
+- ✅ **Single Atmosphere Exception**: High-precision desktop-first tools (like Linear's dark canvas or Mercury's warm luxury cream) may choose a single native atmosphere without a toggle when requested.
 - 📖 *Deep dive: [09-gold-standard-style-signatures.md](./references/09-gold-standard-style-signatures.md)*
 
-### 16. Haram 3-Column Card Slop (Terapkan Asymmetric Layout Choreography & Alternating Section Cadence)
-**Never fill every section with 3 identical cards (`grid-cols-3`). Frame sections as full-viewport focused experiences with alternating layout rhythm.**
+### 16. Haram 3-Column Card Slop (Terapkan Asymmetric Layout Choreography & Pear.vc Ambient Bento)
+**Never fill every section with 3 identical cards (`grid-cols-3`). Frame sections as full-viewport focused experiences with alternating layout rhythm or ambient soft-gradient cards.**
 - ❌ **FORBIDDEN**: Repeating `grid-cols-3` with identical icon, title, and 3-line description across every section.
 - ✅ **REQUIRED**:
   - **Full-Viewport Section Framing (`min-h-screen`)**: Each landing page section MUST use `min-h-screen flex flex-col justify-center py-20 lg:py-0` layout framing so 1 section fills the full device viewport when scrolled into view.
-  - **Alternating Layout Cadence**:
+  - **Alternating Layout Cadence (Dev-Tool Mode)**:
     - **Section 1 (Hero)**: Top-Down Stacked (Centered Text Top $\rightarrow$ Centered Cockpit Visual Bottom).
     - **Section 2**: Left (Ilustrasi / 70% Anchor Card) $\rightarrow$ Right (Teks Header & Secondary Stacked Cards).
     - **Section 3**: Left (Teks Header & Surface Selection Tabs) $\rightarrow$ Right (Ilustrasi Interactive Workbench).
     - **Section 4**: Left (Ilustrasi Visual Security Sandbox Gauge) $\rightarrow$ Right (Teks Header & Specs Ledger Table).
+  - **Pear.vc Editorial Bento Cadence (Consumer Mode)**:
+    - **Section 1 (Hero)**: Split-Text (Left action headline + Right assurance paragraph + Centered massive visual preview + Monochrome partner logo strip).
+    - **Section 2**: Grid 2 Kolom kartu besar `content-box` dengan ambient soft gradient tints (yellow, purple, blue, green), visual/mockup besar di tengah, dan teks $\le 12$ kata.
+    - **Section 3**: Split Photo Feature Card ("Let's Partner") horizontal dengan visual portrait/lifestyle.
 - 📖 *Deep dive: [10-section-layout-choreography.md](./references/10-section-layout-choreography.md)*
 
 ### 17. Strict Monospace Containment (Font-Mono Hanya untuk Mesin & Kode Riil)
@@ -189,10 +195,11 @@ Every data-driven component MUST account for all 5 states: **Idle, Loading Skele
   - Email addresses, URLs, phone numbers, versions, list numbers, category eyebrows, subtitles, and table text descriptions **MUST use standard proportional sans-serif (`font-sans`) or serif (`font-serif`)**.
 - 📖 *Deep dive: [01-design-taste-archetypes.md](./references/01-design-taste-archetypes.md#10-the-strict-monospace-containment-law)*
 
-### 18. Arsitektur Floating Pill Navbar & Modern Footer (Standar Vercel, Linear & Oversized Wordmark Pattern)
+### 18. Arsitektur Floating Pill Navbar & Modern Footer (Standar Vercel, Linear, Pear.vc & Oversized Wordmark Pattern)
 **Frame the product with architectural restraint, poise, and editorial closure.**
-- ✅ **Floating Pill Navbar**: Floating centered inset header (`fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-2rem)] max-w-5xl rounded-full border border-border/40 bg-background/85 backdrop-blur-xl px-4 py-2 flex items-center justify-between`), quiet pill nav links (`hover:text-foreground hover:bg-muted/40 rounded-full px-3 py-1 whitespace-nowrap shrink-0`), subtle `⌘K` search shortcut trigger, single solid primary CTA, and zero theme-toggle clutter. All nav links MUST enforce single-line text formatting using `whitespace-nowrap shrink-0`.
-- ✅ **Modern Footer**: Multi-column architectural grid (Product, Platform, Resources, Company, Legal), quiet sans-serif links, live operational status indicator (`border border-emerald-500/30 bg-emerald-500/10 text-emerald-400` + "All systems normal" - **NO interior dot slop & NO `animate-ping`**), and **Oversized Brand Wordmark** (`text-[13vw] font-bold tracking-tighter text-foreground/[0.06]`) for a grounded, editorial closure.
+- ✅ **Floating Pill Navbar**: Floating centered inset header (`fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-2rem)] max-w-5xl rounded-full border border-border/40 bg-background/85 backdrop-blur-xl px-4 py-2 flex items-center justify-between`), quiet pill nav links (`hover:text-foreground hover:bg-muted/40 rounded-full px-3 py-1 whitespace-nowrap shrink-0`), subtle `⌘K` search shortcut or Theme Toggle trigger, single solid primary CTA. All nav links MUST enforce single-line text formatting using `whitespace-nowrap shrink-0`.
+- ✅ **Modern Footer**: Multi-column architectural grid (Product, Platform, Resources, Company, Legal), quiet sans-serif links, and **Oversized Brand Wordmark** (`text-[13vw] font-bold tracking-tighter text-foreground/[0.06]`) for a grounded, editorial closure.
+- ❌ **FORBIDDEN (Uptime Capsule on Consumer Web)**: Slapping server telemetry capsule badges (like `All systems normal (99.999% uptime)`) on consumer or editorial websites is FORBIDDEN. Reserve operational uptime indicators strictly for cloud infrastructure and developer-first platforms.
 - 📖 *Deep dive: [10-section-layout-choreography.md](./references/10-section-layout-choreography.md#6-arsitektur-navbar--footer-modern-standar-vercel--linear)*
 
 ### 19. Haram Heavy Drop Shadows (Hukom Murni Floating UI & Zero-Shadow Law)
@@ -241,13 +248,17 @@ Every data-driven component MUST account for all 5 states: **Idle, Loading Skele
 - ❌ **FORBIDDEN**: Leaving unused Lucide icons (e.g. `import { Check, Copy, ArrowRight, Settings } ...` when only `Copy` is rendered), leftover CVA variant types, or stale React state hooks.
 - ✅ **REQUIRED**: Clean up all unreferenced symbols before finalizing code. Every import must be actively utilized in the file.
 
-### 24. Dual-Mode Layout Archetypes (Marketing Landing vs B2B Cockpit Mode)
-**Distinguish strictly between customer-acquisition marketing canvases and high-density SaaS command centers.**
-- **Marketing Landing Mode**:
-  - Purpose: Narrative storytelling, product positioning, and conversion.
-  - Spacing & Typography: Generous macro padding (`py-24` to `py-36` desktop), oversized display headlines, expansive visual breathing room.
-- **Cockpit / Dashboard Mode (B2B Engineering Density)**:
-  - Purpose: High-speed telemetry, data-dense manipulation, audit ledgers, command tables.
+### 24. Three-Pillar Layout Architecture (Consumer Showcase vs Developer Tool vs B2B Cockpit)
+**Distinguish strictly between the three major digital product domains. NEVER leak developer or cockpit patterns into consumer products.**
+- **Pilar 1: Consumer & Editorial Showcase (Pear.vc, Apple, Modern Lifestyle & Commerce)**:
+  - Purpose: Human trust, editorial emotion, lifestyle connection, and intuitive direct action.
+  - Visuals: Massive photography, product renders, ambient soft-gradient cards (`content-box`), split-text headlines, monochrome partner logos.
+  - ❌ **FORBIDDEN IN CONSUMER MODE**: Zero lines of programming code (Node.js/Python), zero CLI terminals, zero devops uptime telemetry badges, zero developer-only keyboard shortcuts in hero.
+- **Pilar 2: Developer Tooling (Linear, Vercel, Supabase)**:
+  - Purpose: Developer onboarding, API demonstration, and technical precision.
+  - Visuals: CLI snippet hero, code tabs, SDK language selectors, interactive API sandboxes.
+- **Pilar 3: B2B High-Density Cockpit (Ramp, Mercury, Stripe Dashboard)**:
+  - Purpose: High-speed telemetry, dense transaction manipulation, audit ledgers, command tables.
   - Spacing & Structure: Compact, dense spacing (`p-3` to `p-4`, `gap-2` to `gap-3`), micro-status tags, tight table rows ($\le 36$px row height), multi-column filters, and desktop-optimized data visibility.
 - 📖 *Deep dive: [10-section-layout-choreography.md](./references/10-section-layout-choreography.md#7-dual-mode-layout-archetypes-marketing-landing-vs-b2b-cockpit-mode)*
 
@@ -300,16 +311,16 @@ Every data-driven component MUST account for all 5 states: **Idle, Loading Skele
 | [ ] | **10. Dynamic Spacing** | Clear contrast between macro section padding (`py-24+`) and micro inner wells (`p-3`); no uniform `p-6`. |
 | [ ] | **11. Headless Primitives** | No fragile hand-rolled `div` dropdowns/selects. Scrollable select, combobox, or Base UI used. |
 | [ ] | **12. Zero Slop Micro-Tells** | No interior status dots (`<span className="h-1.5 w-1.5 bg-emerald-400" />`). No `animate-ping` radar circles. No floating `✨` pill badges. |
-| [ ] | **13. Native Atmosphere** | No unrequested navbar theme toggles. Theme changes committed via CSS `:root`/`.dark` tokens, not JSX class mutations. |
-| [ ] | **14. Asymmetric Layout** | No repetitive 3-column card rows. Section A has Live Cockpit, Section B has 70/30 Anchor Bento. |
-| [ ] | **15. Zero Kicker Slop** | No robotic double-slash `//` kickers or buzzword pills above headings. Confident headlines lead directly. |
+| [ ] | **13. Theme Toggle & Tokens** | Theme Toggle present on consumer web with smooth CSS variable transition (`:root` / `.dark`). Zero hardcoded hex mutations in JSX. |
+| [ ] | **14. Asymmetric Layout** | No repetitive 3-column card rows. Section A has Split-Text/Cockpit, Section B has Pear.vc Ambient Bento or 70/30 Anchor. |
+| [ ] | **15. Zero Kicker & Eyebrow**| No robotic double-slash `//` kickers or buzzword pills above headings. No tiny category eyebrows on consumer interfaces. |
 | [ ] | **16. Monospace Containment**| `font-mono` used strictly in terminal/code/tabular contexts. Emails (`sample@mail.com`), URLs, and versions use `font-sans`. |
 | [ ] | **17. Zero Drop Shadow Law** | No `shadow-` drop shadow classes on floating components. Rely on hairline borders, backdrop blur, and surface layering. |
 | [ ] | **18. Optical Icons & Single Nav** | No text unicode arrows (`←`). All navbar links enforce `whitespace-nowrap shrink-0`. |
 | [ ] | **19. Form Primitives & Validation** | Built with shadcn/ui primitives (`Form`, `FormField`). Indonesian phone format (`08`/`628`) & anti-XSS code symbol sanitization enforced. |
 | [ ] | **20. Tooling & Tailwind v4 Integrity** | No legacy `tailwind.config.js` in v4 projects. Custom tokens defined in CSS `@theme`. Modular tsconfig aliases resolved. |
 | [ ] | **21. Zero Unused Imports** | Verified zero unreferenced Lucide icons, CVA variants, or variables to satisfy `noUnusedLocals` / `tsc -b`. |
-| [ ] | **22. Dual-Mode Density Fidelity** | Appropriate layout archetype selected: Marketing Mode (airy, `py-24+`) vs Cockpit Mode (data-dense, `p-3`, table row height $\le 36$px). |
+| [ ] | **22. Three-Pillar Archetype Discipline** | Appropriate domain layout selected: Consumer (hero split-text, large visual cards, 0 code lines, no uptime badge) vs Dev-Tool vs Cockpit. |
 | [ ] | **23. Table Horizontal Overflow** | Tables and wide grids wrapped in `overflow-x-auto` to prevent narrow viewport blowouts. |
 | [ ] | **24. Truncation Tooltip Guard** | Any truncated text (`truncate`, `line-clamp-1`) includes `title={...}` or `<Tooltip>` so full content is readable. |
 | [ ] | **25. Tactile Copy Feedback** | Terminal snippets, code blocks, and IDs include 1-click copy with 2-second checkmark flip feedback. |
@@ -324,7 +335,7 @@ If any check fails, fix it immediately before returning code.
 
 When tackling specific areas, read the corresponding in-depth guide:
 
-1. **[01-design-taste-archetypes.md](./references/01-design-taste-archetypes.md)**: Aesthetic archetypes, typography scale, OpenType matrix, text restraint rules, single-accent discipline, strict monospace containment, and anti-cyberpunk kicker rules.
+1. **[01-design-taste-archetypes.md](./references/01-design-taste-archetypes.md)**: Aesthetic archetypes, typography scale, OpenType matrix, text restraint rules, single-accent discipline, strict monospace containment, anti-cyberpunk kicker rules, and consumer showcase principles.
 2. **[02-component-architecture.md](./references/02-component-architecture.md)**: Compound components, polymorphism, CVA, container queries, and React 19 / RSC rules.
 3. **[03-shadcn-ui-guide.md](./references/03-shadcn-ui-guide.md)**: Customizing shadcn beyond defaults, scrollable select, cmdk combobox, submenus, responsive drawer.
 4. **[04-base-ui-guide.md](./references/04-base-ui-guide.md)**: `@base-ui-components/react` (Base UI) unstyled primitives, NumberField, Autocomplete, data-attributes.
@@ -332,14 +343,16 @@ When tackling specific areas, read the corresponding in-depth guide:
 6. **[06-motion-microinteractions.md](./references/06-motion-microinteractions.md)**: Spring physics, `layoutId` transitions, and the 100ms feel.
 7. **[07-state-ux-polish.md](./references/07-state-ux-polish.md)**: 5 UI States, loading skeletons, actionable empty states, and error recovery.
 8. **[08-senior-component-catalog.md](./references/08-senior-component-catalog.md)**: Full anatomy, API specs, and accessibility checklist for all major UI components.
-9. **[09-gold-standard-style-signatures.md](./references/09-gold-standard-style-signatures.md)**: Forensic tokens for 10 Gold Standards (Linear, Vercel, Stripe, Resend, Cursor, Mercury, Ramp, PostHog, Anthropic, Raycast) + Inspiration Vaults.
-10. **[10-section-layout-choreography.md](./references/10-section-layout-choreography.md)**: Blueprint of Section A to Section E, Anchor Bento 70/30, Modern Navbar & Footer architecture, and Feature Placement Tree.
+9. **[09-gold-standard-style-signatures.md](./references/09-gold-standard-style-signatures.md)**: Forensic tokens for 11 Gold Standards (Linear, Vercel, Stripe, Resend, Cursor, Mercury, Ramp, PostHog, Anthropic, Raycast, Pear.vc) + Inspiration Vaults.
+10. **[10-section-layout-choreography.md](./references/10-section-layout-choreography.md)**: Blueprint of Section A to Section E, Anchor Bento 70/30, Pear.vc Split-Text & Ambient Cards, Modern Navbar & Footer architecture, and Feature Placement Tree.
 
 ---
 
 ## Production Examples Index
 
 Refer to ready-to-use production implementations in `examples/`:
+- **[theme-toggle.tsx](./examples/theme-toggle.tsx)**: Dual-Mode semantic Theme Toggle (Sun/Moon) with accessible button and smooth CSS token transition.
+- **[content-card-pear.tsx](./examples/content-card-pear.tsx)**: Consumer-grade large visual content card with ambient soft-gradient tints (yellow, purple, blue, green) and $\le 12$-word text restraint.
 - **[button.tsx](./examples/button.tsx)**: Polymorphic Button with CVA, loading spinner, tactile press, and icon slots.
 - **[input-group.tsx](./examples/input-group.tsx)**: Input with prefix/suffix adornments, `⌘K` badge, and clear button.
 - **[card-compound.tsx](./examples/card-compound.tsx)**: Compound Card with `@container` container query and surface tokens.
@@ -350,6 +363,6 @@ Refer to ready-to-use production implementations in `examples/`:
 - **[command-menu.tsx](./examples/command-menu.tsx)**: Command Palette (`⌘K`) with keyboard traversal and group shortcuts.
 - **[select-advanced.tsx](./examples/select-advanced.tsx)**: Advanced Select with scrollable viewport, group labels, and searchable combobox.
 - **[dropdown-advanced.tsx](./examples/dropdown-advanced.tsx)**: Advanced DropdownMenu with submenus, checkboxes, radio groups, and shortcut badges.
-- **[navbar-modern.tsx](./examples/navbar-modern.tsx)**: Modern Vercel/Linear-inspired Navbar with backdrop-blur, ⌘K search trigger, and mobile drawer.
-- **[footer-modern.tsx](./examples/footer-modern.tsx)**: Modern Vercel/Linear-inspired Multi-Column Footer with live operational status indicator.
+- **[navbar-modern.tsx](./examples/navbar-modern.tsx)**: Modern floating pill Navbar with backdrop-blur, Theme Toggle, ⌘K search trigger, and mobile drawer.
+- **[footer-modern.tsx](./examples/footer-modern.tsx)**: Modern multi-column footer with oversized wordmark and consumer/devops status toggle option.
 - **[cockpit-table.tsx](./examples/cockpit-table.tsx)**: High-density B2B Cockpit table with $\le 36$px rows, horizontal overflow containment, truncation title guards, and tactile copy feedback.

@@ -19,6 +19,11 @@ const requiredTokens = [
   "Cockpit",
   "oklch",
   "noUnusedLocals",
+  "Pear.vc",
+  "Theme Toggle",
+  "Consumer",
+  "Ambient",
+  "Split-Text",
 ];
 
 for (const token of requiredTokens) {
